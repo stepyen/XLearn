@@ -3,72 +3,428 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
->
+    android:orientation="vertical"
+    >
 
-    <TextView
-        style="@style/TextView_hint_tag"
-        android:text="展示两个控件位于头像右边的中间情况"
-        />
-    <View
-        style="@style/View_line"/>
+    <ScrollView
 
-    <!--展示两个控件位于头像右边的中间情况-->
-    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_head"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/icon_dog"
-            android:scaleType="centerCrop"
-
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-
-            />
-
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="9dp"
-            android:maxLines="2"
-            android:paddingRight="30dp"
-            tools:text="姓名"
-            android:text="姓名"
-
-            app:layout_constraintBottom_toTopOf="@+id/tv_phone"
-            app:layout_constraintTop_toTopOf="@+id/iv_head"
-            app:layout_constraintVertical_chainStyle="packed"
-
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintLeft_toRightOf="@+id/iv_head"
-            app:layout_constraintRight_toRightOf="parent"
-            />
-
-        <TextView
-            android:id="@+id/tv_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="18759171223"
-            android:text="18759171223"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_head"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            app:layout_constraintLeft_toLeftOf="@+id/tv_name"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
 
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="展示两个控件位于头像右边的中间情况"
+                />
+
+            <View
+                style="@style/View_line"/>
+
+            <!--展示两个控件位于头像右边的中间情况-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_head"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="24dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/icon_dog"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="9dp"
+                    android:maxLines="2"
+                    android:paddingRight="30dp"
+                    android:text="姓名"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_phone"
+
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_head"
+                    app:layout_constraintRight_toRightOf="parent"
+
+                    app:layout_constraintTop_toTopOf="@+id/iv_head"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="姓名"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18759171223"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_head"
+
+                    app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    tools:text="18759171223"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text=" Barrier（栅栏）随约束对象动态改变"
+                />
+            <!--layout_goneMarginLeft-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="right"
+                    app:constraint_referenced_ids="tv_name2,tv_phone2"/>
+
+                <TextView
+                    android:id="@+id/tv_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="姓名:"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvTitleText"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_phone2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="联系方式:"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tvContentText"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <EditText
+                    android:id="@+id/tvTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="张三"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/barrier2"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <EditText
+                    android:id="@+id/tvContentText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="xxxxxxxxxxxxxxx"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/barrier2"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitleText"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="文本基线对齐"
+                />
+            <!--layout_constraintBaseline_toBaselineOf-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="200dp"
+                    android:layout_height="100dp"
+                    android:background="@color/xui_gray_4"
+                    android:gravity="center"
+                    android:text="谁来与朕文本对齐"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:background="@color/xui_gray_7"
+                    android:gravity="center"
+                    android:text="在下,来"
+
+                    app:layout_constraintBaseline_toBaselineOf="@+id/tv_text1"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_text1"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="GONE Margin   目标不可见时生效"
+                />
+            <!--layout_goneMarginLeft-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_text2"
+                    style="@style/TextStyle.common"
+                    android:background="@color/hotpink"
+                    android:text="1"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_text3"
+                    style="@style/TextStyle.common"
+                    android:background="@color/pink"
+                    android:text="2"
+                    android:visibility="gone"
+
+                    app:layout_constraintLeft_toRightOf="@+id/tv_text2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_text4"
+                    style="@style/TextStyle.common"
+                    android:background="@color/cornflowerblue"
+                    android:text="3"
+
+                    app:layout_constraintLeft_toRightOf="@+id/tv_text3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_goneMarginLeft="10dp"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="bias 偏斜 "
+                />
+            <!--layout_constraintHorizontal_bias默认0.5居中 左边0，右边1-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_text5"
+                    style="@style/TextStyle.common"
+                    android:background="@color/hotpink"
+                    android:text="1"
+
+                    app:layout_constraintHorizontal_bias="0.3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="圆形定位"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/peachpuff"
+                >
+
+                <TextView
+                    android:id="@+id/tv_text6"
+                    style="@style/TextStyle.common"
+                    android:background="@color/hotpink"
+                    android:text="基地"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_text7"
+                    style="@style/TextStyle.common"
+                    android:background="@color/mediumvioletred"
+                    android:text="风筝"
+                    app:layout_constraintCircle="@id/tv_text6"
+                    app:layout_constraintCircleAngle="135"
+                    app:layout_constraintCircleRadius="60dp"
+                    tools:ignore="MissingConstraints"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="比例约束"
+                />
+            <!--layout_constraintDimensionRatio 宽高比  要求是宽或高至少一个设为0dp -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/peachpuff"
+                >
+
+                <TextView
+                    android:id="@+id/tv_text8"
+                    style="@style/TextStyle.common"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:background="@color/hotpink"
+                    android:text=""
+                    app:layout_constraintDimensionRatio="3:1"
+                    app:layout_constraintLeft_toLeftOf="parent"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="尺寸约束"
+                />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/tv_text10"
+                    style="@style/TextStyle.common"
+                    android:background="@color/hotpink"
+                    android:text="基地"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <TextView
+                    android:id="@+id/btn2"
+                    style="@style/TextStyle.common"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/peachpuff"
+                    android:singleLine="false"
+                    android:text="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈呵呵呵呵呵呵呵呵呵呵"
+
+                    app:layout_constraintLeft_toRightOf="@+id/tv_text10"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_text10"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--
+              android:layout_width="0dp"
+              app:layout_constraintWidth_percent="parent"
+
+            -->
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="Guideline（参考线）固定在一个位置上"
+                />
+            <!--layout_goneMarginLeft-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="10dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tv_text11"
+                    style="@style/TextStyle.common"
+                    android:background="@color/hotpink"
+                    android:text="1"
+
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_text12"
+                    style="@style/TextStyle.common"
+                    android:background="@color/pink"
+                    android:text="2"
+                    app:layout_constraintLeft_toLeftOf="@+id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tv_text11"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="Placeholder 占位符  有什么用？"
+                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <androidx.constraintlayout.widget.Placeholder
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:content="@+id/tvGitCode"
+                    />
+
+                <TextView
+                    android:id="@+id/tvGitCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical|left"
+                    android:padding="10dp"
+                    android:text="GitCode"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
+
+
+
+
