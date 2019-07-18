@@ -8,16 +8,35 @@
     android:layout_height="match_parent"
     >
 
-    <ScrollView
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="400dp"
+       android:background="@color/pink"
+       />
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="400dp"
+        android:background="@color/gold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/hotpink"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/pink"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/pink"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/pink"
+        />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

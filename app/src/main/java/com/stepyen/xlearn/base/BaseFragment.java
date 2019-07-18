@@ -2,6 +2,7 @@ package com.stepyen.xlearn.base;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.stepyen.xlearn.R;
 import com.stepyen.xutil.display.DensityUtils;
 import com.stepyen.xutil.net.JsonUtil;
+import com.stepyen.xutil.resource.ResUtils;
 import com.xuexiang.xpage.base.XPageFragment;
 import com.xuexiang.xpage.core.PageOption;
 import com.xuexiang.xpage.enums.CoreAnim;
 import com.xuexiang.xpage.utils.TitleBar;
 import com.xuexiang.xpage.utils.TitleUtils;
+
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 /**
@@ -34,7 +39,7 @@ public abstract class BaseFragment extends XPageFragment {
     }
 
     protected TitleBar initTitle() {
-        return TitleUtils.addTitleBarDynamic((ViewGroup) getRootView(), getPageTitle(), new View.OnClickListener() {
+        return TitleUtils.addTitleBarDynamic((ViewGroup)getRootView(), getPageTitle(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popToBack();
@@ -130,5 +135,4 @@ public abstract class BaseFragment extends XPageFragment {
         super.onPause();
 //        MobclickAgent.onPageEnd(getPageName());
     }
-
 }

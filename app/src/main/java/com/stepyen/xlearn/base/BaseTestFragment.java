@@ -10,6 +10,8 @@ import android.widget.Toast;
 import com.stepyen.xlearn.R;
 import com.stepyen.xutil.display.DensityUtils;
 import com.stepyen.xutil.resource.ResUtils;
+import com.xuexiang.xpage.utils.TitleBar;
+import com.xuexiang.xpage.utils.TitleUtils;
 
 import androidx.core.content.ContextCompat;
 import butterknife.ButterKnife;
@@ -27,16 +29,15 @@ public  abstract class BaseTestFragment extends BaseFragment {
     }
 
     @Override
-    protected void initViews() {
+    protected void initPage() {
         mParentLl = findViewById(R.id.ll_parent);
-        //在这里添加View
-        addView();
+        initTitle();
+        initLayoutView();
+        initViews();
+        initListeners();
     }
 
-    public void addView() {
-
-    }
-
+    public abstract void initLayoutView();
 
     public void addView(String title, final Class<?> cls) {
         addView(title, v->{
@@ -102,11 +103,8 @@ public  abstract class BaseTestFragment extends BaseFragment {
         addTextView(txt, 0);
     }
 
-
     public View addView(int layoutId) {
-        View view = LayoutInflater.from(getContext()).inflate(layoutId, null);
-        addView(view);
-
+        View view = LayoutInflater.from(getContext()).inflate(layoutId, mParentLl,true);
         return view;
     }
 

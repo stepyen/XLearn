@@ -20,17 +20,19 @@ import androidx.fragment.app.Fragment;
 public class LifeCycleFragment extends BaseTestFragment {
 
     @Override
-    public void addView() {
+    protected void initViews() {
         addView("Activity生命周期",v->{
-           startActivity( new Intent(getContext(), ActivityLifeActivity.class));
+            startActivity( new Intent(getContext(), ActivityLifeActivity.class));
         });
 
         addView("Fragment生命周期",v->{
 
         });
-
     }
 
+    @Override
+    public void initLayoutView() {
 
+    }
 }
 

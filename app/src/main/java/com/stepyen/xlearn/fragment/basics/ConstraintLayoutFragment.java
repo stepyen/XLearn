@@ -2,6 +2,7 @@ package com.stepyen.xlearn.fragment.basics;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseFragment;
+import com.stepyen.xlearn.base.BaseTestFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -10,14 +11,15 @@ import com.xuexiang.xpage.annotation.Page;
  * description：
  */
 @Page(name = "ConstraintLayout",extra = R.drawable.ic_widget_imageview)
-public class ConstraintLayoutFragment extends BaseFragment {
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_constraintlayout;
-    }
+public class ConstraintLayoutFragment extends BaseTestFragment {
 
     @Override
     protected void initViews() {
 
+    }
+
+    @Override
+    public void initLayoutView() {
+        addView(R.layout.fragment_constraintlayout);
     }
 }

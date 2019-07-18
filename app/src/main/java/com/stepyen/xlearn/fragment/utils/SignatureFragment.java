@@ -21,13 +21,14 @@ import java.security.MessageDigest;
  */
 @Page(name = "apk签名", extra = R.drawable.ic_widget_imageview)
 public class SignatureFragment extends BaseTestFragment {
-
     @Override
-    public void addView() {
-
+    protected void initViews() {
         addTextView("App 签名：" + AppUtils.getAppSignatureMD5());
         addTextView("App SHA1签名：" + AppUtils.getAppSignatureSHA1(), 10);
     }
 
+    @Override
+    public void initLayoutView() {
 
+    }
 }
