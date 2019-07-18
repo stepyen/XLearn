@@ -12,6 +12,7 @@ import com.stepyen.xutil.display.DensityUtils;
 import com.stepyen.xutil.resource.ResUtils;
 
 import androidx.core.content.ContextCompat;
+import butterknife.ButterKnife;
 
 /**
  * date：2019/6/26
@@ -19,7 +20,7 @@ import androidx.core.content.ContextCompat;
  * description：
  */
 public  abstract class BaseTestFragment extends BaseFragment {
-    private LinearLayout mParentLl;
+    protected LinearLayout mParentLl;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_base_test;
@@ -30,7 +31,6 @@ public  abstract class BaseTestFragment extends BaseFragment {
         mParentLl = findViewById(R.id.ll_parent);
         //在这里添加View
         addView();
-//        ButterKnife.bind(this);
     }
 
     public void addView() {

@@ -2,7 +2,6 @@ package com.stepyen.xlearn.fragment.basics;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseFragment;
-import com.stepyen.xlearn.base.BaseTestFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -10,12 +9,11 @@ import com.xuexiang.xpage.annotation.Page;
  * author：stepyen
  * description：
  */
-@Page(name = "动画",extra = R.drawable.ic_widget_imageview)
-public class AnimotionFragment extends BaseFragment {
-
+@Page(name = "Dialog",extra = R.drawable.ic_widget_imageview)
+public class DialogFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_animotion;
+        return R.layout.fragmen_canvas;
     }
 
     @Override

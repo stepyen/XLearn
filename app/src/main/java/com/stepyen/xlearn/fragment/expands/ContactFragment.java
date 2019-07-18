@@ -1,8 +1,7 @@
-package com.stepyen.xlearn.fragment.basics;
+package com.stepyen.xlearn.fragment.expands;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseFragment;
-import com.stepyen.xlearn.base.BaseTestFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -10,16 +9,17 @@ import com.xuexiang.xpage.annotation.Page;
  * author：stepyen
  * description：
  */
-@Page(name = "动画",extra = R.drawable.ic_widget_imageview)
-public class AnimotionFragment extends BaseFragment {
+@Page(name = "联系人", extra = R.drawable.ic_widget_imageview)
+public class ContactFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_animotion;
+        return R.layout.fragment_contact;
     }
 
     @Override
     protected void initViews() {
 
     }
+
 }

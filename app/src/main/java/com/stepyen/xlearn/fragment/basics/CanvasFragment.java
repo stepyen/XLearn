@@ -13,7 +13,7 @@ import com.xuexiang.xpage.annotation.Page;
 public class CanvasFragment extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.fragmen_canvas;
     }
 
     @Override
