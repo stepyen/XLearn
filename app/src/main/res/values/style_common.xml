@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--TextView 提示标签-->
+    <style name="TextView_hint_tag" parent="TextStyle">
+        <item name="android:textColor">@color/xui_config_main_theme</item>
+        <item name="android:textSize">@dimen/public_content</item>
+        <item name="android:layout_marginLeft">@dimen/public_margin</item>
+        <item name="android:layout_marginTop">@dimen/public_margin</item>
+        <item name="android:layout_marginBottom">@dimen/public_margin</item>
+    </style>
+
+
+    <style name="View_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/public_line</item>
+        <item name="android:background">@color/line</item>
+    </style>
+
+
+</resources>

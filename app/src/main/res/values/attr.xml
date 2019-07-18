@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <attr name="xui_config_content_spacing_horizontal" format="dimension"/>
+    <attr name="xui_config_content_spacing_vertical" format="dimension"/>
+    <attr name="xui_config_size_explain_text" format="dimension" />
+    <attr name="xui_config_size_title_text" format="dimension" />
+
+
+    <attr name="xui_config_color_explain_text" format="color" />
+    <attr name="xui_config_color_title_text" format="color" />
+    <attr name="xui_config_size_content_text" format="dimension" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>
