@@ -1,5 +1,6 @@
 package com.stepyen.xlearn.base;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,16 +24,37 @@ import butterknife.ButterKnife;
  */
 public  abstract class BaseTestFragment extends BaseFragment {
     protected LinearLayout mParentLl;
+    protected ViewGroup mView;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_base_test;
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
+        mView = (ViewGroup) inflater.inflate(getLayoutId(), container, false);
+        initArgs();
+        initPage();
+        return mView;
+    }
+
+
+    protected TitleBar initTitle() {
+        return TitleUtils.addTitleBarDynamic(mView, getPageTitle(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popToBack();
+            }
+        });
+    }
+
+    @Override
     protected void initPage() {
-        mParentLl = findViewById(R.id.ll_parent);
+        mParentLl = mView.findViewById(R.id.ll_parent);
         initTitle();
         initLayoutView();
+        ButterKnife.bind(this, mView);      // 之前不可以是因为基类中已经绑定过一次，
         initViews();
         initListeners();
     }
