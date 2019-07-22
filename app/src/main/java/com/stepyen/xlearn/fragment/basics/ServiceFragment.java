@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.expands;
+package com.stepyen.xlearn.fragment.basics;
 
 import android.net.Uri;
 import android.widget.TextView;

@@ -62,28 +62,35 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation deps.androidx.appcompat
     implementation deps.androidx.constraintlayout
     implementation deps.androidx.multidex
     implementation deps.androidx.recyclerview
     implementation deps.androidx.design
-
     implementation deps.butterknife.runtime
     annotationProcessor deps.butterknife.compiler
-
     implementation 'com.github.xuexiangjys.XPage:xpage-lib:2.2.6'
     annotationProcessor project(':widget_compiler')
-
     // 核心
-    implementation 'com.github.stepyen.XUtil:xutil-core:1.0.5'
-    implementation 'com.github.stepyen.XUtil:xutil-sub:1.0.5'
+    implementation 'com.github.stepyen.XUtil:xutil-core:1.0.7'
+    implementation 'com.github.stepyen.XUtil:xutil-sub:1.0.7'
     //切片
     implementation 'com.github.xuexiangjys.XAOP:xaop-runtime:x1.0.3'
+    // 倒计时
+    implementation 'com.daidingkang:snapupcountdowntimerview:1.0.0'
+    // adapter
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 
+
+    api(deps.arouter.api) {
+        exclude module: 'support-v4'
+        exclude module: 'support-annotations'
+    }
+    annotationProcessor deps.arouter.compiler
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation files('libs/pinyin4j-2.5.0.jar')
 }
