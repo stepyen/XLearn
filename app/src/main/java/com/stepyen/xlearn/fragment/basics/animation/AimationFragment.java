@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics;
+package com.stepyen.xlearn.fragment.basics.animation;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.ComponentContainerFragment;

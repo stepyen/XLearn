@@ -14,9 +14,10 @@
 
 
 
-
-
-
+    <declare-styleable name="CustomStyleView">
+        <attr name="csv_title" format="string"></attr>
+    </declare-styleable>
+    <attr name="CustomStyleViewStyle" format="reference"></attr>
 
 
 

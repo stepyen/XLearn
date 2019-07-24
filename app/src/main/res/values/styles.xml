@@ -24,9 +24,13 @@
 
         <item name="xui_config_content_spacing_horizontal">7.5dp</item>
 
-
-
+        <item name="CustomStyleViewStyle">@style/CustomStyle</item>
     </style>
+
+    <style name="CustomStyle">
+        <item name="csv_title">这个是标题</item>
+    </style>
+
 
     <style name="TextStyle">
         <item name="android:layout_width">wrap_content</item>
