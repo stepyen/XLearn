@@ -34,6 +34,18 @@ public class LifecycleView extends View {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.i(TAG, "onAttachedToWindow");
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        Log.i(TAG, "onDetachedFromWindow");
+    }
+
+    @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
         Log.i(TAG, "onFinishInflate: ");
@@ -73,6 +85,5 @@ public class LifecycleView extends View {
         super.onDraw(canvas);
         Log.i(TAG, "onDraw: ");
     }
-
 
 }

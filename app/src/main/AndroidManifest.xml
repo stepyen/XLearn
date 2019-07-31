@@ -34,6 +34,12 @@
         </activity>
         <activity android:name=".fragment.utils.launch.CActivity"></activity>
 
+        <activity android:name=".fragment.basics.activity.TargetActivity"></activity>
+        <activity-alias
+            android:name=".fragment.basics.activity.AliasActivity"
+            android:targetActivity=".fragment.basics.activity.TargetActivity"></activity-alias>
+        
+        
 <!--arouter-->
         <activity android:name=".fragment.utils.arouter.ARouterTestSimpleActivity"></activity>
         <activity android:name=".fragment.utils.arouter.ARouterTestNeedLoginActivity"></activity>
@@ -48,7 +54,7 @@
             </intent-filter>
         </activity>
 
-
+<!--receiver-->
         <receiver android:name=".fragment.basics.receiver.NetworkChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>

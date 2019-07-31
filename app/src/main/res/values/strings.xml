@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">XLearn</string>
+
+    <string name="common_money">%.2f</string>   <!--金额保留两位小数-->
+
 </resources>
