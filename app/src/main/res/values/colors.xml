@@ -89,7 +89,11 @@
 
 
 
-
+    <color name="public_red">#FF294C</color>
+    <color name="public_pink">#FFEFF2</color>
+    <color name="public_orange">#FF4C29</color>
+    <color name="public_blue">#2667EB</color>
+    <color name="public_pruple">#D429FF</color>
 
 
     <!--                         android 常用颜色                        -->
