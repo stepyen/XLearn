@@ -9,4 +9,6 @@ public class CountDownEntity {
     public String title;
     public long time;
     public boolean timeFlag = true;
+
+
 }

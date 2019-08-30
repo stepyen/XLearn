@@ -1,6 +1,8 @@
 package com.stepyen.xlearn;
 import butterknife.BindView;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 
 import com.google.android.material.tabs.TabLayout;
 import com.stepyen.xlearn.base.BaseActivity;

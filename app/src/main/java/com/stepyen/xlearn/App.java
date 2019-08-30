@@ -3,7 +3,12 @@ package com.stepyen.xlearn;
 import android.app.Application;
 import android.content.Context;
 import com.stepyen.xlearn.base.BaseActivity;
+import com.stepyen.xlearn.constant.Constant;
 import com.stepyen.xutil.XUtil;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.UMShareConfig;
 import com.xuexiang.xpage.PageConfig;
 import com.xuexiang.xpage.PageConfiguration;
 import com.xuexiang.xpage.model.PageInfo;
@@ -33,6 +38,23 @@ public class App extends Application {
         initPage();
 
         initAOP();
+
+//        initUmeng();
+
+    }
+
+    private void initUmeng() {
+        UMConfigure.init(this, Constant.UM_KEY
+                ,"umeng", UMConfigure.DEVICE_TYPE_PHONE,"");//58edcfeb310c93091c000be2 5965ee00734be40b580001a0
+
+        PlatformConfig.setWeixin(Constant.WX_APP_ID, Constant.WX_APP_SECRET);
+        PlatformConfig.setSinaWeibo("569307052", "ea24af1aa72233dd3c11de773df76385","http://sns.whalecloud.com");
+        PlatformConfig.setQQZone(Constant.QQ_APP_ID, Constant.QQ_APP_KEY);
+
+        // 设置每次登录拉取确认界面
+        UMShareConfig config = new UMShareConfig();
+        config.isNeedAuthOnGetUserInfo(true);
+        UMShareAPI.get(this).setShareConfig(config);
 
     }
 
