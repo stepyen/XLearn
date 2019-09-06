@@ -131,7 +131,7 @@ public class SMSListenFragment extends BaseFragment {
                 cursor.close();
             }
         }
-    }
+}
 
 
     @Override
