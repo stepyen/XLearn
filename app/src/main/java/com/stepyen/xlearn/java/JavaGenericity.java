@@ -22,6 +22,7 @@ public class JavaGenericity {
         List<Dog> dogList = new ArrayList<Dog>();
         List<? extends Animal> animalList = dogList;
 
+
     }
 
 
