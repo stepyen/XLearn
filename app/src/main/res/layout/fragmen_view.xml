@@ -62,6 +62,40 @@
                 android:layout_margin="20dp"
                 />
 
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="水波纹"
+                android:layout_marginTop="200dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="系统有界效果"
+                android:background="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                ></TextView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="系统无界效果"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                ></TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="自定义效果"
+                android:background="@drawable/ripple_bg"
+                android:clickable="true"
+                android:layout_marginBottom="200dp"
+                />
 
 
 

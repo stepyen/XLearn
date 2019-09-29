@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TestActivity">
+
         </activity>
 
         <activity android:name=".base.BaseActivity"></activity>
