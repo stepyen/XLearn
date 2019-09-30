@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="44dp">
+
+    <TextView
+        android:id="@+id/tv_rcc"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+       android:layout_marginLeft="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:text="值"
+        android:maxLines="1"
+        android:gravity="center_vertical"
+        />
+</LinearLayout>

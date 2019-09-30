@@ -7,6 +7,8 @@ import com.stepyen.xlearn.base.BaseTestFragment;
 import com.stepyen.xlearn.fragment.utils.life_cycle.ActivityLifeActivity;
 import com.xuexiang.xpage.annotation.Page;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * date：2019/7/11
  * author：stepyen

@@ -32,6 +32,8 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
         if (list != null) {
             mData.addAll(list);
         }
+
+
     }
 
     @NonNull
