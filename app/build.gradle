@@ -93,6 +93,10 @@ dependencies {
     }
     annotationProcessor deps.arouter.compiler
 
+
+    // UI
+    api 'com.github.stepyen:XUI:1.4.1'
+
     api project(':umlibrary')
 
     testImplementation 'junit:junit:4.12'

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.stepyen.xlearn.base.BaseActivity;
 import com.stepyen.xlearn.constant.Constant;
+import com.stepyen.xui.XUI;
 import com.stepyen.xutil.XUtil;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.socialize.PlatformConfig;
@@ -35,6 +36,7 @@ public class App extends Application {
         super.onCreate();
         XUtil.init(this);
 
+        XUI.init(this);
         initPage();
 
         initAOP();

@@ -12,10 +12,6 @@ import java.util.List;
 
 /**
  * 集合列表适配器
- * 
- * @author XUE
- * 
- * @param <T>
  */
 public abstract class XListAdapter<T> extends BaseAdapter {
 	private List<T> mData = new ArrayList<>();

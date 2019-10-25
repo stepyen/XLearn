@@ -9,20 +9,17 @@ import com.xuexiang.xpage.annotation.Page;
  * author：stepyen
  * description：
  */
-@Page(name = "金额", extra = R.drawable.ic_widget_imageview)
-public class MoneyFragment extends BaseTestFragment {
-
+@Page(name = "Paint",extra = R.drawable.ic_widget_imageview)
+public class PaintFragment extends BaseTestFragment {
     @Override
     public void initLayoutView() {
-
-
+        addView(R.layout.fragmen_paint);
     }
 
     @Override
     protected void initViews() {
 
     }
-
 
 
 }

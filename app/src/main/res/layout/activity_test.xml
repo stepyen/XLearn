@@ -8,36 +8,5 @@
     android:layout_height="match_parent"
 >
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
 
-        <RadioButton
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="巡检" />
-
-        <RadioButton
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="出库" />
-    </RadioGroup>
-    <FrameLayout
-        android:id="@id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-    </FrameLayout>
-
-    
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        style="@style/TabLayoutStyle"
-        >
-
-    </com.google.android.material.tabs.TabLayout>
 </LinearLayout>

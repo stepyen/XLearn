@@ -2,6 +2,9 @@ package com.stepyen.xlearn;
 
 import android.os.Bundle;
 
+import com.stepyen.xui.widget.linearlayout.StarLayout;
+import com.stepyen.xutil.display.DensityUtils;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -17,7 +20,6 @@ public class TestActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-
 
 
     }

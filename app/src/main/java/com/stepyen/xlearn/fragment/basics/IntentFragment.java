@@ -1,8 +1,14 @@
 package com.stepyen.xlearn.fragment.basics;
 
+import android.content.Intent;
+import android.widget.Button;
+
 import com.stepyen.xlearn.R;
+import com.stepyen.xlearn.TestActivity;
 import com.stepyen.xlearn.base.BaseFragment;
 import com.xuexiang.xpage.annotation.Page;
+
+import butterknife.BindView;
 
 /**
  * date：2019/7/5
@@ -13,6 +19,9 @@ import com.xuexiang.xpage.annotation.Page;
 public class IntentFragment extends BaseFragment {
 
 
+    @BindView(R.id.btn_test)
+    Button mBtnTest;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_service;
@@ -20,9 +29,10 @@ public class IntentFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-
+        mBtnTest.setOnClickListener(v->{
+            startActivity(new Intent(getContext(), TestActivity.class));
+        });
     }
-
 
 
 }
