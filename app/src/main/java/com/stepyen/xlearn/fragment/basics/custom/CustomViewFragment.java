@@ -18,7 +18,8 @@ public class CustomViewFragment extends ComponentContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                CustomStyleFragment.class
+                CustomStyleFragment.class,
+                CustomViewLearnFragment.class
         };
     }
 }

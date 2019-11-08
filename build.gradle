@@ -2,6 +2,7 @@
 
 
 buildscript {
+    ext.kotlin_version = '1.3.41'
     apply from: './versions.gradle'
     addRepos(repositories) //增加代码仓库
 
@@ -12,6 +13,7 @@ buildscript {
         classpath deps.retrolambda
         classpath deps.butterknife.plugin
         classpath 'com.github.xuexiangjys.XAOP:xaop-plugin:1.0.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
