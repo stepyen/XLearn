@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <EditText
+                android:id="@+id/et_uri"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入uri"
+                />
+
+            <Button
+                android:id="@+id/btn_jump_input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳转"
+                />
+
+            <TextView
+                android:id="@+id/tv_uri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+            <Button
+                android:id="@+id/btn_jump_fixation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳转固定uri"
+                />
+
+            <TextView
+                android:id="@+id/tv_html_uri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

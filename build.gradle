@@ -4,7 +4,14 @@
 buildscript {
     ext.kotlin_version = '1.3.41'
     apply from: './versions.gradle'
-    addRepos(repositories) //增加代码仓库
+    repositories {
+        maven {
+            url "http://10.1.14.226:8081/repository/maven-public/"
+        }
+        addRepos(repositories) //增加代码仓库
+    }
+
+
 
     dependencies {
 
@@ -19,6 +26,7 @@ buildscript {
 
 allprojects {
     addRepos(repositories)
+
 }
 
 task clean(type: Delete) {
