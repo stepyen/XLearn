@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.expands;
+package com.stepyen.xlearn.fragment.basics;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -18,10 +18,12 @@ import com.xuexiang.xpage.annotation.Page;
 /**
  * date：2019/7/5
  * author：stepyen
- * description：
+ * description：url scheme 跳转学习
  */
-@Page(name = "scheme跳转", extra = R.drawable.ic_widget_imageview)
+@Page(name = "url scheme", extra = R.drawable.ic_widget_imageview)
 public class UrlSchemeFragment extends BaseFragment {
+
+    String test_uri = "stepyen://xiaoming@host.com/record/path?address=china&phone=1875912233#fragment=fragment123";
 
     @Override
     protected int getLayoutId() {
@@ -44,14 +46,13 @@ public class UrlSchemeFragment extends BaseFragment {
         });
 
         TextView tv = findViewById(R.id.tv_uri);
-        String uri = "stepyen://xiaoming@host.com/record/path?address=china&phone=1875912233#fragment=fragment123";
-        tv.setText("测试uri: " + uri);
+        tv.setText("测试uri: \n" + test_uri);
 
         findViewById(R.id.btn_jump_fixation).setOnClickListener(v -> {
 
             try {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(uri));
+                intent.setData(Uri.parse(test_uri));
                 startActivity(intent);
             } catch (ActivityNotFoundException e) {
                 ToastUtils.toast("Activity 未找到");
@@ -62,11 +63,14 @@ public class UrlSchemeFragment extends BaseFragment {
         try {
 
             TextView tv_html_uri = findViewById(R.id.tv_html_uri);
+            TextView tv_test_html_uri = findViewById(R.id.tv_test_html_uri);
 
             StringBuilder sb = new StringBuilder();
             sb.append("<a href='");
-            sb.append(uri);
+            sb.append(test_uri);
             sb.append("'>点击跳转</a>");
+
+            tv_test_html_uri.setText("网页测试 uri：\n"+sb.toString());
 
             tv_html_uri.setText(Html.fromHtml(sb.toString()));
             tv_html_uri.setMovementMethod(LinkMovementMethod.getInstance());

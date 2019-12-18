@@ -15,7 +15,7 @@ import butterknife.BindView;
 /**
  * date：2019/7/5
  * author：stepyen
- * description：
+ * description：uri api 学习
  */
 @Page(name = "Uri", extra = R.drawable.ic_widget_imageview)
 public class UriFragment extends BaseFragment {

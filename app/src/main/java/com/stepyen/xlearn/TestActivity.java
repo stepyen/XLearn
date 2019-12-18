@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.stepyen.xui.widget.linearlayout.StarLayout;
 import com.stepyen.xutil.display.DensityUtils;
+import com.xuexiang.xpage.annotation.Page;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;

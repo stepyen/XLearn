@@ -17,7 +17,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="输入 Uri 测试跳转"
+                />
             <EditText
                 android:id="@+id/et_uri"
                 android:layout_width="match_parent"
@@ -33,6 +36,11 @@
                 />
 
             <TextView
+                style="@style/TextView_hint_tag"
+                android:text="跳转到指定的 uri"
+                />
+
+            <TextView
                 android:id="@+id/tv_uri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,13 +50,24 @@
                 android:id="@+id/btn_jump_fixation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="跳转固定uri"
+                android:text="跳转"
                 />
 
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="网页跳转到指定的 uri"
+                />
+            <TextView
+                android:id="@+id/tv_test_html_uri"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
             <TextView
                 android:id="@+id/tv_html_uri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text=""
                 />
         </LinearLayout>
