@@ -20,7 +20,7 @@
 
             <TextView
                 style="@style/TextView_hint_tag"
-                android:text="descendantFocusability"
+                android:text="权限申请"
                 />
 
             <Button

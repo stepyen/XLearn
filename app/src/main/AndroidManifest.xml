@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.stepyen.xlearn">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
@@ -12,17 +12,18 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
 
 
-<!--    监听短信权限-->
+    <!--    监听短信权限-->
     <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
     <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+
     <application
         android:name=".App"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
             >
@@ -52,12 +53,13 @@
 
         <activity android:name=".fragment.basics.activity.TargetActivity"></activity>
         <activity android:name=".fragment.basics.eventDispatch.dispatch.EventDispatchActivity"></activity>
+
         <activity-alias
             android:name=".fragment.basics.activity.AliasActivity"
             android:targetActivity=".fragment.basics.activity.TargetActivity"></activity-alias>
-        
-        
-<!--arouter-->
+
+
+        <!--arouter-->
         <activity android:name=".fragment.utils.arouter.ARouterTestSimpleActivity"></activity>
         <activity android:name=".fragment.utils.arouter.ARouterTestNeedLoginActivity"></activity>
         <activity android:name=".fragment.utils.arouter.ARouterTestParaActivity"></activity>
@@ -77,9 +79,13 @@
         <activity android:name=".fragment.basics.version.PermissionActivity"></activity>
 
 
+        <service
+            android:name=".fragment.basics.process_communication.MessengerService"
+            android:process=":testMessenger"
+            ></service>
 
 
-<!--***************************友盟***********************************-->
+        <!--***************************友盟***********************************-->
 
         <!--新浪 开始-->
         <activity
@@ -113,7 +119,7 @@
             android:name="com.xfwy.wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <!--微信 结束-->
 
@@ -121,23 +127,23 @@
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="tencent100424468" />
+                <data android:scheme="tencent100424468"/>
             </intent-filter>
         </activity>
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <!--QQ 结束-->
 
-<!--receiver-->
+        <!--receiver-->
         <receiver android:name=".fragment.basics.receiver.NetworkChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
