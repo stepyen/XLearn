@@ -85,6 +85,12 @@
             ></service>
 
 
+        <provider
+            android:authorities="com.stepyen.StudentContentProvider"
+            android:name=".fragment.basics.content_provider.StudentContentProvider"
+            android:exported="true"
+            ></provider>
+
         <!--***************************友盟***********************************-->
 
         <!--新浪 开始-->
