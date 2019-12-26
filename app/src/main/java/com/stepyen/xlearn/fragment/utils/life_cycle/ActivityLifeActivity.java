@@ -1,5 +1,6 @@
 package com.stepyen.xlearn.fragment.utils.life_cycle;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,6 +43,8 @@ public class ActivityLifeActivity extends AppCompatActivity {
 //        mLifecycleview.setSize(1);
 //        mLifecycleviewgruop.setSize(1);
 //        mLifecycleviewgruop.addView(new TextView(this));
+
+
     }
 
     @Override
@@ -104,8 +107,13 @@ public class ActivityLifeActivity extends AppCompatActivity {
         Log.i(TAG, "onSaveInstanceState: ");
     }
 
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.i(TAG, "onNewIntent: ");
+    }
 
-/*********生命周期记录*****************/
+    /*********生命周期记录*****************/
 
 /**
  * 横竖屏切换

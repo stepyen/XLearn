@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+            <LinearLayout
+                android:id="@+id/ll_verify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+
+            </LinearLayout>
+
+            <com.stepyen.xui.widget.linearlayout.flow_tag.FlowTagLayout
+                android:id="@+id/ll_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:max_column="5"
+                app:max_row="2"
+                app:ftl_check_mode="multi"
+                >
+
+            </com.stepyen.xui.widget.linearlayout.flow_tag.FlowTagLayout>
+
+
+            <TextView
+                android:id="@+id/tv_test"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/verify_number"
+                android:text="1"
+                android:textColor="#24DDFA"
+                android:textSize="28dp"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

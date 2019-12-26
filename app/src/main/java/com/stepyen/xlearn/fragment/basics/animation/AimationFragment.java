@@ -19,7 +19,8 @@ public class AimationFragment extends ComponentContainerFragment {
         return new Class[]{
                 FrameAnimotionFragment.class,
                 TweenAnimotionFragment.class,
-                PropertyAnimotionFragment.class
+                PropertyAnimotionFragment.class,
+                ShowAnimotionFragment.class
         };
     }
 }

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="tint 属性设置蒙版效果"
+                />
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="原来"
+                android:layout_margin="0dp"
+                />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/verify_number"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="#59002533"
+                    android:text="1"
+                    android:textColor="#24DDFA"
+                    android:textSize="28dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="添加 tint 属性后"
+                android:layout_margin="0dp"
+                />
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_tint"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/verify_number"
+                    android:tint="#55000000"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#24DDFA"
+                    android:textSize="28dp"
+                    />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginVertical="15dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="调节蒙版透明度："
+                    />
+
+                <SeekBar
+                    android:id="@+id/seekbar_tint"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginRight="15dp"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tv_alpha_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                />
+
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_tint2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/verify_number"
+                    android:tint="#55000000"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="#24DDFA"
+                    android:textSize="28dp"
+                    />
+            </FrameLayout>
+
+            <Button
+                android:id="@+id/btn_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="改变"
+                />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

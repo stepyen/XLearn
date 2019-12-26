@@ -1,6 +1,7 @@
 package com.stepyen.xlearn.fragment.basics;
 
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.Html;
@@ -48,6 +49,7 @@ public class UrlSchemeFragment extends BaseFragment {
         TextView tv = findViewById(R.id.tv_uri);
         tv.setText("测试uri: \n" + test_uri);
 
+
         findViewById(R.id.btn_jump_fixation).setOnClickListener(v -> {
 
             try {
@@ -78,6 +80,39 @@ public class UrlSchemeFragment extends BaseFragment {
         } catch (ActivityNotFoundException e) {
             ToastUtils.toast("Activity 未找到");
         }
+
+
+        try {
+            String babybusUri = "babybus.character://game?name=peter&age=19";
+            TextView tv_test_babybus_uri = findViewById(R.id.tv_test_babybus_uri);
+            TextView tv_babybus_uri = findViewById(R.id.tv_babybus_uri);
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("<a href='");
+            sb.append(babybusUri);
+            sb.append("'>点击跳转</a>");
+
+            tv_test_babybus_uri.setText("网页测试 uri：\n"+sb.toString());
+
+            tv_babybus_uri.setText(Html.fromHtml(sb.toString()));
+            tv_babybus_uri.setMovementMethod(LinkMovementMethod.getInstance());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+
+
+        findViewById(R.id.btn_open_main).setOnClickListener(v->{
+
+
+        });
+
+
+        findViewById(R.id.btn_open_scheme).setOnClickListener(v->{
+
+        });
 
 
     }

@@ -96,6 +96,15 @@
     <color name="public_pruple">#D429FF</color>
 
 
+
+    <color name="verify_number_bg_default">#E1EAF4</color>
+    <color name="verify_number_bg_check">#85D35E</color>
+    <color name="verify_number_text_default">#A1B2C6</color>
+    <color name="verify_number_text_check">#D1FF79</color>
+
+
+
+
     <!--                         android 常用颜色                        -->
     <color name="pink">#ffc0cb</color><!--粉红色 -->
     <color name="lightpink">#ffb6c1</color><!--亮粉红色 -->

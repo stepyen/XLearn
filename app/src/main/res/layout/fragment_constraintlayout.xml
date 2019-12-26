@@ -448,6 +448,43 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="view的中心 位于 其他View的角上"
+                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:id="@+id/tv_text21"
+                    style="@style/TextStyle.common"
+                    android:background="@color/hotpink"
+                    android:text="1"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_text22"
+                    style="@style/TextStyle.common"
+                    android:layout_height="30dp"
+                    android:layout_width="30dp"
+                    android:background="@color/cornflowerblue"
+                    android:text="2"
+
+                    app:layout_constraintTop_toTopOf="@+id/tv_text21"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_text21"
+                    app:layout_constraintRight_toRightOf="@+id/tv_text21"
+                    app:layout_constraintLeft_toRightOf="@+id/tv_text21"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </LinearLayout>
     </ScrollView>
 
