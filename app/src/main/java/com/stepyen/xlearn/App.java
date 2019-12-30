@@ -2,6 +2,9 @@ package com.stepyen.xlearn;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Handler;
+
+import com.bun.miitmdid.core.JLibrary;
 import com.stepyen.xlearn.base.BaseActivity;
 import com.stepyen.xlearn.constant.Constant;
 import com.stepyen.xui.XUI;
@@ -24,6 +27,9 @@ import androidx.multidex.MultiDex;
  * description：
  */
 public class App extends Application {
+
+    public static Handler handler = new Handler();
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -42,6 +48,9 @@ public class App extends Application {
         initAOP();
 
 //        initUmeng();
+
+
+        initMdid(this);
 
     }
 
@@ -89,5 +98,13 @@ public class App extends Application {
                 .setContainActivityClazz(BaseActivity.class) //设置默认的容器Activity
                 .enableWatcher(false)   //设置是否开启内存泄露监测
                 .init(this);            //初始化页面配置
+    }
+
+
+    /**
+     * 初始化 移动安全联盟 sdk
+     */
+    private void initMdid(Application application) {
+        JLibrary.InitEntry(application);
     }
 }

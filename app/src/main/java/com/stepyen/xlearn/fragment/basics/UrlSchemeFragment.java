@@ -83,7 +83,7 @@ public class UrlSchemeFragment extends BaseFragment {
 
 
         try {
-            String babybusUri = "babybus.character://game?name=peter&age=19";
+            String babybusUri = "com.kid58.tiyong.characters://{\"type\":\"gogamepage\",\"data\":\"{\"age\":17}\"}";
             TextView tv_test_babybus_uri = findViewById(R.id.tv_test_babybus_uri);
             TextView tv_babybus_uri = findViewById(R.id.tv_babybus_uri);
 
