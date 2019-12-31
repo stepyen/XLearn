@@ -1,6 +1,7 @@
 package com.stepyen.xlearn.fragment.utils;
 
 import android.content.Intent;
+import android.webkit.WebView;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseTestFragment;
@@ -26,6 +27,9 @@ public class AgentWebFragment extends BaseTestFragment {
             startActivity(intent);
         });
 
+        WebView webView = new WebView(getContext());
+        webView.loadUrl("file:///android_asset/test");
+        addView(webView);
     }
 
     @Override
