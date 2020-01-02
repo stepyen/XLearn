@@ -29,7 +29,7 @@ import butterknife.BindView;
  */
 @Page(name = "json", extra = R.drawable.ic_widget_imageview)
 public class JsonFragment extends BaseFragment {
-    private static final String TAG = "JsonFragment";
+    private static final String TAG = "CountDownFragment";
     @BindView(R.id.tv_value_is_empty)
     TextView tv_value_is_empty;
 

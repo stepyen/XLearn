@@ -103,6 +103,13 @@
     <color name="verify_number_text_check">#D1FF79</color>
 
 
+    <color name="lyric_wait_read_text">#626262</color>
+    <color name="lyric_current_read_text">#FFFFFF</color>
+    <color name="lyric_already_read_text">#ADACAC</color>
+    <color name="lyric_current_read_bg">#ABCBF2</color>
+    <color name="lyric_bg">#F1F6FC</color>
+
+
 
 
     <!--                         android 常用颜色                        -->
