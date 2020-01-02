@@ -8,9 +8,9 @@
     android:orientation="vertical"
     >
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +29,10 @@
                 android:layout_gravity="center_horizontal"
                 />
 
-
+            <com.stepyen.xlearn.fragment.basics.lyric.TestView
+                android:id="@+id/testview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
         </LinearLayout>
-    </ScrollView>
+    <!--</ScrollView>-->
 </LinearLayout>

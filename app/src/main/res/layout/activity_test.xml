@@ -1,57 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view_bg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/red"
-        ></View>
-    <com.stepyen.xlearn.XConstraintLayout
-        android:id="@+id/cl_parent"
-        android:layout_width="match_parent"
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        >
-
-        <ImageView
-            android:id="@+id/iv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@mipmap/characters_verify_title"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-
-        <ImageView
-            android:id="@+id/iv_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@mipmap/characters_verify_bg"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_title"
-            />
-
-        <ImageView
-            android:id="@+id/iv_close"
-            android:layout_width="80px"
-            android:layout_height="80px"
-            android:scaleType="fitXY"
-            android:src="@mipmap/characters_verify_close"
-            app:layout_constraintBottom_toTopOf="@+id/iv_bg"
-            app:layout_constraintLeft_toRightOf="@+id/iv_bg"
-            app:layout_constraintRight_toRightOf="@+id/iv_bg"
-            app:layout_constraintTop_toTopOf="@+id/iv_bg"
-            />
-
-    </com.stepyen.xlearn.XConstraintLayout>
-</RelativeLayout>
+        android:text="测试"
+        />
+</LinearLayout>

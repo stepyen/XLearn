@@ -24,12 +24,13 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        findViewById(R.id.view_bg).setOnClickListener(v->{
-            finish();
+        findViewById(R.id.btn_test).setOnClickListener(v->{
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.putExtra(Intent.EXTRA_PHONE_NUMBER,"18762");
+            startActivity(intent);
+
         });
-        findViewById(R.id.iv_bg).setOnClickListener(v->{
-            ToastUtils.toast("点击弹窗背景");
-        });
+
 
 
 

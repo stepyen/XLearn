@@ -19,11 +19,14 @@
             >
 
             <Button
-                android:id="@+id/btn_test"
+                android:id="@+id/btn_handle_thread_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="测试页面"
+                android:text="handleThread 发送消息"
                 />
+
+
+
 
 
         </LinearLayout>

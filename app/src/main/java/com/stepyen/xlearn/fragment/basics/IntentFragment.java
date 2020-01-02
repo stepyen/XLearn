@@ -24,7 +24,7 @@ public class IntentFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_service;
+        return R.layout.fragment_intent;
     }
 
     @Override

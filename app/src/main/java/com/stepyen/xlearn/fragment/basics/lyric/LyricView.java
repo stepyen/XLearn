@@ -1,5 +1,8 @@
 package com.stepyen.xlearn.fragment.basics.lyric;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -8,6 +11,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.Scroller;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xutil.shape.ShapeBuilder;
@@ -27,7 +32,7 @@ public class LyricView extends View {
 
     // 最大行数
     private final static int MAX_ROW = 4;
-
+    private Scroller mScroller;
 
     private Context mContext;
     private Paint waitReadTextPaint;
@@ -52,10 +57,13 @@ public class LyricView extends View {
         super(context, attrs, defStyle);
         this.mContext = context;
         setBg();
+        mScroller = new Scroller(context, new DecelerateInterpolator());
+
         init();
     }
 
     private void init() {
+
         waitReadTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         waitReadTextPaint.setColor(getColor(R.color.lyric_wait_read_text));
         waitReadTextPaint.setTextSize(46);
@@ -101,29 +109,6 @@ public class LyricView extends View {
         }
     }
 
-    private void setupDataWithIndex(int currentIndex) {
-        LyricItem currentlyricItem = data.get(currentIndex);
-        currentlyricItem.status = LyricItem.STATUS_CURRENT_READ;
-
-        if (currentIndex == 0 || currentIndex ==1) {
-            currentShowIndex = currentIndex;
-        } else if (data.size()>=4 && currentIndex == data.size() -1) {
-            currentShowIndex = 3;
-        }else{
-            currentShowIndex = 2;
-        }
-
-        if (currentIndex == 0) {
-            return;
-        }
-
-        int frontIndex = currentIndex - 1;
-        LyricItem frontlyricItem = data.get(frontIndex );
-        frontlyricItem.status = LyricItem.STATUS_ALREADY_READ;
-
-    }
-
-
     /**
      * 设置当前播放歌词下标
      *
@@ -131,8 +116,10 @@ public class LyricView extends View {
      */
     public void setCurrentIndex(int index) {
         currentIndex = index;
-        setupDataWithIndex(currentIndex);
+        mScroller.startScroll(0,getScrollY(),0,getHeight()/4,1000);
         invalidate();
+        playAlreadyReadAnimation();
+
     }
 
     @Override
@@ -143,48 +130,51 @@ public class LyricView extends View {
         }
         int height = getHeight();
         int width = getWidth();
-
-//        int i = 0;
-//        int size = data.size();
-//        if (size>4 && currentIndex>=3) {
-//
-//            int tempMaxI = size - 4 ;   // 临时最大的 i  6
-//
-//            int tempI = size - 1 - currentIndex;    // 临时 i 9
-//
-//            if (tempMaxI>=tempI) {
-//                i = tempI;
-//            }
-//
-//        }
-//
-//
-//        for (int itemIndex = 0; i <size; i++, itemIndex++) {
-//            LyricItem lyricItem = data.get(i);
-//            if (lyricItem.status == LyricItem.STATUS_CURRENT_READ) {
-//                Rect rect = new Rect(0, height / 4 * currentShowIndex, width, height / 4 * (currentShowIndex+1));
-//                canvas.drawRect(rect, currentReadBgPaint);
-//            }
-//
-//
-//            drawText(canvas, getPaintWithStatus(lyricItem.status), width, height, itemIndex, lyricItem.text);
-//        }
+        Rect rect = new Rect(0, height / 4 * (2+currentIndex), width, height / 4 * (3+currentIndex));
+        canvas.drawRect(rect, currentReadBgPaint);
 
 
         for (int i = 0; i < data.size(); i++) {
+            int size = 46;
+            if (i == currentIndex && i== 0) {
+                size = (int) (46 *1.25f);
+            }
+
+            if (i == currentIndex) {
+                size = (int) (46 *value);
+            }
+
+            waitReadTextPaint.setTextSize(size);
+
             LyricItem lyricItem = data.get(i);
             Paint.FontMetrics fm = waitReadTextPaint.getFontMetrics();
             int x = (int) (width / 2 - waitReadTextPaint.measureText(lyricItem.text) / 2);
             int itemHeight = height / MAX_ROW;
 
-            int y = (int) (i * itemHeight + itemHeight / 2 - (fm.descent + fm.ascent) / 2);
+            int y = (int) ((i+2) * itemHeight + itemHeight / 2 - (fm.descent + fm.ascent) / 2);
+
+
 
             canvas.drawText(lyricItem.text, x, y, waitReadTextPaint);
         }
 
-//        setScrollY(getScrollY()+ height / MAX_ROW);
+
+
     }
 
+    float value;
+
+    private void playAlreadyReadAnimation() {
+        ValueAnimator animator = ValueAnimator.ofFloat(1.25f,1f);
+        animator.setDuration(1000);
+        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                 value = (Float) animation.getAnimatedValue();
+            }
+        });
+        animator.start();
+    }
 
     private Paint getPaintWithStatus(int status) {
         Paint result = null;
@@ -211,6 +201,20 @@ public class LyricView extends View {
         int y = (int) (index * itemHeight + itemHeight / 2 - (fm.descent + fm.ascent) / 2);
 
         canvas.drawText(text, x, y, paint);
+    }
+
+
+    /**
+     * 通过invalidate操纵,此方法通过draw方法调用
+     */
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (mScroller.computeScrollOffset()) {
+            scrollTo(0, mScroller.getCurrY()); //会重复调用invalidate
+        }
+
+
     }
 
 
