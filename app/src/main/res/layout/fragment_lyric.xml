@@ -22,6 +22,19 @@
                 android:text="古诗滚动"
                 />
 
+            <Button
+                android:id="@+id/btn_lyric_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始"
+                />
+            <Button
+                android:id="@+id/btn_lyric_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="停止"
+                />
+
             <com.stepyen.xlearn.fragment.basics.lyric.LyricView
                 android:id="@+id/lyricview"
                 android:layout_width="300dp"
@@ -29,10 +42,8 @@
                 android:layout_gravity="center_horizontal"
                 />
 
-            <com.stepyen.xlearn.fragment.basics.lyric.TestView
-                android:id="@+id/testview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+
+
         </LinearLayout>
     <!--</ScrollView>-->
 </LinearLayout>
