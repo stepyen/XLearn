@@ -41,12 +41,8 @@
                 android:layout_height="wrap_content"
                 android:text="缩放"
                 />
-            <Button
-                android:id="@+id/btn_Translate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="移动"
-                />
+
+
             <Button
                 android:id="@+id/btn_Rotate"
                 android:layout_width="wrap_content"
@@ -61,6 +57,34 @@
                 />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/btn_Translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="开始移动"
+                />
+
+            <Button
+                android:id="@+id/btn_cancle_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消移动"
+                />
+            <Button
+                android:id="@+id/btn_reset_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重置移动"
+                />
+        </LinearLayout>
+
+
         <Button
             android:id="@+id/btn_Scale_xml"
             android:layout_width="wrap_content"
@@ -74,6 +98,9 @@
             android:layout_height="wrap_content"
             android:text="多个动画集"
             />
+
+
+
 
     </LinearLayout>
 

@@ -17,8 +17,24 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="保存图片"
+                />
 
-
+            <Button
+                android:id="@+id/sava_resource_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="保存资源图片"
+                />
+            <Button
+                android:id="@+id/sava_network_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="保存网络图片"
+                />
             <TextView
                 style="@style/TextView_hint_tag"
                 android:text="tint 属性设置蒙版效果"

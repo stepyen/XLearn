@@ -8,7 +8,10 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -26,7 +29,7 @@ import butterknife.OnClick;
  */
 @Page(name = "属性动画")
 public class PropertyAnimotionFragment extends BaseTestFragment {
-
+    private static final String TAG = "PropertyAnimotionFragme";
     @BindView(R.id.iv)
     ImageView mIv;
 
@@ -37,18 +40,24 @@ public class PropertyAnimotionFragment extends BaseTestFragment {
 
     @Override
     protected void initViews() {
+
+
+
         addView("ValueAnimator 实现Scale", v -> {
-            ValueAnimator animator = ValueAnimator.ofFloat(1, 0.5f, 1);
-            animator.setDuration(3000);
-            animator.setRepeatCount(ValueAnimator.INFINITE);
+            ValueAnimator animator = ValueAnimator.ofFloat(0f, 1);
+            animator.setDuration(1000);
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     float value = (Float) animation.getAnimatedValue();
-                    mIv.setScaleX(value);
+                    mIv.setAlpha(value);
                 }
             });
             animator.start();
+
+            ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(mIv, "alpha", 0f, 1f);
+            objectAnimator.setDuration(1000);
+            objectAnimator.start();
         });
 
         addView("ObjectAnimator 实现Scale", v -> {
@@ -59,9 +68,10 @@ public class PropertyAnimotionFragment extends BaseTestFragment {
 
         addView("PropertyValuesHolder 实现Scale 多个动画效果", v -> {
             PropertyValuesHolder xHolder = PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.5f, 1.0f);
-            PropertyValuesHolder yHolder = PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.5f, 1.0f);
+            PropertyValuesHolder alphaHolder = PropertyValuesHolder.ofFloat("alpha", 1.0f, 0.5f, 1.0f);
+            PropertyValuesHolder rotationHolder = PropertyValuesHolder.ofFloat("rotation", 0, 360, 0);
 
-            ObjectAnimator.ofPropertyValuesHolder(mIv, xHolder, yHolder)
+            ObjectAnimator.ofPropertyValuesHolder(mIv, xHolder, alphaHolder,rotationHolder)
                     .setDuration(3000)
                     .start();
         });
@@ -72,6 +82,7 @@ public class PropertyAnimotionFragment extends BaseTestFragment {
 
             AnimatorSet animator = new AnimatorSet();
             animator.playTogether(xAnimator, yAnimator);    // 一起执行
+
             animator.setDuration(3000);
             animator.start();
         });
@@ -123,6 +134,7 @@ public class PropertyAnimotionFragment extends BaseTestFragment {
               Keyframe keyframe4 = Keyframe.ofFloat(0.7f, 0f);
               Keyframe keyframe5 = Keyframe.ofFloat(1.0f, 1.0f);
 
+
               PropertyValuesHolder xHolder = PropertyValuesHolder.ofKeyframe("scaleX",
                       keyframe1, keyframe2, keyframe3, keyframe4, keyframe5);
               PropertyValuesHolder yHolder = PropertyValuesHolder.ofKeyframe("scaleY",
@@ -137,6 +149,7 @@ public class PropertyAnimotionFragment extends BaseTestFragment {
                   FloatEvaluator evaluator = new FloatEvaluator();
                   @Override
                   public Float evaluate(float fraction, Float startValue, Float endValue) {
+                      Log.d(TAG, "evaluate: "+fraction+"    "+startValue+"     "+endValue);
                       if (fraction <= 0.2f) {
                           return evaluator.evaluate(fraction/0.2f, 1.0f, 0.5f);
                       } else if (fraction <= 0.4f) {

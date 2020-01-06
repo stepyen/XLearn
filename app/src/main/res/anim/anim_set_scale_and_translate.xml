@@ -10,5 +10,6 @@
 
     <alpha
         android:fromAlpha="1"
-        android:toAlpha="0.2"/>
+        android:toAlpha="0.2"
+        />
 </set>
