@@ -14,6 +14,7 @@ import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseTestFragment;
 import com.xuexiang.xpage.annotation.Page;
 
+import androidx.core.content.ContextCompat;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -28,25 +29,6 @@ import butterknife.OnClick;
         Scale Animation：缩放动画
         Translate Animation：平移动画
         Rotate Animation：旋转动画
- *
- *
- * 关注：
- * 1、指定开始和结束状态
- * 2、从哪个位置开始，有三种指定方式
- *      1、绝对位置 Animation.ABSOLUTE               xml中对应：android:pivotX="50"
- *      2、自身位置  Animation.RELATIVE_TO_SELF      xml中对应：android:pivotX="50%"
- *      3、父布局位置 Animation.RELATIVE_TO_PARENT   xml中对应：android:pivotX="50%p"
- *
- * 3、其他的设置属性
- * android:duration：动画时长
- * android:fillAfter：为true，则控件动画结束时，保持结束时的状态。
- * android:fillBefore：为true，则控件动画结束时，将还原到初始化状态。
- * android:fillEnabled：有待斟酌，会第一时间补上该属性与上面两个属性的本质区别。
- * android:repeatCount：指定动画重复次数，取值infinite时,表示无限循环。
- * android:repeatMode：用于设定重复类型，有reverse和restart两个值。其中reverse:表示倒序回放；restart表示重放,并且必须与repeatCount一起使用才有效果。
- * android:interpolator:设定插值器，其实就是指定的动画效果，比如弹跳效果。
- *
- *
  */
 @Page(name = "补间动画")
 public class TweenAnimotionFragment extends BaseTestFragment {
@@ -63,6 +45,9 @@ public class TweenAnimotionFragment extends BaseTestFragment {
     @BindView(R.id.btn_Scale_xml)
     Button mBtnScaleXml;
 
+
+    private TranslateAnimation translateAnimation;
+
     @Override
     public void initLayoutView() {
         addView(R.layout.fragment_tween_animotion);
@@ -72,7 +57,16 @@ public class TweenAnimotionFragment extends BaseTestFragment {
     protected void initViews() {
 
     }
-    @OnClick({R.id.btn_Scale, R.id.btn_Translate, R.id.btn_Rotate, R.id.btn_Alpha, R.id.btn_Scale_xml,R.id.btn_Scale_and_translate})
+    @OnClick({R.id.btn_Scale,
+            R.id.btn_Translate,
+            R.id.btn_Rotate,
+            R.id.btn_Alpha,
+            R.id.btn_Scale_xml,
+            R.id.btn_Scale_and_translate,
+            R.id.btn_cancle_translate,
+            R.id.btn_reset_translate
+
+    })
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_Scale:
@@ -93,9 +87,17 @@ public class TweenAnimotionFragment extends BaseTestFragment {
             case R.id.btn_Scale_and_translate:
                 scaleAndTranslate();
                 break;
+            case R.id.btn_cancle_translate:
+                translateAnimation.cancel();
+                break;
+            case R.id.btn_reset_translate:
+                translateAnimation.reset();
+                break;
 
         }
     }
+
+
 
     /**
      * 缩放大小从0变成1，相对于自身的中心位置，时间500毫秒
@@ -108,15 +110,16 @@ public class TweenAnimotionFragment extends BaseTestFragment {
         mIv.startAnimation(animation);
     }
 
+
     private void translate() {
-        TranslateAnimation animation = new TranslateAnimation(
+        translateAnimation = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, 0f,
-                Animation.RELATIVE_TO_SELF, 2f,
+                Animation.RELATIVE_TO_SELF, 1f,
                 Animation.RELATIVE_TO_SELF, 0f,
-                Animation.RELATIVE_TO_SELF, 2f
+                Animation.RELATIVE_TO_SELF, 1f
         );
-        animation.setDuration(2000);
-        mIv.startAnimation(animation);
+        translateAnimation.setDuration(3000);
+        mIv.startAnimation(translateAnimation);
     }
 
     private void rotate() {
