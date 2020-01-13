@@ -116,9 +116,15 @@ dependencies {
 
     api project(':umlibrary')
 
+
+
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'  //基本
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0' //Gson解析
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation files('libs/pinyin4j-2.5.0.jar')
-    implementation files('libs/miit_mdid_1.0.10.aar')
+    api files('libs/miit_mdid_1.0.10.aar')
 }

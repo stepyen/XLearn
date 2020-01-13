@@ -4,5 +4,6 @@
     <string name="common_money">%.2f</string>   <!--金额保留两位小数-->
 
 
+    <string name="common_count_down_time">%02d</string>
 
 </resources>

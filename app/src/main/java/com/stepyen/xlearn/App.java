@@ -4,9 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.bun.miitmdid.core.ErrorCode;
 import com.bun.miitmdid.core.JLibrary;
 import com.stepyen.xlearn.base.BaseActivity;
 import com.stepyen.xlearn.constant.Constant;
+import com.stepyen.xlearn.fragment.expands.other.MsaHelp;
 import com.stepyen.xui.XUI;
 import com.stepyen.xutil.XUtil;
 import com.umeng.commonsdk.UMConfigure;
@@ -49,8 +51,6 @@ public class App extends Application {
 
 //        initUmeng();
 
-
-        initMdid(this);
 
     }
 
@@ -101,10 +101,4 @@ public class App extends Application {
     }
 
 
-    /**
-     * 初始化 移动安全联盟 sdk
-     */
-    private void initMdid(Application application) {
-        JLibrary.InitEntry(application);
-    }
 }

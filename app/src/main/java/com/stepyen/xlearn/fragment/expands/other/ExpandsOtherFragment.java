@@ -18,9 +18,6 @@ import butterknife.BindView;
  * date：2019/7/5
  * author：stepyen
  * description：
- *
- *
- *
  */
 @Page(name = "其他", extra = R.drawable.ic_widget_imageview)
 public class ExpandsOtherFragment extends BaseFragment {
@@ -35,26 +32,26 @@ public class ExpandsOtherFragment extends BaseFragment {
 
     @Override
     protected void initViews() {
-        getOoid();
+        getOaid();
     }
 
-    private void getOoid() {
-        // 反射调用
-        MdidSdkHelper.InitSdk(getContext(), true, new IIdentifierListener() {
-            @Override
-            public void OnSupport(boolean b, IdSupplier supplier) {
+    private void getOaid() {
 
-                App.handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (supplier.isSupported()) {
-                            tv_ooid.setText("支持获取ooid，为 "+supplier.getOAID());
-                            Log.i(TAG, "run: oaid    "+supplier.getOAID());
-                            Log.i(TAG, "run: vaid    "+supplier.getVAID());
-                            Log.i(TAG, "run: aaid    "+supplier.getAAID());
-                        }else{
-                            tv_ooid.setText("不支持获取ooid");
-                        }
+        MsaHelp.getInstance().initSdk(getContext());
+        MsaHelp.getInstance().initData(getContext(), new MsaHelp.OnMsaListener() {
+            @Override
+            public void onSupport(boolean isSupport, IdSupplier supplier) {
+
+                Log.d(TAG, "initData: onSupport ");
+
+                App.handler.post(() -> {
+                    if (isSupport) {
+                        tv_ooid.setText("支持获取 oaid，为 " + supplier.getOAID());
+                        Log.i(TAG, "run: oaid    " + supplier.getOAID());
+                        Log.i(TAG, "run: vaid    " + supplier.getVAID());
+                        Log.i(TAG, "run: aaid    " + supplier.getAAID());
+                    } else {
+                        tv_ooid.setText("不支持获取oaid");
                     }
                 });
             }

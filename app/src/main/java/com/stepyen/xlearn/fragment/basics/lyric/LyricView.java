@@ -241,6 +241,7 @@ public class LyricView extends View {
         Paint.FontMetrics fm = paint.getFontMetrics();
         int x = (int) (width / 2 - paint.measureText(text) / 2);
 
+        // 文本在 item 居中
         int y = (int) (offsetIndex * itemHeight + itemHeight / 2 - (fm.descent + fm.ascent) / 2);
 
         canvas.drawText(text, x, y, paint);
@@ -292,12 +293,11 @@ public class LyricView extends View {
 
         AnimatorSet set = new AnimatorSet();
         set.setDuration(1000);
-        set.play(scaleSmallAnimator)
-                .with(scaleLargeAnimator)
-                .with(translateAnimator)
-                .with(fromCurrentToAlreadColorAnimator)
-                .with(fromWaitToCurrentReadColorAnimator)
-        ;
+        set.playTogether(scaleSmallAnimator,
+                scaleLargeAnimator,
+                translateAnimator,
+                fromCurrentToAlreadColorAnimator,
+                fromWaitToCurrentReadColorAnimator);
 
         set.start();
     }
