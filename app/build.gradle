@@ -127,4 +127,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation files('libs/pinyin4j-2.5.0.jar')
     api files('libs/miit_mdid_1.0.10.aar')
+
+
+    // 日志
+    implementation 'com.orhanobut:logger:2.2.0'
 }

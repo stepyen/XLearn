@@ -6,6 +6,10 @@ import android.os.Handler;
 
 import com.bun.miitmdid.core.ErrorCode;
 import com.bun.miitmdid.core.JLibrary;
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.FormatStrategy;
+import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 import com.stepyen.xlearn.base.BaseActivity;
 import com.stepyen.xlearn.constant.Constant;
 import com.stepyen.xlearn.fragment.expands.other.MsaHelp;
@@ -51,6 +55,23 @@ public class App extends Application {
 
 //        initUmeng();
 
+        initLog();
+
+
+    }
+
+    /**
+     * 初始化日志
+     */
+    private void initLog() {
+
+        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
+                .showThreadInfo(false) //(optional) whether to show thread info or not. Default true
+                .methodCount(5) //(optional) how many method line to show, default 2。 显示多少个方法数
+                .methodOffset(5) //(optional) hides internal method calls up to offset, default 5。从哪里开始显示的偏移量，为0的时候，就显示内部方法
+                .tag("XLearn_TAG") //(optional) global tag for every log, default PRETTY_LOGGER
+                .build();
+        Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
 
     }
 
