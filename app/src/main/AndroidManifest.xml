@@ -10,11 +10,14 @@
 
     <!--录音-->
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
-
-
     <!--    监听短信权限-->
     <uses-permission android:name="android.permission.RECEIVE_SMS"></uses-permission>
     <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!--允许读取手机状态 用于创建BmobInstallation-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
 
     <application
         android:name=".App"
@@ -87,8 +90,8 @@
 
 
         <provider
-            android:authorities="com.stepyen.StudentContentProvider"
             android:name=".fragment.basics.content_provider.StudentContentProvider"
+            android:authorities="com.stepyen.StudentContentProvider"
             android:exported="true"
             ></provider>
 
@@ -156,6 +159,13 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
             </intent-filter>
         </receiver>
+
+
+
+        <provider
+            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:authorities="com.stepyen.xlearn.BmobContentProvider">
+        </provider>
     </application>
 
 </manifest>

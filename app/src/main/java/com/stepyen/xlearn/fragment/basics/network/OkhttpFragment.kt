@@ -127,7 +127,7 @@ class OkhttpFragment : BaseFragment() {
             override fun onResponse(call: Call?, response: Response) {
                 Logger.e(response.toString())
 
-                val bytes = response.body().bytes()
+                val bytes = response.body()?.bytes()
 
                 val imagePath = "test_image.jgp"
 
@@ -160,7 +160,7 @@ class OkhttpFragment : BaseFragment() {
             override fun onResponse(call: Call?, response: Response) {
                 Logger.e(response.toString())
 
-                val bytes = response.body().bytes()
+                val bytes = response.body()?.bytes()
                 val message = handle.obtainMessage().apply {
                     obj = bytes
                     what = WHAT_DOWN_LOAD_IMAGE
