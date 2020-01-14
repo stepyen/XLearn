@@ -2,8 +2,8 @@ package com.stepyen.xlearn.fragment.basics.network
 
 import android.graphics.BitmapFactory
 import android.os.Handler
-import android.os.Message
 import com.orhanobut.logger.Logger
+import com.stepyen.xlearn.App
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BaseFragment
 import com.stepyen.xutil.tip.ToastUtils
@@ -26,7 +26,15 @@ class OkhttpFragment : BaseFragment() {
 
         const val WHAT_DOWN_LOAD_IMAGE = 1
 
+
+        const val IMAGE_URL_1 = "http://pic33.nipic.com/20131007/13639685_123501617185_2.jpg"
+
+        const val IMAGE_URL_2 = "http://beta.admin.kid58.com/uploads/images/img/b5931961f98c985ed7bc4fc78c612a8b.png"
+
     }
+
+    private var imageUrl = IMAGE_URL_1
+
 
 
     private val okHttpClient: OkHttpClient by lazy {
@@ -68,6 +76,10 @@ class OkhttpFragment : BaseFragment() {
     override fun kotlinInitViews() {
 
 
+        changeImagePath.setOnClickListener {
+            imageUrl = if (imageUrl == IMAGE_URL_1) IMAGE_URL_2 else IMAGE_URL_1
+        }
+
         getBtn.setOnClickListener {
 
         }
@@ -80,11 +92,11 @@ class OkhttpFragment : BaseFragment() {
         postJsonBtn.setOnClickListener {
 
         }
-        postDownLoadFileBtn.setOnClickListener {
-
-        }
         postDownLoadImageBtn.setOnClickListener {
             postDownLoadImage()
+        }
+        postDownLoadImageAndShowBtn.setOnClickListener {
+            postDownLoadImageAndShow()
         }
         postUploadFileBtn.setOnClickListener {
 
@@ -95,17 +107,47 @@ class OkhttpFragment : BaseFragment() {
     /**
      * 下载文件
      */
-    private fun postDownLoadFile() {
 
+
+    /**
+     * 下载图片并存在存储中
+     */
+    private fun postDownLoadImage() {
+
+        val request = Request.Builder().apply { url(imageUrl) }.build()
+
+        okHttpClient.newCall(request).enqueue(object : Callback {
+
+            override fun onFailure(call: Call?, e: IOException?) {
+
+                Logger.e(e.toString())
+
+            }
+
+            override fun onResponse(call: Call?, response: Response) {
+                Logger.e(response.toString())
+
+                val bytes = response.body().bytes()
+
+                val imagePath = "test_image.jgp"
+
+                FileUtil.writeToFilesDir(imagePath,bytes)
+
+                Logger.e("保存成功：图片路径：${App.get().getExternalCacheDir()}/${imagePath}")
+
+                ToastUtils.toast("保存成功")
+            }
+
+        })
     }
 
     /**
-     * 下载图片
+     * 下载图片并显示
      */
-    private fun postDownLoadImage() {
-        val url = "http://pic33.nipic.com/20131007/13639685_123501617185_2.jpg"
+    private fun postDownLoadImageAndShow() {
 
-        val request = Request.Builder().apply { url(url) }.build()
+
+        val request = Request.Builder().apply { url(imageUrl) }.build()
 
         okHttpClient.newCall(request).enqueue(object : Callback {
 

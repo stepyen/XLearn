@@ -18,6 +18,11 @@
             android:orientation="vertical"
             >
 
+            <Button
+                android:id="@+id/changeImagePath"
+                style="@style/CommonButton"
+                android:text="改变图片路径"
+                />
 
 
             <Button
@@ -44,14 +49,15 @@
                 />
 
             <Button
-                android:id="@+id/postDownLoadFileBtn"
-                style="@style/CommonButton"
-                android:text="post 下载文件"
-                />
-            <Button
                 android:id="@+id/postDownLoadImageBtn"
                 style="@style/CommonButton"
-                android:text="post 下载图片"
+                android:text="post 下载图片到存储"
+                />
+
+            <Button
+                android:id="@+id/postDownLoadImageAndShowBtn"
+                style="@style/CommonButton"
+                android:text="post 下载图片并显示"
                 />
 
             <Button

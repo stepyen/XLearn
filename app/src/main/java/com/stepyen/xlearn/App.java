@@ -34,7 +34,15 @@ import androidx.multidex.MultiDex;
  */
 public class App extends Application {
 
+    public static App app;
+
     public static Handler handler = new Handler();
+
+
+
+    public static Application get() {
+        return app;
+    }
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -46,6 +54,9 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        app = this;
+
         XUtil.init(this);
 
         XUI.init(this);
