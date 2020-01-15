@@ -10,6 +10,7 @@ import com.stepyen.xutil.tip.ToastUtils
 import com.xuexiang.xpage.annotation.Page
 import kotlinx.android.synthetic.main.fragment_okhttp.*
 import okhttp3.*
+import java.io.File
 import java.io.IOException
 import java.util.concurrent.TimeUnit
 
@@ -131,9 +132,11 @@ class OkhttpFragment : BaseFragment() {
 
                 val imagePath = "test_image.jgp"
 
-                FileUtil.writeToFilesDir(imagePath,bytes)
+                FileUtil.writeToFile(App.get().externalCacheDir.absolutePath,imagePath,bytes)
 
-                Logger.e("保存成功：图片路径：${App.get().getExternalCacheDir()}/${imagePath}")
+                FileUtil.refreshSystemImageDataBase(context, File("${App.get().externalCacheDir}/${imagePath}"))
+
+                Logger.e("保存成功：图片路径：${App.get().externalCacheDir}/${imagePath}")
 
                 ToastUtils.toast("保存成功")
             }

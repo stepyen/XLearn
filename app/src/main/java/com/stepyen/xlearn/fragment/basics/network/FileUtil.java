@@ -29,14 +29,12 @@ import okhttp3.ResponseBody;
  */
 public class FileUtil {
 
-    public static void writeToFilesDir(String path, byte[] data) {
-        writeToFile(App.get().getExternalCacheDir(), path, data);
-    }
 
-    private static void writeToFile(File parent, String path, byte[] data) {
+
+    public static void writeToFile(String parentPath, String path, byte[] data) {
         try {
 
-            File file = new File(parent, path);
+            File file = new File(parentPath, path);
 
             if (!file.exists()) {
                 File p = file.getParentFile();
@@ -48,6 +46,8 @@ public class FileUtil {
             FileOutputStream stream = new FileOutputStream(file);
             stream.write(data);
             stream.close();
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,12 +56,13 @@ public class FileUtil {
 
     /**
      * 刷新 系统图片库
+     *
      * @param context
      * @param file
      */
     public static void refreshSystemImageDataBase(Context context, File file) {
 
-        if (context == null || file == null|| file.isDirectory()) {
+        if (context == null || file == null || file.isDirectory()) {
             return;
         }
 
@@ -74,6 +75,5 @@ public class FileUtil {
 
         // 通知图库更新
         context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
-
     }
 }

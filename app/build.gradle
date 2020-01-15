@@ -113,14 +113,14 @@ dependencies {
         exclude group: "com.android.support"
     }
 
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
     api project(':umlibrary')
 
 
 
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'  //基本
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0' //Gson解析
+    api 'com.squareup.retrofit2:retrofit:2.1.0'  //基本
+    api 'com.squareup.retrofit2:converter-gson:2.1.0' //Gson解析
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
