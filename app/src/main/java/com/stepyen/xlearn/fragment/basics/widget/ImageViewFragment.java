@@ -1,17 +1,9 @@
-package com.stepyen.xlearn.fragment.basics.image;
+package com.stepyen.xlearn.fragment.basics.widget;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,19 +12,10 @@ import android.widget.TextView;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseFragment;
-import com.stepyen.xutil.tip.ToastUtils;
 import com.xuexiang.xpage.annotation.Page;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-
 import androidx.annotation.RequiresApi;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
-import butterknife.OnClick;
 
 /**
  * date：2019/7/5
@@ -44,8 +27,8 @@ import butterknife.OnClick;
  *
  *
  */
-@Page(name = "图片",extra = R.drawable.ic_widget_imageview)
-public class ImageFragment extends BaseFragment {
+@Page(name = "ImageView")
+public class ImageViewFragment extends BaseFragment {
     private static final String TAG = "ImageFragment";
     private ImageView iv_tint;
     private ImageView iv_tint2;
@@ -60,7 +43,6 @@ public class ImageFragment extends BaseFragment {
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void initViews() {
-
         iv_tint = findViewById(R.id.iv_tint);
         seekbar_tint = findViewById(R.id.seekbar_tint);
         tv_alpha_hint = findViewById(R.id.tv_alpha_hint);
@@ -105,7 +87,6 @@ public class ImageFragment extends BaseFragment {
             }
         });
 
-
     }
 
     boolean change = false;
@@ -148,61 +129,4 @@ public class ImageFragment extends BaseFragment {
     }
 
 
-    @OnClick(R.id.sava_resource_image)
-    void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.sava_resource_image:
-                sava_resource_image();
-                break;
-
-            case R.id.sava_network_image:
-
-                break;
-        }
-
-    }
-
-
-    private void sava_resource_image() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_dog);
-        saveImageView(getContext(),bitmap);
-        ToastUtils.toast("保存图片成功");
-    }
-
-    private void sava_network_image() {
-
-    }
-
-
-    private void saveImageView(Context context,Bitmap bitmap) {
-        // 创建文件
-        File appDir = new File(context.getExternalCacheDir(), "image");
-        if (!appDir.exists()) {
-            appDir.mkdir();
-        }
-        String fileName = System.currentTimeMillis() + ".jpg";
-        File file = new File(appDir, fileName);
-
-        // 保存文件
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-            fos.flush();
-            fos.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // 文件插入系统图库
-        try {
-            MediaStore.Images.Media.insertImage(context.getContentResolver(),
-                    file.getAbsolutePath(), fileName, null);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        // 通知图库更新
-        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.parse(file.getAbsolutePath())));
-    }
 }

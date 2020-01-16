@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.kotlin
+package com.stepyen.xlearn.fragment.expands.kotlin
 
 /**
  * date：2020-01-14
@@ -21,6 +21,9 @@ fun main(args: Array<String>) {
     val c: Int? = a
     println(b == c)    //true
     println(b === c)   //false
+
+
+
 }
 
 

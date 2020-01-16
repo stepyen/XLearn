@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="内部存储 和 外部存储 API"
+                />
+
+            <TextView
+                android:id="@+id/tv_storage_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+
+
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="File API"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_file_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                />
+
+            <Button
+                android:id="@+id/btn_mkdir"
+                style="@style/CommonButton"
+                android:text="mkdir 创建文件夹"
+                />
+
+            <Button
+                android:id="@+id/btn_mkdirs"
+                style="@style/CommonButton"
+                android:text="mkdirs 创建文件夹"
+                />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

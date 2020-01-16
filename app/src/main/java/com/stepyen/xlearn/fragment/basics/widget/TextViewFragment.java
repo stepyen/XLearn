@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics;
+package com.stepyen.xlearn.fragment.basics.widget;
 
 import android.text.SpannableString;
 import android.text.TextPaint;
@@ -22,7 +22,7 @@ import butterknife.BindView;
  * description：
  */
 
-@Page(name = "TextView", extra = R.drawable.ic_widget_imageview)
+@Page(name = "TextView")
 public class TextViewFragment extends BaseFragment {
 
     @BindView(R.id.tv_spannablestring_click)

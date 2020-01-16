@@ -6,6 +6,7 @@ import com.orhanobut.logger.Logger
 import com.stepyen.xlearn.App
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BaseFragment
+import com.stepyen.xlearn.utils.FileUtil
 import com.stepyen.xutil.tip.ToastUtils
 import com.xuexiang.xpage.annotation.Page
 import kotlinx.android.synthetic.main.fragment_okhttp.*
@@ -82,7 +83,7 @@ class OkhttpFragment : BaseFragment() {
         }
 
         getBtn.setOnClickListener {
-
+            ToastUtils.toast("哈哈")
         }
         postBtn.setOnClickListener {
 
@@ -105,9 +106,6 @@ class OkhttpFragment : BaseFragment() {
 
     }
 
-    /**
-     * 下载文件
-     */
 
 
     /**

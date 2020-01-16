@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics.network;
+package com.stepyen.xlearn.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 
 import com.stepyen.xlearn.App;
@@ -76,4 +77,45 @@ public class FileUtil {
         // 通知图库更新
         context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
     }
+
+
+
+
+    public static void saveImageWithBitmap( Context context,Bitmap bitmap) {
+
+        // 创建文件
+        File appDir = new File(context.getCacheDir(),"image");
+        if (!appDir.exists()) {
+            appDir.mkdir();
+        }
+        String fileName = System.currentTimeMillis() + ".jpg";
+        File file = new File(appDir, fileName);
+
+        // 保存文件
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        refreshSystemImageDataBase(context,file);
+
+//        // 文件插入系统图库
+//        try {
+//            MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getAbsolutePath(), fileName, null);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        // 通知图库更新
+//        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
+////        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"+ Environment.getExternalStorageDirectory())));
+
+    }
+
+
 }

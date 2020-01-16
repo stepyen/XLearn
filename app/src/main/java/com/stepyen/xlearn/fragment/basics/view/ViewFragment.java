@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics;
+package com.stepyen.xlearn.fragment.basics.view;
 
 import android.graphics.Rect;
 import android.view.TouchDelegate;
@@ -17,7 +17,7 @@ import butterknife.OnClick;
 /**
  * date：2019/7/5
  * author：stepyen
- * description：
+ * description：View 的基础知识学习
  */
 @Page(name = "View",extra = R.drawable.ic_widget_imageview)
 public class ViewFragment extends BaseFragment {

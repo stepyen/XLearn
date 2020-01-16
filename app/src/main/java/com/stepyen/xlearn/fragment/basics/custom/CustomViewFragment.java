@@ -1,10 +1,7 @@
 package com.stepyen.xlearn.fragment.basics.custom;
 
 import com.stepyen.xlearn.R;
-import com.stepyen.xlearn.base.BaseFragment;
-import com.stepyen.xlearn.base.BaseTestFragment;
 import com.stepyen.xlearn.base.ComponentContainerFragment;
-import com.stepyen.xlearn.fragment.basics.ConstraintLayoutFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
