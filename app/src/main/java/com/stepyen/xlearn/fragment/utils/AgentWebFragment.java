@@ -5,7 +5,6 @@ import android.webkit.WebView;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseTestFragment;
-import com.stepyen.xlearn.fragment.UMengActivity;
 import com.stepyen.xlearn.fragment.utils.AgentWeb.AgentWebActivity;
 import com.xuexiang.xpage.annotation.Page;
 

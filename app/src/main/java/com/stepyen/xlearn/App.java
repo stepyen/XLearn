@@ -4,15 +4,12 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
-import com.bun.miitmdid.core.ErrorCode;
-import com.bun.miitmdid.core.JLibrary;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.stepyen.xlearn.base.BaseActivity;
 import com.stepyen.xlearn.constant.Constant;
-import com.stepyen.xlearn.fragment.expands.other.MsaHelp;
 import com.stepyen.xui.XUI;
 import com.stepyen.xutil.XUtil;
 import com.umeng.commonsdk.UMConfigure;
@@ -123,8 +120,8 @@ public class App extends Application {
                     @Override
                     public List<PageInfo> registerPages(Context context) {
                         //自动注册页面,是编译时自动生成的，build一下就出来了。如果你还没使用@Page的话，暂时是不会生成的。
-                        return AppPageConfig.getInstance().getPages(); //自动注册页面
-
+//                        return AppPageConfig.getInstance().getPages(); //自动注册页面
+                        return null;
                     }
                 })
                 .debug("PageLog")       //开启调试

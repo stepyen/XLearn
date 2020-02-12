@@ -40,6 +40,9 @@
         <activity android:name=".TestActivity">
 
         </activity>
+        <activity android:name=".base.BasePageActivity">
+
+        </activity>
 
         <activity android:name=".base.BaseActivity"></activity>
         <activity android:name=".fragment.utils.life_cycle.ActivityLifeActivity"></activity>
@@ -53,7 +56,8 @@
             >
         </activity>
         <activity android:name=".fragment.utils.launch.CActivity"></activity>
-        <activity android:name=".fragment.UMengActivity"></activity>
+        <activity android:name=".activity.UMengActivity"></activity>
+        <activity android:name=".PageListActivity"></activity>
 
         <activity android:name=".fragment.basics.activity.TargetActivity"></activity>
         <activity android:name=".fragment.basics.eventDispatch.dispatch.EventDispatchActivity"></activity>

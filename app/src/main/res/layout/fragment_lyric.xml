@@ -35,7 +35,7 @@
                 android:text="停止"
                 />
 
-            <com.stepyen.xlearn.fragment.basics.lyric.LyricView
+            <com.stepyen.xlearn.fragment.basics.custom.lyric.LyricView
                 android:id="@+id/lyricview"
                 android:layout_width="300dp"
                 android:layout_height="200dp"

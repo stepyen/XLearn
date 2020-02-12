@@ -4,7 +4,7 @@
  **/
 ext.deps = [:]
 def versions = [:]
-versions.android_gradle_plugin = '3.2.1'
+versions.android_gradle_plugin = '3.4.2'
 versions.android_maven_gradle_plugin = "2.0"
 versions.gradle_bintray_plugin = "1.8.0"
 versions.retrolambda = "3.7.0"
@@ -207,6 +207,8 @@ ext.app_release = app_release
 //默认添加代码仓库路径
 def addRepos(RepositoryHandler handler) {
 //    handler.maven { url "http://10.1.14.226:8081/repository/maven-public/" }
+//    handler.maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+
     handler.google()
     handler.jcenter()
     handler.mavenCentral()
@@ -217,7 +219,6 @@ def addRepos(RepositoryHandler handler) {
     //Add the Local repository
     handler.maven{ url 'LocalRepository'}
 
-    handler.maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
 
 }
 

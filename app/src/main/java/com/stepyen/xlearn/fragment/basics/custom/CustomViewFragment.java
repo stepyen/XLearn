@@ -2,6 +2,7 @@ package com.stepyen.xlearn.fragment.basics.custom;
 
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.ComponentContainerFragment;
+import com.stepyen.xlearn.fragment.basics.custom.lyric.LyricFragment;
 import com.xuexiang.xpage.annotation.Page;
 
 /**
@@ -16,6 +17,7 @@ public class CustomViewFragment extends ComponentContainerFragment {
     protected Class[] getPagesClasses() {
         return new Class[]{
                 CustomStyleFragment.class,
+                LyricFragment.class,
                 CustomViewLearnFragment.class
         };
     }

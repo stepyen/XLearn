@@ -1,1 +1,1 @@
-include ':app', ':widget_compiler', ':umlibrary'
+include ':app', ':widget_compiler', ':umlibrary', ':chivox', ':common'
