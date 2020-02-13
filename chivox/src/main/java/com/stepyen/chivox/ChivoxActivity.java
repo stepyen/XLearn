@@ -4,18 +4,23 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.chivox.AIEngine;
 import com.stepyen.chivox.R;
+import com.stepyen.chivox.record.XSAudioRecorder;
 import com.stepyen.common.utils.AudioRecoderUtils;
 import com.stepyen.common.widget.AudioRecoderDialog;
 import com.stepyen.common.widget.TouchButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -116,39 +121,101 @@ public class ChivoxActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void down(int id) {
 
-        if (id == R.id.btn_english_letter) {
+        Map<String, Object> map = null;
 
+        if (id == R.id.btn_english_letter) {
+            map = buildSimpleRequest("en.word.score", getString(R.string.test_en_letter));
         }
         if (id == R.id.btn_english_word) {
-
+            map = buildSimpleRequest("en.word.pron", getString(R.string.test_en_word));
         }
 
         if (id == R.id.btn_english_sent) {
-
+            map = buildSimpleRequest("en.sent.score", getString(R.string.test_en_sent));
         }
 
         if (id == R.id.btn_chinese_word) {
-
+            map = buildSimpleRequest("cn.word.raw", getString(R.string.test_cn_word));
         }
 
         if (id == R.id.btn_chinese_words) {
-
+            map = buildSimpleRequest("cn.word.raw", getString(R.string.test_cn_words));
         }
 
         if (id == R.id.btn_chinese_idiom) {
-
+            map = buildSimpleRequest("cn.word.raw", getString(R.string.test_cn_idiom));
         }
 
         if (id == R.id.btn_chinese_sent) {
-
+            map = buildSimpleRequest("cn.sent.raw", getString(R.string.test_cn_sent));
         }
 
+        start();
+        String path = getExternalCacheDir().getAbsolutePath() + "/"+System.currentTimeMillis() + ".wav";
+        XSAudioRecorder.getInstance().start(path, 1,1, new XSAudioRecorder.OnAudioDataCallback(){
 
+            @Override
+            public void onBeginRecorder() {
+                Log.d(TAG, "onBeginRecorder: ");
+            }
+
+            @Override
+            public void onRecordStop() {
+                Log.d(TAG, "onRecordStop: ");
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "onCancel: ");
+            }
+
+            @Override
+            public void onCancelQuiet() {
+
+            }
+
+            @Override
+            public void onAudioData(byte[] var1, int var2) {
+
+            }
+
+            @Override
+            public void onError(int var1, String var2) {
+                Log.d(TAG, "onError: ");
+            }
+        });
+
+
+//        ChivoxHelp.getInstance().start(this,map);
     }
+
+
+    private Map<String, Object> buildSimpleRequest(String coreType,String refText) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("coreType", coreType);
+        map.put("refText", refText);
+        map.put("rank", 100);
+        map.put("attachAudioUrl", 1);
+        return map;
+    }
+
+    private void start() {
+        mRecoderUtils.startRecord();
+        mRecoderDialog.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+    }
+
+    private void stop() {
+
+        mRecoderUtils.stopRecord();
+        mRecoderDialog.dismiss();
+    }
+
 
     @Override
     public void up() {
-
+        stop();
+        XSAudioRecorder.getInstance().stop();
+        ChivoxHelp.getInstance().stop();
     }
 
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.chivox.AIEngine;
+import com.stepyen.chivox.record.XSAudioRecorder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +14,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Map;
 
 /**
  * date：2020-02-12
@@ -74,6 +77,66 @@ public class ChivoxHelp {
         } else {
             Log.d(TAG, "initEngine: 成功");
         }
+    }
+
+    public void start(Context context, Map<String, Object> requestMap) {
+        String param = "";
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("coreProvideType", "cloud");
+
+            JSONObject appJo = new JSONObject();
+            appJo.put("userId", "guest");
+            jsonObject.put("app", appJo);
+
+            JSONObject audioJo = new JSONObject();
+            audioJo.put("audioType", "wav");
+            audioJo.put("channel", 1);
+            audioJo.put("sampleBytes", 2);
+            audioJo.put("sampleRate", 16000);
+            jsonObject.put("audio", audioJo);
+
+            JSONObject requestJo = new JSONObject();
+            for (String key : requestMap.keySet()) {
+                requestJo.put(key, requestMap.get(key));
+            }
+
+            jsonObject.put("request", requestJo);
+
+            jsonObject.put("soundIntensityEnable", "1"); // 是否实时返回音量
+
+            param = jsonObject.toString();
+
+            Log.d(TAG, "start: "+param);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        byte[] tokenId = new byte[64];
+        AIEngine.aiengine_callback callback = new AIEngine.aiengine_callback() {
+            @Override
+            public int run(byte[] id, int type, byte[] data, int size) {
+                Log.d(TAG, "run: id " + id);
+                Log.d(TAG, "run: type " + type);
+                Log.d(TAG, "run: data " + data);
+
+                if (type == AIEngine.AIENGINE_MESSAGE_TYPE_JSON) {
+                    final String result = new String(data, 0, size).trim(); //返回结果是json格式
+                    Log.d(TAG, "run: data String " + result);
+                }
+
+                Log.d(TAG, "run: size " + size);
+                return 0;
+            }
+        };
+        AIEngine.aiengine_start(engine, param, tokenId, callback, context);
+
+
+    }
+
+    public void stop() {
+        AIEngine.aiengine_stop(engine);
+
     }
 
 
