@@ -73,7 +73,7 @@ open class BasePageActivity : AppCompatActivity() {
         setLpMarginTop(button, marginTop)
     }
 
-    protected fun addTextView(txt: CharSequence, marginTop: Int): TextView? {
+    protected fun addTextView(txt: CharSequence, marginTop: Int=10): TextView? {
         val tv = TextView(this@BasePageActivity).apply {
             text = txt
         }

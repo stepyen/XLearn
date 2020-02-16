@@ -44,6 +44,13 @@
 
         </activity>
 
+        <activity android:name=".activity.socket.SocketActivity">
+
+        </activity>
+        <activity android:name=".activity.audio.AudioActivity">
+
+        </activity>
+
         <activity android:name=".base.BaseActivity"></activity>
         <activity android:name=".fragment.utils.life_cycle.ActivityLifeActivity"></activity>
 

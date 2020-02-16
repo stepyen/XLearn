@@ -12,13 +12,19 @@ import com.stepyen.xlearn.base.BasePageActivity
 class MainActivity : BasePageActivity() {
 
     override fun initView() {
-        for (data in DataManage.data) {
+        for (data in PageDataManage.data) {
             val pageBean = data.key
             val pageBeanList = data.value
             addButton(pageBean.title, View.OnClickListener {
-                startActivity(Intent(this@MainActivity, PageListActivity::class.java).apply {
-                    putExtra(PageListActivity.KEY_PAGE_LIST , pageBeanList)
-                })
+
+                // 只有一个选项时，直接跳转过去
+                if (pageBeanList.size ==1) {
+                    startActivity(Intent(this@MainActivity, pageBeanList[0].cls))
+                }else{
+                    startActivity(Intent(this@MainActivity, PageListActivity::class.java).apply {
+                        putExtra(PageListActivity.KEY_PAGE_LIST , pageBeanList)
+                    })
+                }
             })
         }
     }

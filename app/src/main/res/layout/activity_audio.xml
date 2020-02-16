@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    >
+
+    <TextView
+        style="@style/TextView_hint_tag"
+        android:text="录音 MediaRecoder"
+        />
+    <Button
+        android:id="@+id/btn_media_start"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="开始"
+        />
+    <Button
+        android:id="@+id/btn_media_stop"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="停止"
+        />
+
+    <Button
+        android:id="@+id/btn_media_playback"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="回放"
+        />
+    <Button
+        android:id="@+id/btn_media_stop_playback"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="停止回放"
+        />
+
+    <TextView
+        style="@style/TextView_hint_tag"
+        android:text="录音 AudioRecord"
+        />
+
+
+    <Button
+        android:id="@+id/btn_Audio_start"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="开始"
+        />
+    <Button
+        android:id="@+id/btn_Audio_stop"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="停止"
+        />
+
+    <Button
+        android:id="@+id/btn_Audio_playback"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="回放"
+        />
+    <Button
+        android:id="@+id/btn_Audio_stop_playback"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="停止回放"
+        />
+
+
+
+</LinearLayout>

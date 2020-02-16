@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    >
+
+    <TextView
+        style="@style/TextView_hint_tag"
+        android:text="第三方库 AndroidSocketClient"
+        />
+    <EditText
+        android:id="@+id/et_socket_ip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入ip"
+
+        />
+
+    <EditText
+        android:id="@+id/et_socket_port"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="请输入port"
+        />
+    <EditText
+        android:id="@+id/et_socket_userId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="请输入用户Id"
+        />
+
+    <Button
+        android:id="@+id/btn_socket_connect"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="连接"
+        />
+
+    <TextView
+        android:id="@+id/tv_socket_connect_status"
+        style="@style/TextStyle"
+        android:layout_marginTop="15dp"
+        tools:text="连接状态："
+        />
+    <TextView
+        style="@style/TextStyle"
+        android:layout_marginTop="15dp"
+        android:text="聊天内容"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/moccasin"
+        android:layout_marginTop="15dp"
+        >
+        <LinearLayout
+            android:id="@+id/ll_socket_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            />
+    </ScrollView>
+
+    <EditText
+        android:id="@+id/et_socket_send_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入聊天内容"
+        android:layout_marginTop="15dp"
+        />
+    <Button
+        android:id="@+id/btn_socket_send"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="发送"
+        />
+
+    <Button
+        android:id="@+id/btn_socket_clear_chat"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="清空聊天内容"
+        />
+
+
+</LinearLayout>

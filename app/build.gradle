@@ -157,7 +157,7 @@ dependencies {
     kapt project(':widget_compiler')
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
-
-
+    // socket
+    implementation 'com.github.vilyever:AndroidSocketClient:1.4.1'
 
 }
