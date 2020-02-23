@@ -1,10 +1,5 @@
 package com.stepyen.xlearn;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.util.concurrent.CopyOnWriteArrayList;
-
 /**
  * date：2019/7/18
  * author：stepyen
@@ -13,6 +8,39 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Copy   {
 
 
+    /**
+     * id : 8
+     * time : 2020-02-03 09:14:43
+     * sendId : 1
+     */
+
+    private int id;
+    private String time;
+    private String sendId;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getSendId() {
+        return sendId;
+    }
+
+    public void setSendId(String sendId) {
+        this.sendId = sendId;
+    }
 }
 
 

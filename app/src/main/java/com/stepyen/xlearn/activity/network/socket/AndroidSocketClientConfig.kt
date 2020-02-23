@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.activity.socket
+package com.stepyen.xlearn.activity.network.socket
 
 /**
  * date：2020-02-15

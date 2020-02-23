@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.activity.socket
+package com.stepyen.xlearn.activity.network.socket
 
 import android.annotation.SuppressLint
 import com.orhanobut.logger.Logger
