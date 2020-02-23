@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics.reflect;
+package com.stepyen.xlearn.activity.java.reflect;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
@@ -23,7 +23,7 @@ public class ReflectTest {
 
         // 调用方法
         try {
-            Class<?> userClass = Class.forName("com.stepyen.xlearn.fragment.basics.reflect.User");
+            Class<?> userClass = Class.forName("com.stepyen.xlearn.activity.java.reflect.User");
             User user = (User) userClass.newInstance();
             Method getNameMethod =  userClass.getMethod("getName");
             getNameMethod.setAccessible(true);
@@ -49,11 +49,11 @@ public class ReflectTest {
     public static void testInvokeMethodHasImplements() {
         // 调用方法-参数是接口
         try {
-            Class<?> userClass = Class.forName("com.stepyen.xlearn.fragment.basics.reflect.User");
+            Class<?> userClass = Class.forName("com.stepyen.xlearn.activity.java.reflect.User");
 
             User user = (User) userClass.newInstance();
 
-            Class<?> onChangeNameListenClass = Class.forName("com.stepyen.xlearn.fragment.basics.reflect.OnChangeNameListen");
+            Class<?> onChangeNameListenClass = Class.forName("com.stepyen.xlearn.activity.java.reflect.OnChangeNameListen");
 
             Method setOnChangeNameListenMethod =  userClass.getMethod("setOnChangeNameListen",onChangeNameListenClass);
 

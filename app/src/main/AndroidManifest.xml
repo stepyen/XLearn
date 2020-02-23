@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.animotion.AnimotionActivity"></activity>
+        <activity android:name=".activity.java.reflect.ReflectActivity"></activity>
+        <activity android:name=".activity.animotion.AnimotionActivity" />
         <activity android:name=".activity.module.activity.ActivityActivity" />
         <activity android:name=".activity.function.UriActivity" />
         <activity android:name=".activity.function.JsonActivity" />
@@ -129,8 +130,6 @@
         <service
             android:name=".fragment.basics.process_communication.MessengerService"
             android:process=":testMessenger" />
-
-
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.function.HandleActivity
 import com.stepyen.xlearn.activity.function.JsonActivity
 import com.stepyen.xlearn.activity.function.UriActivity
+import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
 import com.stepyen.xlearn.activity.module.activity.ActivityActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
 import com.stepyen.xlearn.bean.PageBean
@@ -64,6 +65,13 @@ object PageDataManage {
         put("动画", arrayListOf<PageBean>().apply {
 
             add(PageBean("帧动画", ActivityActivity::class.java))
+            add(PageBean("补间动画", ActivityActivity::class.java))
+            add(PageBean("属性动画", ActivityActivity::class.java))
+
+        })
+        put("Java", arrayListOf<PageBean>().apply {
+
+            add(PageBean("反射", ReflectActivity::class.java))
             add(PageBean("补间动画", ActivityActivity::class.java))
             add(PageBean("属性动画", ActivityActivity::class.java))
 
