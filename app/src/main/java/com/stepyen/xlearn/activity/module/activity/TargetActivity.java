@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics.activity;
+package com.stepyen.xlearn.activity.module.activity;
 
 import com.stepyen.xlearn.base.BaseActivity;
 import com.stepyen.xlearn.base.BaseTestActivity;

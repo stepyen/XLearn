@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.stepyen.xlearn">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 录音 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 监听短信权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.READ_SMS" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -12,33 +23,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.network.websocket.WebSocketActivity">
+        <activity android:name=".activity.animotion.AnimotionActivity"></activity>
+        <activity android:name=".activity.module.activity.ActivityActivity" />
+        <activity android:name=".activity.function.UriActivity" />
+        <activity android:name=".activity.function.JsonActivity" />
+        <activity android:name=".activity.function.HandleActivity" />
+        <activity android:name=".activity.network.websocket.WebSocketActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".TestActivity"></activity>
-        <activity android:name=".base.BasePageActivity"></activity>
-        <activity android:name=".activity.network.socket.SocketActivity"></activity>
-        <activity android:name=".activity.audio.AudioActivity"></activity>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".base.BasePageActivity" />
+        <activity android:name=".activity.network.socket.SocketActivity" />
+        <activity android:name=".activity.audio.AudioActivity" />
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".fragment.utils.life_cycle.ActivityLifeActivity" /> <!-- launch -->
-        <activity android:name=".fragment.utils.launch.AActivity"></activity>
+        <activity android:name=".fragment.utils.launch.AActivity" />
         <activity
             android:name=".fragment.utils.launch.BActivity"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop" />
         <activity android:name=".fragment.utils.launch.CActivity" />
         <activity android:name=".activity.UMengActivity" />
         <activity android:name=".PageListActivity" />
-        <activity android:name=".fragment.basics.activity.TargetActivity" />
+        <activity android:name=".activity.module.activity.TargetActivity" /> <!-- 新浪 结束 -->
+        <!-- 微信 结束 -->
+        <activity-alias
+            android:name=".fragment.basics.activity.AliasActivity"
+            android:targetActivity=".activity.module.activity.TargetActivity" />
 
         <activity android:name=".fragment.basics.eventDispatch.dispatch.EventDispatchActivity" />
-
         <activity android:name=".fragment.utils.arouter.ARouterTestSimpleActivity" /> <!-- arouter -->
         <activity android:name=".fragment.utils.arouter.ARouterTestNeedLoginActivity" />
         <activity android:name=".fragment.utils.arouter.ARouterTestParaActivity" />
@@ -57,14 +74,12 @@
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize"></activity>
-
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
             android:launchMode="singleTask"
@@ -97,17 +112,14 @@
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- 新浪 结束 -->
-        <!-- 微信 结束 -->
-        <activity-alias
-            android:name=".fragment.basics.activity.AliasActivity"
-            android:targetActivity=".fragment.basics.activity.TargetActivity" /> <!-- 微信 结束 -->
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- 微信 结束 -->
         <!-- QQ 开始 -->
         <!-- qq（请注意将友盟的qq appkey替换成您自己的qq appkey） -->
         <provider
             android:name=".fragment.basics.content_provider.StudentContentProvider"
             android:authorities="com.stepyen.StudentContentProvider"
             android:exported="true" />
+
         <receiver android:name=".fragment.basics.receiver.NetworkChangeReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -117,17 +129,8 @@
         <service
             android:name=".fragment.basics.process_communication.MessengerService"
             android:process=":testMessenger" />
-    </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 录音 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 监听短信权限 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
-    <uses-permission android:name="android.permission.READ_SMS" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    </application>
 
 </manifest>

@@ -6,13 +6,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
->
+    >
+   <Button
+       android:id="@+id/btn_alias"
+       style="@style/CommonButton"
+       android:text="别名"
+       ></Button>
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Uri"
-        android:layout_margin="@dimen/public_margin"
-        />
+
 </LinearLayout>

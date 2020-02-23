@@ -3,15 +3,18 @@ package com.stepyen.xlearn.base
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.stepyen.xlearn.R
 import com.stepyen.xutil.display.DensityUtils
 import kotlinx.android.synthetic.main.activity_base_page.*
+import kotlinx.android.synthetic.main.activity_test.*
 
 /**
  * date：2020-02-12
@@ -66,9 +69,12 @@ open class BasePageActivity : AppCompatActivity() {
     }
 
     protected fun addButton(title: String, clickListener: View.OnClickListener, marginTop: Int) {
-        val button = Button(this)
-        button.text = title
-        button.setOnClickListener(clickListener)
+        val button = Button(this).apply {
+            text = title
+            isAllCaps = false
+            setOnClickListener(clickListener)
+        }
+
         ll_parent.addView(button)
         setLpMarginTop(button, marginTop)
     }
@@ -93,6 +99,13 @@ open class BasePageActivity : AppCompatActivity() {
                 view.layoutParams = lp
             }
         }
+    }
+
+
+    fun toast(str:String) {
+
+        Toast.makeText(this,str,Toast.LENGTH_SHORT)
+
     }
 
 
