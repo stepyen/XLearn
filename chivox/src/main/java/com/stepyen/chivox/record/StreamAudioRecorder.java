@@ -1,7 +1,7 @@
 package com.stepyen.chivox.record;
 
 /**
- * date：2020-02-13
+ * date：2020-02-14
  * author：stepyen
  * description：
  */
@@ -317,4 +317,3 @@ public final class StreamAudioRecorder {
         }
     }
 }
-

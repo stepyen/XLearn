@@ -6,4 +6,7 @@
 
     <string name="common_count_down_time">%02d</string>
 
+
+    <string name="test_meta_info">test_meta_info</string>
+
 </resources>

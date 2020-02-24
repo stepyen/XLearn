@@ -1,7 +1,7 @@
 package com.stepyen.chivox.record;
 
 /**
- * date：2020-02-13
+ * date：2020-02-14
  * author：stepyen
  * description：
  */
@@ -304,9 +304,8 @@ public class XSAudioRecorder {
                         } catch (Exception var18) {
                             var18.printStackTrace();
                         }
-                        if (mAudioRecord != null) {
-                            this.mAudioRecord.release();
-                        }
+
+                        this.mAudioRecord.release();
                         this.mAudioRecord = null;
                         if (this.mPcmToWavUtil != null) {
                             LogUtil.w("XSAudioRecorder", "convert:   " + this.mPcmPath + "  " + this.mWavPath);

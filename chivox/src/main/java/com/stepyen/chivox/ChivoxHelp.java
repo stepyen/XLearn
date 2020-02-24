@@ -1,11 +1,12 @@
 package com.stepyen.chivox;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.chivox.AIEngine;
-import com.stepyen.chivox.record.XSAudioRecorder;
+import com.xs.SingEngine;
+import com.xs.utils.LogUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +15,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 /**
@@ -29,39 +29,83 @@ public class ChivoxHelp {
 
     private static volatile ChivoxHelp instance;
 
-    private ChivoxHelp() {
-    }
+    private Context mContext = null;
 
-    public static ChivoxHelp getInstance() {
-        if (instance == null) {
-            synchronized (ChivoxHelp.class) {
-                if (instance == null) {
-                    instance = new ChivoxHelp();
-                }
-            }
+    private AIRecorder aiRecorder = null;
+
+    // 基础路径
+    protected String mAudioPath = "";
+
+    //最后一个录音路径
+    private String mLastRecordPath = "";
+
+    private ChivoxHelp(Context context) {
+        if (context == null) {
+            return;
         }
-        return instance;
+        aiRecorder = new AIRecorder();
+
+
+        mContext = context.getApplicationContext();
+        mAudioPath = context.getExternalCacheDir().getAbsolutePath() + "/cs_record/";
+
     }
 
+    public static ChivoxHelp newInstance(Context context) {
+        return new ChivoxHelp(context);
+    }
 
-    public void create(Context context, String appkey, String secretKey) {
+    /**
+     * 设置录音文件基础路径
+     *
+     * @param wavPath
+     */
+    public void setWavPath(String wavPath) {
+        this.mAudioPath = wavPath;
+        if (!TextUtils.isEmpty(mAudioPath) && !mAudioPath.endsWith("/")) {
+            mAudioPath += "/";
+        }
+    }
+
+    /**
+     * 获取录音文件地址
+     *
+     * @return
+     */
+    public String getSoundPath() {
+        return this.mLastRecordPath;
+    }
+
+    public void create(String appkey, String secretKey) {
+
+
         String config = "";
 
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("appKey", appkey);
             jsonObject.put("secretKey", secretKey);
-            jsonObject.put("provision", getAssetsCacheFile(context, "aiengine.provision"));
+            jsonObject.put("provision", getAssetsCacheFile(mContext, "aiengine.provision"));
 
             JSONObject couldJo = new JSONObject();
+            couldJo.put("useServerTime", "1");  // 1表示使用服务器时间作为认证时间戳。
             couldJo.put("server", "wss://cloud.chivox.com:443");
             couldJo.put("connectTimeout", 20);
             couldJo.put("serverTimeout", 60);
             jsonObject.put("cloud", couldJo);
 
+            JSONObject vadJo = new JSONObject();
+            vadJo.put("enable", 1);// 1 表示初始化 VAD 资源;0 表示不初始化
+//            vadJo.put("res", getAssetsCacheFile(mContext, "vad.0.12.20160802.bin"));// vad 资源的路径
+            vadJo.put("res", AIEngineHelper.extractResourceOnce(mContext,"vad.0.12.20160802.bin",false));// vad 资源的路径
+            vadJo.put("speechLowSeek", 100);// 灵敏度，单位 10ms，设置 100 表示说话停止后 1 秒判定为结束
+            vadJo.put("sampleRate", 16000);// 采样率，单位为 Hz
+            vadJo.put("strip", 0);// 传给上层音频数据时，是否截掉首尾空白，一般设置为 0(避免误截) }
+            jsonObject.put("vad", vadJo);
+
             JSONObject prefJo = new JSONObject();
             prefJo.put("enable", 1);
-            prefJo.put("output", context.getExternalCacheDir().getAbsolutePath());
+            prefJo.put("output", mContext.getExternalCacheDir().getAbsolutePath());
             jsonObject.put("prof", prefJo);
 
             config = jsonObject.toString();
@@ -71,7 +115,7 @@ public class ChivoxHelp {
 
         Log.d(TAG, "initEngine: config : " + config);
 
-        engine = AIEngine.aiengine_new(config, context);
+        engine = AIEngine.aiengine_new(config, mContext);
         if (engine == 0) {
             Log.d(TAG, "initEngine: 失败");
         } else {
@@ -79,7 +123,7 @@ public class ChivoxHelp {
         }
     }
 
-    public void start(Context context, Map<String, Object> requestMap) {
+    public void start(Map<String, Object> requestMap) {
         String param = "";
         try {
             JSONObject jsonObject = new JSONObject();
@@ -88,6 +132,11 @@ public class ChivoxHelp {
             JSONObject appJo = new JSONObject();
             appJo.put("userId", "guest");
             jsonObject.put("app", appJo);
+
+            JSONObject vadJo = new JSONObject();
+            vadJo.put("vadEnable", 0);// 1 表示启用 VAD 功能;0 表示不启用
+            vadJo.put("refDuration", 2); // 设置音频 vad 延迟生效时长(单位:s)，在刚开始录音的几秒内屏蔽 VAD
+            jsonObject.put("vad", vadJo);
 
             JSONObject audioJo = new JSONObject();
             audioJo.put("audioType", "wav");
@@ -103,11 +152,14 @@ public class ChivoxHelp {
 
             jsonObject.put("request", requestJo);
 
-            jsonObject.put("soundIntensityEnable", "1"); // 是否实时返回音量
+            jsonObject.put("soundIntensityEnable", 1); // 是否实时返回音量
 
             param = jsonObject.toString();
 
-            Log.d(TAG, "start: "+param);
+
+
+
+            Log.d(TAG, "start: " + param);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -129,14 +181,70 @@ public class ChivoxHelp {
                 return 0;
             }
         };
-        AIEngine.aiengine_start(engine, param, tokenId, callback, context);
 
+        AIEngine.aiengine_start(engine, param, tokenId, callback, mContext);
+
+        mLastRecordPath = mAudioPath + System.currentTimeMillis() + ".wav";
+
+        aiRecorder.start(mLastRecordPath, new AIRecorder.Callback() {
+            @Override
+            public void onStarted() {
+
+            }
+
+            @Override
+            public void onData(byte[] data, int size) {
+                AIEngine.aiengine_feed(engine, data, size);
+            }
+
+            @Override
+            public void onStopped() {
+                AIEngine.aiengine_stop(engine);
+            }
+        });
 
     }
 
-    public void stop() {
-        AIEngine.aiengine_stop(engine);
+    /**
+     * 处理 vad 结果
+     */
+    private void handleVadResult() {
+//        final String result = new String(data, 0, size).trim(); /* must trim the end '\0' */
+//        Log.d(TAG, result);
+//        try {
+//            JSONObject json = new JSONObject(result);
+//            if (json.has("vad_status") || json.has("sound_intensity")) {
+//                /* received vad_status report in json formatting */
+//                int status = json.optInt("vad_status");
+//                final int sound_intensity = json.optInt("sound_intensity");
+//                if (status == 2) {
+//                    runOnWorkerThread(new Runnable() {
+//                        public void run() {
+//                            recorder.stop();
+//                        }
+//                    });
+//                }
+//            } else {
+//                /* received score result in json formatting */
+//                if (recorder.isRunning()) {
+//                    recorder.stop();
+//                }
+//                runOnUiThread(new Runnable() {
+//                    public void run() {
+//                        waitProgressBar.setVisibility(View.INVISIBLE);
+//                        jsonResultTextEditor.setText(result);
+//                        Log.d(TAG, result);
+//                    }
+//                });
+//            }
+//        } catch (JSONException e) {
+//            /* parse result error */
+//            Log.d(TAG, “pare result error !”);
+//        }
+    }
 
+    public void stop() {
+        aiRecorder.stop();
     }
 
 
@@ -156,6 +264,9 @@ public class ChivoxHelp {
      */
     public String getAssetsCacheFile(Context context, String fileName) {
         File cacheFile = new File(context.getCacheDir(), fileName);
+        if (cacheFile.exists()) {
+            cacheFile.delete();
+        }
         InputStream inputStream = null;
         FileOutputStream outputStream = null;
         try {

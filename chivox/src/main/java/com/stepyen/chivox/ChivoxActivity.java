@@ -7,17 +7,12 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.chivox.AIEngine;
-import com.stepyen.chivox.R;
+import com.stepyen.chivox.record.StreamAudioPlayer;
 import com.stepyen.chivox.record.XSAudioRecorder;
 import com.stepyen.common.utils.AudioRecoderUtils;
 import com.stepyen.common.widget.AudioRecoderDialog;
 import com.stepyen.common.widget.TouchButton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,10 +30,11 @@ import androidx.core.content.ContextCompat;
  */
 public class ChivoxActivity extends AppCompatActivity implements View.OnClickListener, AudioRecoderUtils.OnAudioStatusUpdateListener, TouchButton.OnEvaluationTouchListen {
 
-    private static final String TAG = "ChivoxActivity";
+    private static final String TAG = "ChivoxActivityTAG";
 
     private AudioRecoderDialog mRecoderDialog;
     private AudioRecoderUtils mRecoderUtils;
+    private ChivoxHelp mChivoxHelp;
 
 
     @Override
@@ -77,11 +73,54 @@ public class ChivoxActivity extends AppCompatActivity implements View.OnClickLis
         ((TouchButton) findViewById(R.id.btn_chinese_idiom)).setOnEvaluationTouchListen(this);
         ((TouchButton) findViewById(R.id.btn_chinese_sent)).setOnEvaluationTouchListen(this);
 
-        findViewById(R.id.btn_play_back).setOnClickListener(v -> {
+
+        String path = getExternalCacheDir().getAbsolutePath() + "/test.wav";
+
+
+        AIRecorder aiRecorder = new AIRecorder();
+        
+        
+        findViewById(R.id.btn_record_start).setOnClickListener(v -> {
+            aiRecorder.start(path, new AIRecorder.Callback() {
+                @Override
+                public void onStarted() {
+                    Log.d(TAG, "onStarted: ");
+                }
+
+                @Override
+                public void onData(byte[] data, int size) {
+                    Log.d(TAG, "onData: data "+data);
+                    Log.d(TAG, "onData: size "+size);
+                }
+
+                @Override
+                public void onStopped() {
+                    Log.d(TAG, "onStopped: ");
+                }
+            });
+            
 
         });
+        findViewById(R.id.btn_record_stop).setOnClickListener(v -> {
+            aiRecorder.stop();
+        });
+
+        findViewById(R.id.btn_play_back).setOnClickListener(v -> {
+
+            aiRecorder.playback();
+
+//            StreamAudioPlayer.getInstance().play(path, new StreamAudioPlayer.AudioPlayCompeletedCallback() {
+//
+//                @Override
+//                public void onAudioPlayCompeleted() {
+//                    Log.d(TAG, "onAudioPlayCompeleted: 播放完成");
+//                }
+//            });
+        }); 
+
 
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -102,8 +141,8 @@ public class ChivoxActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initEngine() {
 
-        ChivoxHelp.getInstance().create(ChivoxActivity.this, Const.APP_KEY,Const.SECRET_KEY);
-
+        mChivoxHelp = ChivoxHelp.newInstance(this);
+        mChivoxHelp.create(Const.APP_KEY,Const.SECRET_KEY);
     }
 
     @Override
@@ -151,42 +190,12 @@ public class ChivoxActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         start();
-        String path = getExternalCacheDir().getAbsolutePath() + "/"+System.currentTimeMillis() + ".wav";
-        XSAudioRecorder.getInstance().start(path, 1,1, new XSAudioRecorder.OnAudioDataCallback(){
 
-            @Override
-            public void onBeginRecorder() {
-                Log.d(TAG, "onBeginRecorder: ");
-            }
-
-            @Override
-            public void onRecordStop() {
-                Log.d(TAG, "onRecordStop: ");
-            }
-
-            @Override
-            public void onCancel() {
-                Log.d(TAG, "onCancel: ");
-            }
-
-            @Override
-            public void onCancelQuiet() {
-
-            }
-
-            @Override
-            public void onAudioData(byte[] var1, int var2) {
-
-            }
-
-            @Override
-            public void onError(int var1, String var2) {
-                Log.d(TAG, "onError: ");
-            }
-        });
+        mChivoxHelp.start(map);
 
 
-//        ChivoxHelp.getInstance().start(this,map);
+
+
     }
 
 
@@ -214,14 +223,13 @@ public class ChivoxActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void up() {
         stop();
-        XSAudioRecorder.getInstance().stop();
-        ChivoxHelp.getInstance().stop();
+        mChivoxHelp.stop();
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ChivoxHelp.getInstance().destroy();
+        mChivoxHelp.destroy();
     }
 }

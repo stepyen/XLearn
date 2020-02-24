@@ -23,7 +23,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.java.reflect.ReflectActivity"></activity>
+        <activity android:name=".activity.network.okhttp.OkhttpActivity"></activity>
+        <activity android:name=".activity.app.ManifestActivity">
+            <meta-data
+                android:name="activity.test"
+                android:resource="@string/test_meta_info" />
+        </activity>
+
+        <meta-data
+            android:name="application.test"
+            android:value="applicationValue" />
+
+        <activity android:name=".activity.module.intent.IntentActivity" />
+        <activity android:name=".activity.java.reflect.ReflectActivity" />
         <activity android:name=".activity.animotion.AnimotionActivity" />
         <activity android:name=".activity.module.activity.ActivityActivity" />
         <activity android:name=".activity.function.UriActivity" />
@@ -37,7 +49,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TestActivity" />
+        <activity android:name=".activity.TestActivity" />
         <activity android:name=".base.BasePageActivity" />
         <activity android:name=".activity.network.socket.SocketActivity" />
         <activity android:name=".activity.audio.AudioActivity" />
