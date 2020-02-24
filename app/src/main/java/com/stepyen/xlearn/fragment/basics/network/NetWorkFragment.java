@@ -14,8 +14,7 @@ public class NetWorkFragment extends ComponentContainerFragment {
     @Override
     protected Class[] getPagesClasses() {
         return new Class[]{
-                OkhttpFragment.class,
-                RetrofitFragment.class
+                OkhttpFragment.class
         };
     }
 }

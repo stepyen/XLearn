@@ -23,6 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>
+        <activity android:name=".activity.java.reflect.ReflectActivity" />
+        <activity android:name=".activity.view.ViewActivity"></activity>
         <activity android:name=".activity.module.contentprovider.ContentProviderActivity"></activity>
         <activity android:name=".activity.permission.PermissionActivity"></activity>
         <activity android:name=".activity.view.ViewActivity" />
@@ -31,8 +34,6 @@
         <activity android:name=".activity.view.NotificationActivity" />
         <activity android:name=".activity.kotlin.KotlinActivity" />
         <activity android:name=".activity.thrid.msa.MsaActivity" />
-        <activity android:name=".activity.function.ShemeUrlActivity" />
-        <activity android:name=".activity.module.service.ServiceActivity" />
         <activity android:name=".activity.network.okhttp.OkhttpActivity" />
         <activity android:name=".activity.app.ManifestActivity">
             <meta-data

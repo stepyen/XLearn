@@ -44,20 +44,15 @@
                 />
 
             <Button
-                android:id="@+id/postDownLoadImageBtn"
+                android:id="@+id/getDownLoadBtn"
                 style="@style/CommonButton"
-                android:text="post 下载图片到存储"
-                />
-            <Button
-                android:id="@+id/postDownLoadImageAndShowBtn"
-                style="@style/CommonButton"
-                android:text="post 下载图片并显示"
+                android:text="get 下载图片"
                 />
 
             <Button
                 android:id="@+id/postUploadFileBtn"
                 style="@style/CommonButton"
-                android:text="post 上传文件"
+                android:text="post 上传图片"
                 />
 
             <ImageView
