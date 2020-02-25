@@ -10,8 +10,8 @@ import com.stepyen.xlearn.base.BasePageActivity
  * description：
  */
 class TestActivity : BasePageActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test)
+    override fun initView() {
+        addView(R.layout.activity_test)
+
     }
 }

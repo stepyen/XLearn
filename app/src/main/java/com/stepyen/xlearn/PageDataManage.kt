@@ -10,10 +10,13 @@ import com.stepyen.xlearn.activity.function.HandleActivity
 import com.stepyen.xlearn.activity.function.JsonActivity
 import com.stepyen.xlearn.activity.function.UriActivity
 import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
+import com.stepyen.xlearn.activity.kotlin.KotlinActivity
 import com.stepyen.xlearn.activity.module.activity.ActivityActivity
 import com.stepyen.xlearn.activity.module.intent.IntentActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
+import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
+import com.stepyen.xlearn.activity.view.NotificationActivity
 import com.stepyen.xlearn.bean.PageBean
 
 /**
@@ -23,42 +26,59 @@ import com.stepyen.xlearn.bean.PageBean
  *
  */
 object PageDataManage {
-    val data: HashMap<PageBean, ArrayList<PageBean>> = HashMap<PageBean, ArrayList<PageBean>>()
+    val data: LinkedHashMap<PageBean, ArrayList<PageBean>> = LinkedHashMap<PageBean, ArrayList<PageBean>>()
 
     init {
-
-        put("第三方", arrayListOf<PageBean>().apply {
-
-            add(PageBean("友盟", UMengActivity::class.java))
-            add(PageBean("驰声", ChivoxActivity::class.java))
-
-        })
-
-        put("网络", arrayListOf<PageBean>().apply {
-
-            add(PageBean("socket", SocketActivity::class.java))
-            add(PageBean("websocket", WebSocketActivity::class.java))
-            add(PageBean("OkHttp", OkhttpActivity::class.java))
-
-        })
-        put("音视频", arrayListOf<PageBean>().apply {
-
-            add(PageBean("音频", AudioActivity::class.java))
-
-        })
-        put("功能", arrayListOf<PageBean>().apply {
-
-            add(PageBean("Handle", HandleActivity::class.java))
-            add(PageBean("Json", JsonActivity::class.java))
-            add(PageBean("Uri", UriActivity::class.java))
-
-        })
-
         put("测试", arrayListOf<PageBean>().apply {
 
             add(PageBean("测试", TestActivity::class.java))
 
         })
+
+
+        put("Java", arrayListOf<PageBean>().apply {
+
+            add(PageBean("反射", ReflectActivity::class.java))
+            add(PageBean("补间动画", ActivityActivity::class.java))
+            add(PageBean("属性动画", ActivityActivity::class.java))
+
+        })
+
+
+        put("kotlin", arrayListOf<PageBean>().apply {
+
+            add(PageBean("kotlin", KotlinActivity::class.java))
+
+
+        })
+
+
+        put("App", arrayListOf<PageBean>().apply {
+
+            add(PageBean("配置清单", ManifestActivity::class.java))
+
+
+        })
+
+        put("View", arrayListOf<PageBean>().apply {
+
+            add(PageBean("Notification", NotificationActivity::class.java))
+
+
+        })
+        put("View 基础", arrayListOf<PageBean>().apply {
+
+            add(PageBean("Notification", NotificationActivity::class.java))
+
+
+        })
+        put("View 自定义", arrayListOf<PageBean>().apply {
+
+            add(PageBean("Notification", NotificationActivity::class.java))
+
+
+        })
+
         put("组件", arrayListOf<PageBean>().apply {
 
             add(PageBean("Activity", ActivityActivity::class.java))
@@ -75,20 +95,41 @@ object PageDataManage {
             add(PageBean("属性动画", ActivityActivity::class.java))
 
         })
-        put("Java", arrayListOf<PageBean>().apply {
 
-            add(PageBean("反射", ReflectActivity::class.java))
-            add(PageBean("补间动画", ActivityActivity::class.java))
-            add(PageBean("属性动画", ActivityActivity::class.java))
+
+        put("网络", arrayListOf<PageBean>().apply {
+
+            add(PageBean("socket", SocketActivity::class.java))
+            add(PageBean("websocket", WebSocketActivity::class.java))
+            add(PageBean("OkHttp", OkhttpActivity::class.java))
+
+        })
+        put("音视频", arrayListOf<PageBean>().apply {
+
+            add(PageBean("音频", AudioActivity::class.java))
 
         })
 
-        put("App", arrayListOf<PageBean>().apply {
+        put("第三方", arrayListOf<PageBean>().apply {
 
-            add(PageBean("配置清单", ManifestActivity::class.java))
-           
+            add(PageBean("友盟", UMengActivity::class.java))
+            add(PageBean("驰声", ChivoxActivity::class.java))
+            add(PageBean("msa", MsaActivity::class.java))
 
         })
+
+        put("功能", arrayListOf<PageBean>().apply {
+
+            add(PageBean("Handle", HandleActivity::class.java))
+            add(PageBean("Json", JsonActivity::class.java))
+            add(PageBean("Uri", UriActivity::class.java))
+
+        })
+
+
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.expands.kotlin
+package com.stepyen.xlearn.activity.kotlin
 
 import android.text.Spannable
 

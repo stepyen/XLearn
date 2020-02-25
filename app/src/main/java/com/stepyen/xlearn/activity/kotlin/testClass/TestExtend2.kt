@@ -1,6 +1,4 @@
-package com.stepyen.xlearn.fragment.expands.kotlin.testClass
-
-import android.content.Context
+package com.stepyen.xlearn.activity.kotlin.testClass
 
 /**
  * date：2020-01-17

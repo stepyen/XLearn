@@ -1,11 +1,11 @@
-package com.stepyen.xlearn.fragment.expands.kotlin.testClass
+package com.stepyen.xlearn.activity.kotlin.testClass
 
 /**
  * date：2020-01-17
  * author：stepyen
  * description：测试继承
  *
- * 1、学习继承的两个类都有相同的可继承方法，如何调用各自类的方法
+ * 1、学习继承的两个类都有相同的可方继承方法，如何调用各自类的法
  *
  */
 open class A {

@@ -1,6 +1,6 @@
-package com.stepyen.xlearn.fragment.expands.kotlin
+package com.stepyen.xlearn.activity.kotlin
 
-import com.stepyen.xlearn.fragment.expands.kotlin.testClass.*
+import com.stepyen.xlearn.activity.kotlin.testClass.*
 import kotlin.properties.Delegates
 
 /**
@@ -69,6 +69,8 @@ fun testEqual() {
 
     println("equals3:${user3 ==user4} ")// 值比较，true，因为equal方法只重新了主构造函数中的参数
     println("equals4:${user3 === user4}")// 地址比较，false
+
+
     println("-----------------------testEqual 结束--------------------------")
 }
 
@@ -203,13 +205,13 @@ interface BaseDelegate{
     fun print()
 }
 
-class BaseDelegateImpl(val  x:Int):BaseDelegate{
+class BaseDelegateImpl(val  x:Int): BaseDelegate {
     override fun print() {
         println("BaseDelegateImpl print")
     }
 }
 
-class BaseDelegateDrive(val b:BaseDelegate):BaseDelegate by b{
+class BaseDelegateDrive(val b: BaseDelegate): BaseDelegate by b{
 
     override fun print() {
         b.print()
@@ -246,9 +248,9 @@ fun testExtend2() {
  * 测试-类执行顺序
  */
 fun testClassExecuteOrder() {
-    println("----------------------- 开始--------------------------")
+    println("------------------类执行顺序----- 开始--------------------------")
 
-    TestClassExecuteOrder("name")
+    TestClassExecuteOrder("name",123)
 
     println("----------------------- 结束--------------------------")
 

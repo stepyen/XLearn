@@ -1,27 +1,17 @@
-package com.stepyen.xlearn.fragment.expands.kotlin
+package com.stepyen.xlearn.activity.kotlin
 
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BaseFragment
-import com.xuexiang.xpage.annotation.Page
+import com.stepyen.xlearn.base.BasePageActivity
 
-/**
- * date：2020-01-16
- * author：stepyen
- * description：
- *
- */
-@Page(name = "Kotlin", extra = R.drawable.ic_widget_imageview)
-class KotlinFragment : BaseFragment() {
-    override fun initViews() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+class KotlinActivity : BasePageActivity() {
 
-    override fun getLayoutId(): Int = R.layout.fragment_kotlin
-
-
-    override fun kotlinInitViews() {
+    override fun initView() {
+        addView(R.layout.activity_kotlin)
 
     }
+
 
 
     /**
@@ -44,6 +34,7 @@ class KotlinFragment : BaseFragment() {
 //            }
 //        }
     }
+
 
 
 }

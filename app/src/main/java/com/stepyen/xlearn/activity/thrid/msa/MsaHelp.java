@@ -1,15 +1,12 @@
-package com.stepyen.xlearn.fragment.expands.other;
+package com.stepyen.xlearn.activity.thrid.msa;
 
 import android.content.Context;
-import android.util.Log;
-
 import com.bun.miitmdid.core.ErrorCode;
-import com.bun.miitmdid.core.IIdentifierListener;
 import com.bun.miitmdid.core.JLibrary;
 import com.bun.miitmdid.core.MdidSdkHelper;
-import com.bun.miitmdid.supplier.IdSupplier;
+import com.bun.supplier.IIdentifierListener;
+import com.bun.supplier.IdSupplier;
 import com.just.agentweb.LogUtils;
-import com.stepyen.xlearn.App;
 
 /**
  * date：2020-01-08
@@ -39,7 +36,11 @@ public class MsaHelp {
      * @param context
      */
     public void initSdk(Context context) {
-        JLibrary.InitEntry(context);
+        try {
+            JLibrary.InitEntry(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -59,7 +60,7 @@ public class MsaHelp {
                         } else {
                             onMsaListener.onSupport(supplier.isSupported(), supplier);
                             // 有些厂商使用 bind service 实现的，所以使用完 IdSupplier 对象之后，要调 用该方法释放连接
-                            supplier.shutDown();
+//                            supplier.shutDown();
                         }
                     }
                 }
