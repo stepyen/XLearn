@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics.content_provider;
+package com.stepyen.xlearn.activity.module.contentprovider;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;

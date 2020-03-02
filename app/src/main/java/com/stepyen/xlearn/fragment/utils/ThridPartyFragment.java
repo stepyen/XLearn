@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.stepyen.chivox.ChivoxActivity;
 import com.stepyen.xlearn.R;
 import com.stepyen.xlearn.base.BaseTestFragment;
-import com.stepyen.xlearn.activity.UMengActivity;
+import com.stepyen.xlearn.activity.thrid.ument.UMengActivity;
 import com.xuexiang.xpage.annotation.Page;
 
 /**

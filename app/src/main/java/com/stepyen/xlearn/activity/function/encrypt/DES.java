@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.utils;
+package com.stepyen.xlearn.activity.function.encrypt;
 
 
 import android.util.Base64;
@@ -23,13 +23,13 @@ public class DES {
         {
 
             JSONObject json = new JSONObject();
-            json.put("rt","IOS");
-            json.put("rd","DEBUG");
-            json.put("debugBundle","的我我而去额  我而去+");
+            json.put("rt", "IOS");
+            json.put("rd", "DEBUG");
+            json.put("debugBundle", "的我我而去额  我而去+");
 
             String data = " {\"rt\":\"ANDROID\",\"rd\":\"DEBUG\",\"debugSha\":\"8B:CF:F9:05:88:71:AD:EE:FE:38:8E:D0:0D:CF:74:EA:D4:D8:C8:1A\"}";
 
-            String str ="b1jqH5d6jL73M54niCXn4BzWY7Y3LKVTuhZQTNRU/szZwZOXRtUapCBxxv1HJfto7IpNayrg8h7ZwZOXRtUapNBDRn5iKMhQlHxhn6UlMAtAbhPwLb0kmiY1zTfIk04fUC6N6ruBLrvPpzcLIZbzwPeJ5iB23Sps1mRf4VvdZPktwQloufqr6wCngeOaxaiXsT41RdYdGmJUwxZw5cgvtjDPXNUiyICF";
+            String str = "b1jqH5d6jL73M54niCXn4BzWY7Y3LKVTuhZQTNRU/szZwZOXRtUapCBxxv1HJfto7IpNayrg8h7ZwZOXRtUapNBDRn5iKMhQlHxhn6UlMAtAbhPwLb0kmiY1zTfIk04fUC6N6ruBLrvPpzcLIZbzwPeJ5iB23Sps1mRf4VvdZPktwQloufqr6wCngeOaxaiXsT41RdYdGmJUwxZw5cgvtjDPXNUiyICF";
 
             String password = "12313eqweqweqwe";
 
@@ -46,6 +46,7 @@ public class DES {
 
 
     private static String charsetName = "utf-8";
+
     /**
      * 加密
      *
@@ -53,7 +54,7 @@ public class DES {
      * @param password   String
      * @return byte[]
      */
-    public static String encrypt(String datasource, String password) throws InvalidKeyException{
+    public static String encrypt(String datasource, String password) throws InvalidKeyException {
 
         try {
             SecureRandom random = new SecureRandom();
@@ -68,25 +69,26 @@ public class DES {
 //现在，获取数据并加密
 //正式执行加密操作
             byte b[] = cipher.doFinal(datasource.getBytes(charsetName));
-            return  Base64.encodeToString(b, Base64.DEFAULT);
+            return Base64.encodeToString(b, Base64.DEFAULT);
         } catch (InvalidKeyException e) {
             throw new InvalidKeyException(e.getMessage());
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static  String decrypt(String src,String password) {
-        byte[]  b = Base64.decode(src.getBytes(), Base64.DEFAULT);
+    public static String decrypt(String src, String password) {
+        byte[] b = Base64.decode(src.getBytes(), Base64.DEFAULT);
 
         try {
-            return new String(decrypt(b,password),charsetName);
+            return new String(decrypt(b, password), charsetName);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return null;
     }
+
     /**
      * 解密
      *
@@ -95,7 +97,7 @@ public class DES {
      * @return byte[]
      * @throws Exception
      */
-    private static byte[] decrypt(byte[] src, String password)  {
+    private static byte[] decrypt(byte[] src, String password) {
         try {
             // DES算法要求有一个可信任的随机数源
             SecureRandom random = new SecureRandom();
@@ -112,7 +114,7 @@ public class DES {
             cipher.init(Cipher.DECRYPT_MODE, securekey, random);
 // 真正开始解密操作
             return cipher.doFinal(src);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

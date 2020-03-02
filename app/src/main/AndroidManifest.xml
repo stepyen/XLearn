@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.view.ViewActivity"></activity>
+        <activity android:name=".activity.module.contentprovider.ContentProviderActivity"></activity>
+        <activity android:name=".activity.permission.PermissionActivity"></activity>
+        <activity android:name=".activity.view.ViewActivity" />
         <activity android:name=".activity.view_custom.ViewCustomActivity" />
         <activity android:name=".activity.view_basics.ViewBasicsActivity" />
         <activity android:name=".activity.view.NotificationActivity" />
@@ -41,6 +43,7 @@
             android:value="applicationValue" />
 
         <activity android:name=".activity.module.intent.IntentActivity" />
+        <activity android:name=".activity.function.encrypt.EncryptActivity" />
         <activity android:name=".activity.java.reflect.ReflectActivity" />
         <activity android:name=".activity.animotion.AnimotionActivity" />
         <activity android:name=".activity.module.activity.ActivityActivity" />
@@ -66,7 +69,7 @@
             android:name=".fragment.utils.launch.BActivity"
             android:launchMode="singleTop" />
         <activity android:name=".fragment.utils.launch.CActivity" />
-        <activity android:name=".activity.UMengActivity" />
+        <activity android:name=".activity.thrid.ument.UMengActivity" />
         <activity android:name=".PageListActivity" />
         <activity android:name=".activity.module.activity.TargetActivity" /> <!-- 新浪 结束 -->
         <!-- 微信 结束 -->
@@ -134,8 +137,11 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- 微信 结束 -->
         <!-- QQ 开始 -->
         <!-- qq（请注意将友盟的qq appkey替换成您自己的qq appkey） -->
+
+
+
         <provider
-            android:name=".fragment.basics.content_provider.StudentContentProvider"
+            android:name=".activity.module.contentprovider.StudentContentProvider"
             android:authorities="com.stepyen.StudentContentProvider"
             android:exported="true" />
 

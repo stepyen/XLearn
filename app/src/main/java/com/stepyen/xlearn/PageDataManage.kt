@@ -3,15 +3,17 @@ package com.stepyen.xlearn
 import com.stepyen.chivox.ChivoxActivity
 import com.stepyen.xlearn.activity.TestActivity
 import com.stepyen.xlearn.activity.network.socket.SocketActivity
-import com.stepyen.xlearn.activity.UMengActivity
+import com.stepyen.xlearn.activity.thrid.ument.UMengActivity
 import com.stepyen.xlearn.activity.app.ManifestActivity
 import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.function.HandleActivity
 import com.stepyen.xlearn.activity.function.JsonActivity
 import com.stepyen.xlearn.activity.function.UriActivity
+import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
 import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
 import com.stepyen.xlearn.activity.kotlin.KotlinActivity
 import com.stepyen.xlearn.activity.module.activity.ActivityActivity
+import com.stepyen.xlearn.activity.module.contentprovider.ContentProviderActivity
 import com.stepyen.xlearn.activity.module.intent.IntentActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
@@ -83,7 +85,7 @@ object PageDataManage {
 
             add(PageBean("Activity", ActivityActivity::class.java))
             add(PageBean("Service", ActivityActivity::class.java))
-            add(PageBean("ContentProvide", ActivityActivity::class.java))
+            add(PageBean("ContentProvide", ContentProviderActivity::class.java))
             add(PageBean("BroadcastReceiver", ActivityActivity::class.java))
             add(PageBean("Intent", IntentActivity::class.java))
 
@@ -123,6 +125,7 @@ object PageDataManage {
             add(PageBean("Handle", HandleActivity::class.java))
             add(PageBean("Json", JsonActivity::class.java))
             add(PageBean("Uri", UriActivity::class.java))
+            add(PageBean("加解密", EncryptActivity::class.java))
 
         })
 
