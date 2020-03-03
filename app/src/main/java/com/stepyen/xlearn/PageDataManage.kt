@@ -6,6 +6,7 @@ import com.stepyen.xlearn.activity.network.socket.SocketActivity
 import com.stepyen.xlearn.activity.thrid.ument.UMengActivity
 import com.stepyen.xlearn.activity.app.ManifestActivity
 import com.stepyen.xlearn.activity.audio.AudioActivity
+import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.HandleActivity
 import com.stepyen.xlearn.activity.function.JsonActivity
 import com.stepyen.xlearn.activity.function.UriActivity
@@ -126,6 +127,7 @@ object PageDataManage {
             add(PageBean("Json", JsonActivity::class.java))
             add(PageBean("Uri", UriActivity::class.java))
             add(PageBean("加解密", EncryptActivity::class.java))
+            add(PageBean("异常", ExceptionActivity::class.java))
 
         })
 

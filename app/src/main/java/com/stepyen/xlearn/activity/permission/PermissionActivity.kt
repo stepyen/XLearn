@@ -7,7 +7,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
-import com.stepyen.xlearn.fragment.basics.version.PermissionActivity
 import com.stepyen.xutil.tip.ToastUtils
 import kotlinx.android.synthetic.main.activity_permissions.*
 

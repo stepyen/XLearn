@@ -42,6 +42,7 @@
             android:name="application.test"
             android:value="applicationValue" />
 
+        <activity android:name=".activity.exception.ExceptionActivity" />
         <activity android:name=".activity.module.intent.IntentActivity" />
         <activity android:name=".activity.function.encrypt.EncryptActivity" />
         <activity android:name=".activity.java.reflect.ReflectActivity" />

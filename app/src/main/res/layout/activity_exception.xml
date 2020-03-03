@@ -7,19 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <TextView
-        style="@style/TextView_hint_tag"
-        android:text="添加值为空的情况"
-        />
 
 
-    <TextView
-        android:id="@+id/tv_value_is_empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_margin="@dimen/public_margin"
-        />
+    <Button
+        android:id="@+id/btn_0_exception"
+        style="@style/CommonButton"
+        android:text="除0异常"
+        ></Button>
 
 
 </LinearLayout>
