@@ -40,6 +40,9 @@ android {
             doNotStrip "*/armeabi-v7a/*.so"
             doNotStrip "*/arm64-v8a/*.so"
         }
+
+
+        manifestPlaceholders = [test_value: "这是测试值",test_value_activity:"Activity 中的测试值"]
     }
 
     compileOptions {

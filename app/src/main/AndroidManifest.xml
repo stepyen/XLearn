@@ -31,6 +31,8 @@
         <activity android:name=".activity.view.NotificationActivity" />
         <activity android:name=".activity.kotlin.KotlinActivity" />
         <activity android:name=".activity.thrid.msa.MsaActivity" />
+        <activity android:name=".activity.function.ShemeUrlActivity" />
+        <activity android:name=".activity.module.service.ServiceActivity" />
         <activity android:name=".activity.network.okhttp.OkhttpActivity" />
         <activity android:name=".activity.app.ManifestActivity">
             <meta-data
@@ -41,6 +43,10 @@
         <meta-data
             android:name="application.test"
             android:value="applicationValue" />
+
+        <meta-data
+            android:name="application.test.manifestPlaceholders"
+            android:value="${test_value}" />
 
         <activity android:name=".activity.exception.ExceptionActivity" />
         <activity android:name=".activity.module.intent.IntentActivity" />

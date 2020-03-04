@@ -4,6 +4,7 @@ import android.content.pm.PackageManager
 import com.orhanobut.logger.Logger
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
+import kotlinx.android.synthetic.main.activity_manifest.*
 import java.lang.Exception
 
 
@@ -25,9 +26,21 @@ class ManifestActivity : BasePageActivity() {
     override fun initView() {
         addView(R.layout.activity_manifest)
 
+        getApplicationMetaInfo_btn.setOnClickListener {
+            getApplicationMetaInfo()
+        }
 
-        getApplicationMetaInfo()
-        getActivityMetaInfo()
+        getActivityMetaInfo_btn.setOnClickListener {
+            getActivityMetaInfo()
+        }
+
+        getApplicationMetaInfoManifestPlaceholders_btn.setOnClickListener {
+            getApplicationMetaInfoManifestPlaceholders()
+        }
+
+
+
+
 
     }
 
@@ -77,6 +90,29 @@ class ManifestActivity : BasePageActivity() {
         } catch (e: Exception) {
 
         }
+    }
+
+
+
+    /**
+     * 获取 Application级别 MetaInfo
+     * 具体值配置在 build.gradle#ManifestPlaceholders
+     *
+     * 获取 value
+     */
+    private fun getApplicationMetaInfoManifestPlaceholders() {
+        var value: String? = ""
+
+        try {
+
+            val appInfo = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
+            value = appInfo.metaData.getString("application.test.manifestPlaceholders")
+
+        } catch (e: PackageManager.NameNotFoundException) {
+
+        }
+
+        Logger.d("Application MetaInfo value 配置在 ManifestPlaceholders  : $value")
 
 
     }

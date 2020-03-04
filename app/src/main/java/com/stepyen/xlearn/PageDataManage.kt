@@ -9,6 +9,7 @@ import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.HandleActivity
 import com.stepyen.xlearn.activity.function.JsonActivity
+import com.stepyen.xlearn.activity.function.ShemeUrlActivity
 import com.stepyen.xlearn.activity.function.UriActivity
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
 import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
@@ -16,6 +17,7 @@ import com.stepyen.xlearn.activity.kotlin.KotlinActivity
 import com.stepyen.xlearn.activity.module.activity.ActivityActivity
 import com.stepyen.xlearn.activity.module.contentprovider.ContentProviderActivity
 import com.stepyen.xlearn.activity.module.intent.IntentActivity
+import com.stepyen.xlearn.activity.module.service.ServiceActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
 import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
@@ -85,7 +87,7 @@ object PageDataManage {
         put("组件", arrayListOf<PageBean>().apply {
 
             add(PageBean("Activity", ActivityActivity::class.java))
-            add(PageBean("Service", ActivityActivity::class.java))
+            add(PageBean("Service", ServiceActivity::class.java))
             add(PageBean("ContentProvide", ContentProviderActivity::class.java))
             add(PageBean("BroadcastReceiver", ActivityActivity::class.java))
             add(PageBean("Intent", IntentActivity::class.java))
@@ -128,6 +130,7 @@ object PageDataManage {
             add(PageBean("Uri", UriActivity::class.java))
             add(PageBean("加解密", EncryptActivity::class.java))
             add(PageBean("异常", ExceptionActivity::class.java))
+            add(PageBean("ShemeUrl", ShemeUrlActivity::class.java))
 
         })
 
