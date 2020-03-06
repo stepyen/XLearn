@@ -9,9 +9,16 @@
     >
 
 
+
     <Button
         android:id="@+id/btn_dial"
         style="@style/CommonButton"
         android:text="拨号界面"
-        ></Button>
+        />
+
+
+
+
+
+
 </LinearLayout>

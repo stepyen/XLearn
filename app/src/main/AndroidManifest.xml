@@ -57,6 +57,7 @@
         <activity android:name=".activity.function.UriActivity" />
         <activity android:name=".activity.function.JsonActivity" />
         <activity android:name=".activity.function.HandleActivity" />
+        <activity android:name=".activity.java.reflect.FileActivity" />
         <activity android:name=".activity.network.websocket.WebSocketActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

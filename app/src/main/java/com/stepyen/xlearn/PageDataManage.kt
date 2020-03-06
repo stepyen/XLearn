@@ -12,6 +12,7 @@ import com.stepyen.xlearn.activity.function.JsonActivity
 import com.stepyen.xlearn.activity.function.ShemeUrlActivity
 import com.stepyen.xlearn.activity.function.UriActivity
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
+import com.stepyen.xlearn.activity.java.reflect.FileActivity
 import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
 import com.stepyen.xlearn.activity.kotlin.KotlinActivity
 import com.stepyen.xlearn.activity.module.activity.ActivityActivity
@@ -46,6 +47,7 @@ object PageDataManage {
             add(PageBean("反射", ReflectActivity::class.java))
             add(PageBean("补间动画", ActivityActivity::class.java))
             add(PageBean("属性动画", ActivityActivity::class.java))
+            add(PageBean("文件", FileActivity::class.java))
 
         })
 
