@@ -373,6 +373,23 @@ class NotificationActivity : BasePageActivity() {
         })
 
 
+        addTag("应用图标数量")
+
+        addButton("显示图标数量", View.OnClickListener {
+
+            // 发送通知
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("标题")
+                    .setContentText("内容：显示图标数量")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setNumber(33)
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
         addTag("通知栏操作")
 
         addButton("清除所有通知", View.OnClickListener {
@@ -462,6 +479,7 @@ class NotificationActivity : BasePageActivity() {
 
             val channel = NotificationChannel(channelId, channelName, importance).apply {
                 description = channelDescription
+                setShowBadge(true)  // 显示角标数量
                 if (!TextUtils.isEmpty(gruopId)) {
                     group = gruopId
                 }
