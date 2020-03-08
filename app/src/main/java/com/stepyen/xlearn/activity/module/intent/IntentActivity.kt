@@ -4,11 +4,8 @@ import android.content.ComponentName
 import android.content.Intent
 import android.view.View
 import com.orhanobut.logger.Logger
-import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 import com.stepyen.xlearn.utils.IntentLogUtil
-import kotlinx.android.synthetic.main.activity_intent.*
-import java.io.File
 
 /**
  *

@@ -1,6 +1,5 @@
 package com.stepyen.xlearn.activity.audio
 
-import android.media.AudioRecord
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 import kotlinx.android.synthetic.main.activity_audio.*

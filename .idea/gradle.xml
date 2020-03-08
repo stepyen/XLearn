@@ -11,11 +11,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/chivox" />
             <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/emojilibrary" />
             <option value="$PROJECT_DIR$/umlibrary" />
             <option value="$PROJECT_DIR$/widget_compiler" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>

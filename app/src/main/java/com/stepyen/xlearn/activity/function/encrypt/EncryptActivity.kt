@@ -1,6 +1,5 @@
 package com.stepyen.xlearn.activity.function.encrypt
 
-import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 
 /**

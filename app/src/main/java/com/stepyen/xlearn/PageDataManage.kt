@@ -22,7 +22,7 @@ import com.stepyen.xlearn.activity.module.service.ServiceActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
 import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
-import com.stepyen.xlearn.activity.view.NotificationActivity
+import com.stepyen.xlearn.activity.view.notification.NotificationActivity
 import com.stepyen.xlearn.bean.PageBean
 
 /**
@@ -36,32 +36,6 @@ object PageDataManage {
 
     init {
 
-        put("第三方", arrayListOf<PageBean>().apply {
-
-            add(PageBean("友盟", UMengActivity::class.java))
-            add(PageBean("驰声", ChivoxActivity::class.java))
-
-        })
-
-        put("网络", arrayListOf<PageBean>().apply {
-
-            add(PageBean("socket", SocketActivity::class.java))
-            add(PageBean("websocket", WebSocketActivity::class.java))
-            add(PageBean("Retrofit", RetrofitActivity::class.java))
-
-        })
-        put("音视频", arrayListOf<PageBean>().apply {
-
-            add(PageBean("音频", AudioActivity::class.java))
-
-        })
-        put("功能", arrayListOf<PageBean>().apply {
-
-            add(PageBean("Handle", HandleActivity::class.java))
-            add(PageBean("Json", JsonActivity::class.java))
-            add(PageBean("Uri", UriActivity::class.java))
-
-        })
 
         put("测试", arrayListOf<PageBean>().apply {
 
@@ -163,20 +137,6 @@ object PageDataManage {
             add(PageBean("ShemeUrl", ShemeUrlActivity::class.java))
 
         })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

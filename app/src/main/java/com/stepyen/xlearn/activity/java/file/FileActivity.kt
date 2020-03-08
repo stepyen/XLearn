@@ -2,7 +2,6 @@ package com.stepyen.xlearn.activity.java.reflect
 
 import android.view.View
 import com.orhanobut.logger.Logger
-import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 import java.io.File
 

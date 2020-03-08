@@ -1,6 +1,6 @@
 package com.stepyen.xlearn.activity
 
-import android.os.Bundle
+import android.view.View
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 
@@ -13,5 +13,8 @@ class TestActivity : BasePageActivity() {
     override fun initView() {
         addView(R.layout.activity_test)
 
+        addButton("", View.OnClickListener {
+
+        })
     }
 }

@@ -1,8 +1,6 @@
 package com.stepyen.xlearn.activity.function
 
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 import kotlinx.android.synthetic.main.activity_uri.*

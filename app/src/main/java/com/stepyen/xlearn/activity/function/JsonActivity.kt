@@ -1,7 +1,5 @@
 package com.stepyen.xlearn.activity.function
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity

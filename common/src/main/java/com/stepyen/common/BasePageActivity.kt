@@ -3,7 +3,7 @@ package com.stepyen.xlearn.base
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.text.InputFilter
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -11,10 +11,10 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.stepyen.xlearn.R
+import androidx.core.content.ContextCompat
+import com.stepyen.common.R
 import com.stepyen.xutil.display.DensityUtils
 import kotlinx.android.synthetic.main.activity_base_page.*
-import kotlinx.android.synthetic.main.activity_test.*
 
 /**
  * date：2020-02-12
@@ -89,6 +89,25 @@ open class BasePageActivity : AppCompatActivity() {
 
         return tv
     }
+
+    protected fun addTag(txt: CharSequence): TextView? {
+        val tv = TextView(this@BasePageActivity).apply {
+            text = txt
+            setTextColor(ContextCompat.getColor(this@BasePageActivity,R.color.xui_config_main_theme))
+            textSize = 15f
+            gravity = Gravity.CENTER_VERTICAL
+            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+                setMargins(DensityUtils.dp2px(this@BasePageActivity, 15f), DensityUtils.dp2px(this@BasePageActivity,15f), DensityUtils.dp2px(this@BasePageActivity,15f), DensityUtils.dp2px(this@BasePageActivity,15f))
+            }
+        }
+
+        ll_parent.addView(tv)
+
+        return tv
+    }
+
+
+
 
     private fun setLpMarginTop(view: View, marginTop: Int) {
 

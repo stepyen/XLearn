@@ -1,7 +1,5 @@
 package com.stepyen.xlearn.activity.view_custom
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 
