@@ -32,10 +32,9 @@ class IntentActivity : BasePageActivity() {
         addButton("生成Intent的uri",View.OnClickListener {
 
             val intent = Intent().apply {
-                `package` = "com.stepyen.XLearn"
-                component = ComponentName("com.stepyen.XLearn","com.stepyen.XLearn.activity.module.intent.IntentActivity")
+                `package` = "com.kid58.tiyong.characters"
+                component = ComponentName(`package`,"com.sinyee.babybus.SplashAct")
                 putExtra("data","dataValue")
-                putExtra("poet","poet_list_value")
                 action = "android.intent.action.view"
             }
 

@@ -191,26 +191,53 @@ class NotificationActivity : BasePageActivity() {
 
         addTag("通知样式")
 
-        addButton("测试铃声、震动", View.OnClickListener {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-
+        addButton("震动", View.OnClickListener {
 
             var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
                     .setSmallIcon(R.drawable.icon_dog)
                     .setContentTitle("通知标题")
-                    .setContentText("通知内容：测试铃声、震动")
+                    .setContentText("通知内容：震动")
                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setContentIntent(pendingIntent)
                     .setTicker("收到来自远方的消息")
-//                   .setVibrate(longArrayOf(10L,0L,10L,0L))
+                    .setVibrate(longArrayOf(0L, 3000L, 1000L, 3000L))
             val notificationManager: NotificationManager =
                     getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.notify(id++, builder.build())
 
         })
+
+
+        addButton("铃声", View.OnClickListener {
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：铃声")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setTicker("收到来自远方的消息")
+                    .setDefaults(Notification.DEFAULT_ALL)
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+        addButton("铃声、震动", View.OnClickListener {
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：铃声、震动")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setTicker("收到来自远方的消息")
+                    .setVibrate(longArrayOf(0L, 3000L, 1000L, 30000L))
+                    .setDefaults(Notification.DEFAULT_ALL)
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
+
 
         addButton("简单的通知", View.OnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {
