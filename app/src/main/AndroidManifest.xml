@@ -24,6 +24,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".activity.function.ShemeUrlActivity"></activity>
+        <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
         <activity android:name=".activity.view.notification.NotificationTestParentActivity"
             android:parentActivityName=".MainActivity"
             ></activity>

@@ -21,6 +21,9 @@ class ShemeUrlActivity : BasePageActivity() {
     companion object{
         const val test_uri = "stepyen://xiaoming@host.com/record/path?address=china&phone=1875912233#fragment=fragment123"
 
+        //妙学识字-游戏内-商城界面
+        const val characters_game_uri = "com.kid58.tiyong.characters://{\"type\":\"https://beta-wx.kid58.com/double12/index\",\"data\":\"\"}"
+
     }
 
     override fun initView() {
@@ -63,11 +66,11 @@ class ShemeUrlActivity : BasePageActivity() {
         }
 
         try {
-            val babybusUri = "characters://{\"type\":\"gogamepage\",\"data\":\"{\"age\":17}\"}"
+
 
             val sb = StringBuilder()
             sb.append("<a href='")
-            sb.append(babybusUri)
+            sb.append(characters_game_uri)
             sb.append("'>点击跳转</a>")
             tv_test_babybus_uri.text = "网页测试 uri：\n$sb"
             tv_babybus_uri.text = Html.fromHtml(sb.toString())

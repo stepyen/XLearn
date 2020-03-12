@@ -2,6 +2,7 @@ package com.stepyen.xlearn.activity.module.intent
 
 import android.content.ComponentName
 import android.content.Intent
+import android.net.Uri
 import android.view.View
 import com.orhanobut.logger.Logger
 import com.stepyen.xlearn.base.BasePageActivity
@@ -30,6 +31,7 @@ class IntentActivity : BasePageActivity() {
         })
 
 
+
         addButton("获取Intent的全部信息",View.OnClickListener {
             IntentLogUtil.getIntentAllInfo(intent)
         })
@@ -40,13 +42,14 @@ class IntentActivity : BasePageActivity() {
             val intent = Intent().apply {
                 `package` = "com.kid58.tiyong.characters"
                 component = ComponentName(`package`,"com.sinyee.babybus.SplashAct")
-                putExtra("data","dataValue")
+                putExtra("name","xiaoming")
+                putExtra("age","17")
+                data = Uri.parse("babybus://push/openPush?{\"id\":\"123\",\"type\":\"getui\",\"uri\":\"babybus:\\/\\/push\\/openActivity?{\\\"url\\\":\\\"https:\\\\\\/\\\\\\/www.luoxia.com\\\\\\/\\\"}\"}")
                 action = "android.intent.action.view"
             }
 
-            Logger.d(intent.toUri(Intent.URI_INTENT_SCHEME).toString())         // intent:#Intent;action=android.intent.action.view;package=com.stepyen.XLearn;component=com.stepyen.XLearn/.activity.module.intent.IntentActivity;S.data=dataValue;S.poet=poet_list_value;end
-
-            Logger.d(intent.toUri(Intent.URI_ANDROID_APP_SCHEME).toString())    // android-app://com.stepyen.XLearn#Intent;action=android.intent.action.view;component=com.stepyen.XLearn/.activity.module.intent.IntentActivity;S.data=dataValue;S.poet=poet_list_value;end
+            Logger.d(intent.toUri(Intent.URI_INTENT_SCHEME).toString())
+            Logger.d(intent.toUri(Intent.URI_ANDROID_APP_SCHEME).toString())
 
         })
 

@@ -22,6 +22,7 @@ import com.stepyen.xlearn.activity.module.intent.IntentActivity
 import com.stepyen.xlearn.activity.module.service.ServiceActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
+import com.stepyen.xlearn.activity.thrid.getui.GetuiActivity
 import com.stepyen.xlearn.activity.thrid.gson.GsonActivity
 import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
 import com.stepyen.xlearn.activity.view.notification.NotificationActivity
@@ -128,6 +129,7 @@ object PageDataManage {
             add(PageBean("驰声", ChivoxActivity::class.java))
             add(PageBean("msa", MsaActivity::class.java))
             add(PageBean("Gson", GsonActivity::class.java))
+            add(PageBean("个推", GetuiActivity::class.java))
 
         })
 
