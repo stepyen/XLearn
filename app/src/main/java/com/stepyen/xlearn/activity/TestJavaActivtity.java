@@ -26,39 +26,78 @@ public class TestJavaActivtity extends AppCompatActivity {
         setContentView(R.layout.activity_test_java);
 
         JSONObject jo = new JSONObject();
+        JSONObject pushJo = new JSONObject();
+        JSONObject pageJo = new JSONObject();
         try {
 
             // 透传信息
-
-            String openApp = "babybus://push/openApp?{}";
-            jo.put("title", "通知标题");
+            jo.put("title", "打开游戏内页面");
             jo.put("content", "通知内容");
             jo.put("isVibrate", "1");
             jo.put("isSound", "1");
-            jo.put("extra", "babybus://push/openPush?{\"id\":\"123\",\"type\":\"getui\",\"uri\":\""+openApp+"\"}");
 
-            L.d(" openApp "+jo.toString());
+            pushJo.put("id","123");
+            pushJo.put("type","getui");
+
+            JSONObject gameJo = new JSONObject();
+            gameJo.put("name", "xiaoming");
+            gameJo.put("age", "17");
+
+            pageJo.put("url", gameJo.toString());
+            pushJo.put("uri","babybus://push/openGame?"+pageJo.toString());
+
+            jo.put("extra", "babybus://push/openPush?"+pushJo.toString());
+
+            L.d(" 游戏内页面 "+jo.toString());
+            L.d(" 游戏内页面 extra "+jo.getString("extra"));
 
             jo = new JSONObject();
-            String openH5 = "babybus://push/openH5?{\"uri\":\"https://www.baidu.com/\"}";
-            jo.put("title", "通知标题");
+            pushJo = new JSONObject();
+            pageJo = new JSONObject();
+
+
+
+
+            jo.put("title", "打开外部浏览器");
             jo.put("content", "通知内容");
             jo.put("isVibrate", "1");
             jo.put("isSound", "1");
-            jo.put("extra", "babybus://push/openPush?{\"id\":\"123\",\"type\":\"getui\",\"uri\":\""+openH5+"\"}");
+
+            pushJo.put("id","123");
+            pushJo.put("type","getui");
 
 
-            L.d(" openH5 "+jo.toString());
+            pageJo.put("url",   "https://www.baidu.com/");
+            pushJo.put("uri","babybus://push/openBrowser?"+pageJo.toString());
+
+            jo.put("extra", "babybus://push/openPush?"+pushJo.toString());
+
+            L.d("\n\n 打开外部浏览器 "+jo.toString());
+            L.d(" 打开外部浏览器 extra "+jo.getString("extra"));
+
+
 
             jo = new JSONObject();
-            String openPage = "babybus://push/openPage?{\"uri\":\"com.kid58.tiyong.characters://{\"type\":\"gogamepage\",\"data\":\"{\"age\":17}\"}\"}";
-            jo.put("title", "通知标题");
+            pushJo = new JSONObject();
+            pageJo = new JSONObject();
+
+
+            jo.put("title", "打开首页");
             jo.put("content", "通知内容");
             jo.put("isVibrate", "1");
             jo.put("isSound", "1");
-            jo.put("extra", "babybus://push/openPush?{\"id\":\"123\",\"type\":\"getui\",\"uri\":\""+openPage+"\"}");
 
-            L.d(" openPage "+jo.toString());
+            pushJo.put("id","123");
+            pushJo.put("type","getui");
+
+
+            pushJo.put("uri","babybus://push/openHome");
+
+            jo.put("extra", "babybus://push/openPush?"+pushJo.toString());
+
+            L.d("\n\n 打开首页 "+jo.toString());
+            L.d(" 打开首页 extra "+jo.getString("extra"));
+
 
 
 

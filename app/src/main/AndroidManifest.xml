@@ -37,6 +37,7 @@
         <activity android:name=".activity.view.notification.NotificationActivity" />
         <activity android:name=".activity.kotlin.KotlinActivity" />
         <activity android:name=".activity.thrid.msa.MsaActivity" />
+        <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
         <activity android:name=".activity.network.okhttp.OkhttpActivity" />
         <activity android:name=".activity.app.ManifestActivity">
             <meta-data

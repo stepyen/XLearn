@@ -22,6 +22,12 @@ class IntentActivity : BasePageActivity() {
                 putExtra(Intent.EXTRA_PHONE_NUMBER, "18762")
             })
         })
+        addButton("Component Intent",View.OnClickListener {
+            startActivity(Intent().apply {
+                `package` = "com.stepyen.xlearn123"
+                component = ComponentName(`package`,"com.stepyen.xlearn.activity.TestJavaActivtity")    // 包名，具体路径
+            })
+        })
 
 
         addButton("获取Intent的全部信息",View.OnClickListener {

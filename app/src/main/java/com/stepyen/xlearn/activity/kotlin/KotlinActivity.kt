@@ -1,12 +1,21 @@
 package com.stepyen.xlearn.activity.kotlin
 
+import android.text.TextUtils
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.xlearn.utils.L
 
 class KotlinActivity : BasePageActivity() {
 
+
+
+
+
     override fun initView() {
         addView(R.layout.activity_kotlin)
+
+
+
 
     }
 

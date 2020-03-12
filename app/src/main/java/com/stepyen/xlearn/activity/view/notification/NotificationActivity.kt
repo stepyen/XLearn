@@ -12,6 +12,7 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.stepyen.xlearn.MainActivity
 import com.stepyen.xlearn.R
+import com.stepyen.xlearn.activity.kotlin.main
 import com.stepyen.xlearn.base.BasePageActivity
 import java.lang.Exception
 
