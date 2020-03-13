@@ -24,11 +24,48 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activity.function.ShemeUrlActivity"></activity>
-        <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
+        <!--Task 任务栈-->
+        <activity android:name=".activity.module.task.AActivity"></activity>
+        <activity android:name=".activity.module.task.BActivity"></activity>
+        <activity android:name=".activity.module.task.BSingleTaskActivity"
+            android:launchMode="singleTask"
+            ></activity>
+        <activity android:name=".activity.module.task.BSingleTopActivity"
+            android:launchMode="singleTop"
+            ></activity>
+        <activity android:name=".activity.module.task.BSingleInstanceActivity"
+            android:launchMode="singleInstance"
+            ></activity>
+        <activity android:name=".activity.module.task.BBTaskActivity"
+            android:taskAffinity="b.task"
+            ></activity>
+        <activity android:name=".activity.module.task.CActivity"></activity>
+
+        <activity android:name=".activity.module.task.CBTaskActivity"
+            android:taskAffinity="b.task"
+            ></activity>
+        <activity android:name=".activity.module.task.DActivity"></activity>
+        <activity android:name=".activity.module.task.TaskActivity"></activity>
+
+
+<!--    notification    通知栏-->
+        <activity android:name=".activity.view.notification.NoificationReceiveStandardActivitity"
+            android:launchMode="standard"
+            >
+
+        </activity>
+        <activity android:name=".activity.view.notification.NoificationReceiveSingleTaskActivitity"
+            android:launchMode="singleTask"
+            >
+        </activity>
         <activity android:name=".activity.view.notification.NotificationTestParentActivity"
             android:parentActivityName=".MainActivity"
             ></activity>
+
+
+        <activity android:name=".activity.function.ShemeUrlActivity"></activity>
+        <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
+
         <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>
         <activity android:name=".activity.view.ViewActivity"></activity>
         <activity android:name=".activity.module.contentprovider.ContentProviderActivity"></activity>
@@ -107,7 +144,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".fragment.utils.AgentWeb.AgentWebActivity" />
-        <activity android:name=".fragment.basics.version.PermissionActivity" />
+
         <activity
             android:name="com.umeng.socialize.media.WBShareCallBackActivity"
             android:configChanges="keyboardHidden|orientation"

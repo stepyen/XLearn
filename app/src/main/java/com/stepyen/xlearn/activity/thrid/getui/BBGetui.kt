@@ -3,7 +3,6 @@ package com.stepyen.xlearn.activity.thrid.getui
 import android.content.ComponentName
 import android.content.Intent
 import com.orhanobut.logger.Logger
-import com.stepyen.xlearn.utils.L
 import org.json.JSONObject
 
 /**

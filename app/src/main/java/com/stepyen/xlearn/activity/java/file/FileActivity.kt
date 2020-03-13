@@ -15,7 +15,7 @@ import java.text.DecimalFormat
 class FileActivity : BasePageActivity() {
     override fun initView() {
         addButton("生成文件的uri", View.OnClickListener {
-            val uri = File(externalCacheDir.absolutePath).toURI()
+            val uri = File(externalCacheDir?.absolutePath).toURI()
 
             Logger.d(uri)   // file:/storage/emulated/0/Android/data/com.stepyen.xlearn/cache/
         })

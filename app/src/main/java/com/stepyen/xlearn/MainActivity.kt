@@ -2,6 +2,7 @@ package com.stepyen.xlearn
 
 import android.content.Intent
 import android.view.View
+import com.stepyen.common.BaseLifePageActivity
 import com.stepyen.xlearn.base.BasePageActivity
 
 /**
@@ -9,7 +10,9 @@ import com.stepyen.xlearn.base.BasePageActivity
  *
  *
  */
-class MainActivity : BasePageActivity() {
+
+class MainActivity : BaseLifePageActivity() {
+    override var TAG =  "MainActivityTAG"
 
     override fun initView() {
         for (data in PageDataManage.data) {

@@ -7,7 +7,7 @@ android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
-        applicationId "com.stepyen.xlearn123"
+        applicationId "com.stepyen.xlearn"
 //        applicationId "com.xfwy"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk

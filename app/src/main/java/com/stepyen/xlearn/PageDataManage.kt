@@ -20,6 +20,7 @@ import com.stepyen.xlearn.activity.module.activity.ActivityActivity
 import com.stepyen.xlearn.activity.module.contentprovider.ContentProviderActivity
 import com.stepyen.xlearn.activity.module.intent.IntentActivity
 import com.stepyen.xlearn.activity.module.service.ServiceActivity
+import com.stepyen.xlearn.activity.module.task.TaskActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
 import com.stepyen.xlearn.activity.thrid.getui.GetuiActivity
@@ -99,6 +100,7 @@ object PageDataManage {
             add(PageBean("ContentProvide", ContentProviderActivity::class.java))
             add(PageBean("BroadcastReceiver", ActivityActivity::class.java))
             add(PageBean("Intent", IntentActivity::class.java))
+            add(PageBean("Task", TaskActivity::class.java))
 
         })
         put("动画", arrayListOf<PageBean>().apply {

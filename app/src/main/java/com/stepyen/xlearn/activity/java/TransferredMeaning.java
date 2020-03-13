@@ -1,25 +1,16 @@
-package com.stepyen.xlearn.activity;
-
-import android.os.Bundle;
+package com.stepyen.xlearn.activity.java;
 
 import com.orhanobut.logger.Logger;
-import com.stepyen.xlearn.R;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * date：2020-03-09
+ * date：2020-03-13
  * author：stepyen
- * description：
+ * description：转义字符
  */
-public class TestJavaActivtity extends AppCompatActivity {
+public class TransferredMeaning {
 
+    public static void main(String[] args) {
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_java);
 
         String url = "babybus://push/openPush?{\"id\":\"123\",\"type\":\"getui\",\"uri\":\"babybus:\\/\\/push\\/openGame?{\\\"url\\\":\\\"{\\\\\\\"type\\\\\\\":\\\\\\\"https:\\\\\\\\\\\\\\/\\\\\\\\\\\\\\/beta-wx.kid58.com\\\\\\\\\\\\\\/double12\\\\\\\\\\\\\\/index\\\\\\\",\\\\\\\"data\\\\\\\":\\\\\\\"\\\\\\\"}\\\"}\"}";
 
@@ -27,9 +18,10 @@ public class TestJavaActivtity extends AppCompatActivity {
 
         String tempUrl = url.replaceAll("\\\\", "");
         if (tempUrl.contains(game)) {
-            Logger.d("包含");
+            System.out.println("包含");
         }else{
-            Logger.d("不包含");
+            System.out.println("不包含");
+
         }
     }
 }

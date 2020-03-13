@@ -11,7 +11,7 @@ import com.stepyen.xlearn.base.BasePageActivity
 class NotificationTestParentActivity : BasePageActivity() {
 
     override fun initView() {
-        addTextView("通知测试页面")
+        addTextView("父页面是 MainActivity，从通知栏跳转到这个页面，点击返回会回到 MainActivity")
 
     }
 }

@@ -1,6 +1,5 @@
-package com.stepyen.xlearn.utils
+package com.stepyen.common.utils
 
-import android.content.ComponentName
 import android.content.Intent
 
 /**
@@ -66,6 +65,7 @@ object IntentLogUtil {
                 sb.append("flags: ${it.toString()}\n")
                 val flag = when (it) {
                     0->"无"
+                    32768-> "FLAG_ACTIVITY_CLEAR_TASK"      // 0X00008000
                     268435456->"FLAG_ACTIVITY_NEW_TASK"         // 10000000
                     270532608->"FLAG_ACTIVITY_NEW_TASK & FLAG_ACTIVITY_FORWARD_RESULT"         // 10200000
                     272629760 ->"FLAG_ACTIVITY_NEW_TASK & FLAG_ACTIVITY_CLEAR_TOP"         // 10400000

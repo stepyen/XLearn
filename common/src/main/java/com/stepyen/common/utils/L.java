@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.utils;
+package com.stepyen.common.utils;
 
 import android.text.TextUtils;
 import android.util.Log;

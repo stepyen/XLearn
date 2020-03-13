@@ -418,6 +418,99 @@ class NotificationActivity : BasePageActivity() {
 
         })
 
+        addTag("通知栏接收页面测试")
+
+
+        addButton("接收页面是 Standard", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveStandardActivitity::class.java).apply {
+
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 Standard")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
+
+
+        addButton("接收页面是 Standard，Intent 添加 Intent.FLAG_ACTIVITY_NEW_TASK", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveStandardActivitity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 Standard")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
+        addButton("接收页面是 SingleTask", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveSingleTaskActivitity::class.java).apply {
+
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 SingleTask")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+
+        })
+
+        addButton("接收页面是 SingleTask，Intent 添加 Intent.FLAG_ACTIVITY_NEW_TASK", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveSingleTaskActivitity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 SingleTask")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+
+        })
+
+
+
         addTag("通知栏操作")
 
         addButton("清除所有通知", View.OnClickListener {
