@@ -10,7 +10,7 @@ import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.HandleActivity
 import com.stepyen.xlearn.activity.function.JsonActivity
-import com.stepyen.xlearn.activity.function.ShemeUrlActivity
+import com.stepyen.xlearn.activity.function.SchemeUrlActivity
 import com.stepyen.xlearn.activity.function.UriActivity
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
 import com.stepyen.xlearn.activity.java.reflect.FileActivity
@@ -142,7 +142,7 @@ object PageDataManage {
             add(PageBean("Uri", UriActivity::class.java))
             add(PageBean("加解密", EncryptActivity::class.java))
             add(PageBean("异常", ExceptionActivity::class.java))
-            add(PageBean("ShemeUrl", ShemeUrlActivity::class.java))
+            add(PageBean("ShemeUrl", SchemeUrlActivity::class.java))
 
         })
 

@@ -39,6 +39,10 @@
         <activity android:name=".activity.module.task.BBTaskActivity"
             android:taskAffinity="b.task"
             ></activity>
+        <activity android:name=".activity.module.task.BBTaskSingleTaskActivity"
+            android:taskAffinity="b.task"
+            android:launchMode="singleTask"
+            ></activity>
         <activity android:name=".activity.module.task.CActivity"></activity>
 
         <activity android:name=".activity.module.task.CBTaskActivity"
@@ -63,7 +67,7 @@
             ></activity>
 
 
-        <activity android:name=".activity.function.ShemeUrlActivity"></activity>
+        <activity android:name=".activity.function.SchemeUrlActivity"></activity>
         <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
 
         <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>

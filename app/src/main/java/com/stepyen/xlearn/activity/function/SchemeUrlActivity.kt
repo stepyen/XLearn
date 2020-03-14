@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.text.Html
 import android.text.method.LinkMovementMethod
+import com.stepyen.common.BaseLifePageActivity
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
 import com.stepyen.xutil.tip.ToastUtils
@@ -16,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_url_scheme.*
  * description：ShemeUrl 学习
  *
  */
-class ShemeUrlActivity : BasePageActivity() {
+class SchemeUrlActivity : BaseLifePageActivity() {
 
-    companion object{
+    companion object {
         const val test_uri = "stepyen://xiaoming@host.com/record/path?address=china&phone=1875912233#fragment=fragment123"
 
         //妙学识字-游戏内-商城界面
@@ -79,6 +80,23 @@ class ShemeUrlActivity : BasePageActivity() {
             e.printStackTrace()
         }
 
+
+
+
+
+        try {
+            val uri = "stepyen://path"
+            val sb = StringBuilder()
+            sb.append("<a href='")
+            sb.append(uri)
+            sb.append("'>跳转到 测试demo 下的 scheme 页面</a>")
+
+            addTextView(Html.fromHtml(sb.toString()))?.apply {
+                movementMethod = LinkMovementMethod.getInstance()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
 
 
     }

@@ -42,6 +42,11 @@ class AActivity : BaseLifePageActivity() {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
             })
         })
+        addButton("BBTaskSingleTask",View.OnClickListener {
+            startActivity(Intent(this@AActivity,BBTaskSingleTaskActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            })
+        })
     }
 
 }

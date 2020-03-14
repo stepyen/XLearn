@@ -77,6 +77,7 @@ open class BaseLifePageActivity :BasePageActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         L.d("$TAG   onNewIntent: ")
+        L.d("$TAG   onNewIntent: taskId：${taskId}")
         L.d("$TAG   onNewIntent: ${IntentLogUtil.getIntentAllInfo(intent)}")
     }
 }
