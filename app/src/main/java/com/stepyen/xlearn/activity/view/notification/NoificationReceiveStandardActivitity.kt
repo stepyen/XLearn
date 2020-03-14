@@ -1,6 +1,7 @@
 package com.stepyen.xlearn.activity.view.notification
 
 import com.orhanobut.logger.Logger
+import com.stepyen.common.BaseLifePageActivity
 import com.stepyen.xlearn.base.BasePageActivity
 import com.stepyen.common.utils.IntentLogUtil
 
@@ -10,14 +11,9 @@ import com.stepyen.common.utils.IntentLogUtil
  * description：通知栏接收页面，启动模式是 标准
  *
  */
-class NoificationReceiveStandardActivitity : BasePageActivity() {
+class NoificationReceiveStandardActivitity : BaseLifePageActivity() {
 
     override fun initView() {
         addTextView("通知栏接收页面，启动模式是 Standard")
-
-        val log = IntentLogUtil.getIntentAllInfo(intent)
-
-        Logger.d(log)
-
     }
 }

@@ -12,7 +12,6 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.stepyen.xlearn.MainActivity
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.activity.kotlin.main
 import com.stepyen.xlearn.base.BasePageActivity
 import java.lang.Exception
 
@@ -171,6 +170,252 @@ class NotificationActivity : BasePageActivity() {
         })
 
 
+
+
+        testPendingIntent()
+
+        testImportant()
+
+        testStyle()
+
+
+
+
+        addTag("应用图标数量")
+
+        addButton("显示图标数量", View.OnClickListener {
+
+            // 发送通知
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("标题")
+                    .setContentText("内容：显示图标数量")
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setNumber(33)
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
+        addTag("通知栏接收页面测试")
+
+
+        addButton("接收页面是 Standard", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveStandardActivitity::class.java).apply {
+
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 Standard")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
+
+
+        addButton("接收页面是 Standard，Intent 添加 Intent.FLAG_ACTIVITY_NEW_TASK", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveStandardActivitity::class.java).apply {
+
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 Standard")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+        })
+
+        addButton("接收页面是 SingleTask", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveSingleTaskActivitity::class.java).apply {
+
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 SingleTask")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+
+        })
+
+        addButton("接收页面是 SingleTask，Intent 添加 Intent.FLAG_ACTIVITY_NEW_TASK", View.OnClickListener {
+
+            val intent = Intent(this, NoificationReceiveSingleTaskActivitity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+
+            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                    .setSmallIcon(R.drawable.icon_dog)
+                    .setContentTitle("通知标题")
+                    .setContentText("通知内容：接收页面是 SingleTask")
+                    .setContentIntent(pendingIntent)
+                    .setAutoCancel(true)
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(id++, builder.build())
+
+
+        })
+
+
+
+        addTag("通知栏操作")
+
+        addButton("清除所有通知", View.OnClickListener {
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancelAll()
+
+        })
+
+
+    }
+
+
+    /**
+     * 测试重要性
+     */
+    private fun testImportant(channelId: String) {
+
+
+        var priority = NotificationCompat.PRIORITY_DEFAULT
+        var importance = NotificationManager.IMPORTANCE_DEFAULT
+        var name = ""
+        var descriptor = ""
+
+        when (channelId) {
+            CHANNEL_ID_IMPORTANCE_MIN -> {
+                priority = NotificationCompat.PRIORITY_MIN
+                importance = NotificationManager.IMPORTANCE_MIN
+                name = "重要性及低"
+                descriptor = "重要性及低"
+            }
+
+            CHANNEL_ID_IMPORTANCE_LOW -> {
+                priority = NotificationCompat.PRIORITY_LOW
+                importance = NotificationManager.IMPORTANCE_LOW
+                name = "重要性低"
+                descriptor = "重要性低"
+            }
+            CHANNEL_ID_IMPORTANCE_DEFAULT -> {
+                priority = NotificationCompat.PRIORITY_DEFAULT
+                importance = NotificationManager.IMPORTANCE_DEFAULT
+                name = "重要性默认"
+                descriptor = "重要性默认"
+            }
+
+            CHANNEL_ID_IMPORTANCE_HIGH -> {
+                priority = NotificationCompat.PRIORITY_HIGH
+                importance = NotificationManager.IMPORTANCE_HIGH
+                name = "重要性高"
+                descriptor = "重要性高"
+            }
+            CHANNEL_ID_IMPORTANCE_MAX -> {
+                priority = NotificationCompat.PRIORITY_MAX
+                importance = NotificationManager.IMPORTANCE_MAX
+                name = "重要性及高"
+                descriptor = "重要性及高"
+            }
+            else -> {
+                priority = NotificationCompat.PRIORITY_DEFAULT
+                importance = NotificationManager.IMPORTANCE_DEFAULT
+                name = "重要性默认"
+                descriptor = "重要性默认"
+            }
+        }
+
+        // 创建渠道
+        createNotificationChannel(channelId, name, descriptor, importance)
+
+        // 发送通知
+        var builder = NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(R.drawable.icon_dog)
+                .setContentTitle("标题")
+                .setContentText("内容：$name")
+                .setPriority(priority)
+        val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(id++, builder.build())
+    }
+
+
+    /**
+     * 创建通知渠道
+     */
+    private fun createNotificationChannel(channelId: String, channelName: String, channelDescription: String, importance: Int, gruopId: String? = ""): NotificationChannel? {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+            val channel = NotificationChannel(channelId, channelName, importance).apply {
+                description = channelDescription
+                setShowBadge(true)  // 显示角标数量
+                if (!TextUtils.isEmpty(gruopId)) {
+                    group = gruopId
+                }
+            }
+
+            val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+
+            return channel
+        }
+
+        return null
+    }
+
+
+    private fun simpleNotification(content: String, pi: PendingIntent) {
+
+
+        // 发送通知
+        var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
+                .setSmallIcon(R.drawable.icon_dog)
+                .setContentTitle("标题")
+                .setContentText("内容：$content")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pi)
+        val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(id++, builder.build())
+
+    }
+
+    /**
+     * 测试重要性
+     */
+    private fun testImportant() {
         addTag("重要性")
 
         addButton("重要性及低", View.OnClickListener {
@@ -188,8 +433,68 @@ class NotificationActivity : BasePageActivity() {
         addButton("重要性及高", View.OnClickListener {
             testImportant(CHANNEL_ID_IMPORTANCE_MAX)
         })
+    }
+
+    /**
+     * 测试 PendingIntent
+     */
+    private fun testPendingIntent() {
+        addTag("测试 PendingIntent")
+
+        addButton("默认情况", View.OnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
+
+            simpleNotification("PendingIntent 默认情况",pendingIntent)
+        })
+        addButton("FLAG_ONE_SHOT", View.OnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+
+            simpleNotification("PendingIntent FLAG_ONE_SHOT",pendingIntent)
+        })
+
+        addButton("FLAG_NO_CREATE", View.OnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_NO_CREATE)
+
+            simpleNotification("PendingIntent FLAG_NO_CREATE",pendingIntent)
+        })
+        addButton("FLAG_CANCEL_CURRENT", View.OnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT)
+
+            simpleNotification("PendingIntent FLAG_CANCEL_CURRENT",pendingIntent)
+        })
+
+        addButton("FLAG_UPDATE_CURRENT", View.OnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+            id = 1000
+            simpleNotification("PendingIntent FLAG_UPDATE_CURRENT",pendingIntent)
+        })
+        addButton("FLAG_IMMUTABLE", View.OnClickListener {
+            val intent = Intent(this, MainActivity::class.java).apply {
+            }
+            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
 
+            simpleNotification("PendingIntent FLAG_IMMUTABLE",pendingIntent)
+        })
+
+    }
+
+
+    /**
+     * 测试 样式
+     */
+    private fun testStyle() {
         addTag("通知样式")
 
         addButton("震动", View.OnClickListener {
@@ -401,220 +706,5 @@ class NotificationActivity : BasePageActivity() {
         })
 
 
-        addTag("应用图标数量")
-
-        addButton("显示图标数量", View.OnClickListener {
-
-            // 发送通知
-            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
-                    .setSmallIcon(R.drawable.icon_dog)
-                    .setContentTitle("标题")
-                    .setContentText("内容：显示图标数量")
-                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                    .setNumber(33)
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(id++, builder.build())
-
-        })
-
-        addTag("通知栏接收页面测试")
-
-
-        addButton("接收页面是 Standard", View.OnClickListener {
-
-            val intent = Intent(this, NoificationReceiveStandardActivitity::class.java).apply {
-
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-
-
-            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
-                    .setSmallIcon(R.drawable.icon_dog)
-                    .setContentTitle("通知标题")
-                    .setContentText("通知内容：接收页面是 Standard")
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(id++, builder.build())
-
-        })
-
-
-
-        addButton("接收页面是 Standard，Intent 添加 Intent.FLAG_ACTIVITY_NEW_TASK", View.OnClickListener {
-
-            val intent = Intent(this, NoificationReceiveStandardActivitity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-
-
-            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
-                    .setSmallIcon(R.drawable.icon_dog)
-                    .setContentTitle("通知标题")
-                    .setContentText("通知内容：接收页面是 Standard")
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(id++, builder.build())
-
-        })
-
-        addButton("接收页面是 SingleTask", View.OnClickListener {
-
-            val intent = Intent(this, NoificationReceiveSingleTaskActivitity::class.java).apply {
-
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-
-
-            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
-                    .setSmallIcon(R.drawable.icon_dog)
-                    .setContentTitle("通知标题")
-                    .setContentText("通知内容：接收页面是 SingleTask")
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(id++, builder.build())
-
-
-        })
-
-        addButton("接收页面是 SingleTask，Intent 添加 Intent.FLAG_ACTIVITY_NEW_TASK", View.OnClickListener {
-
-            val intent = Intent(this, NoificationReceiveSingleTaskActivitity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT)
-
-
-            var builder = NotificationCompat.Builder(this, CHANNEL_ID_MESSAGE)
-                    .setSmallIcon(R.drawable.icon_dog)
-                    .setContentTitle("通知标题")
-                    .setContentText("通知内容：接收页面是 SingleTask")
-                    .setContentIntent(pendingIntent)
-                    .setAutoCancel(true)
-
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.notify(id++, builder.build())
-
-
-        })
-
-
-
-        addTag("通知栏操作")
-
-        addButton("清除所有通知", View.OnClickListener {
-
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.cancelAll()
-
-        })
-
-
     }
-
-
-    /**
-     * 测试重要性
-     */
-    private fun testImportant(channelId: String) {
-
-
-        var priority = NotificationCompat.PRIORITY_DEFAULT
-        var importance = NotificationManager.IMPORTANCE_DEFAULT
-        var name = ""
-        var descriptor = ""
-
-        when (channelId) {
-            CHANNEL_ID_IMPORTANCE_MIN -> {
-                priority = NotificationCompat.PRIORITY_MIN
-                importance = NotificationManager.IMPORTANCE_MIN
-                name = "重要性及低"
-                descriptor = "重要性及低"
-            }
-
-            CHANNEL_ID_IMPORTANCE_LOW -> {
-                priority = NotificationCompat.PRIORITY_LOW
-                importance = NotificationManager.IMPORTANCE_LOW
-                name = "重要性低"
-                descriptor = "重要性低"
-            }
-            CHANNEL_ID_IMPORTANCE_DEFAULT -> {
-                priority = NotificationCompat.PRIORITY_DEFAULT
-                importance = NotificationManager.IMPORTANCE_DEFAULT
-                name = "重要性默认"
-                descriptor = "重要性默认"
-            }
-
-            CHANNEL_ID_IMPORTANCE_HIGH -> {
-                priority = NotificationCompat.PRIORITY_HIGH
-                importance = NotificationManager.IMPORTANCE_HIGH
-                name = "重要性高"
-                descriptor = "重要性高"
-            }
-            CHANNEL_ID_IMPORTANCE_MAX -> {
-                priority = NotificationCompat.PRIORITY_MAX
-                importance = NotificationManager.IMPORTANCE_MAX
-                name = "重要性及高"
-                descriptor = "重要性及高"
-            }
-            else -> {
-                priority = NotificationCompat.PRIORITY_DEFAULT
-                importance = NotificationManager.IMPORTANCE_DEFAULT
-                name = "重要性默认"
-                descriptor = "重要性默认"
-            }
-        }
-
-        // 创建渠道
-        createNotificationChannel(channelId, name, descriptor, importance)
-
-        // 发送通知
-        var builder = NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.icon_dog)
-                .setContentTitle("标题")
-                .setContentText("内容：$name")
-                .setPriority(priority)
-        val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(id++, builder.build())
-    }
-
-
-    /**
-     * 创建通知渠道
-     */
-    private fun createNotificationChannel(channelId: String, channelName: String, channelDescription: String, importance: Int, gruopId: String? = ""): NotificationChannel? {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-
-            val channel = NotificationChannel(channelId, channelName, importance).apply {
-                description = channelDescription
-                setShowBadge(true)  // 显示角标数量
-                if (!TextUtils.isEmpty(gruopId)) {
-                    group = gruopId
-                }
-            }
-
-            val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-
-            return channel
-        }
-
-        return null
-    }
-
-
 }
