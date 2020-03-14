@@ -9,7 +9,7 @@ import com.stepyen.xlearn.base.BasePageActivity
  * author：stepyen
  * description：
  */
-class TestActivity : BasePageActivity() {
+class CopyActivity : BasePageActivity() {
     override fun initView() {
         addView(R.layout.activity_test)
 

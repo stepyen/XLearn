@@ -1,8 +1,8 @@
 package com.stepyen.xlearn
 
 import com.stepyen.chivox.ChivoxActivity
-import com.stepyen.xlearn.activity.TestActivity
-import com.stepyen.xlearn.activity.TestJavaActivtity
+import com.stepyen.xlearn.activity.CopyActivity
+import com.stepyen.xlearn.activity.java.JavaActivtity
 import com.stepyen.xlearn.activity.network.socket.SocketActivity
 import com.stepyen.xlearn.activity.thrid.ument.UMengActivity
 import com.stepyen.xlearn.activity.app.ManifestActivity
@@ -43,8 +43,9 @@ object PageDataManage {
 
         put("测试", arrayListOf<PageBean>().apply {
 
-            add(PageBean("kotlin测试", TestActivity::class.java))
-            add(PageBean("Java测试", TestJavaActivtity::class.java))
+            add(PageBean("kotlin", KotlinActivity::class.java))
+            add(PageBean("Java测试", JavaActivtity::class.java))
+            add(PageBean("Copy", CopyActivity::class.java))
 
         })
 
@@ -61,7 +62,6 @@ object PageDataManage {
 
         put("kotlin", arrayListOf<PageBean>().apply {
 
-            add(PageBean("kotlin", KotlinActivity::class.java))
 
 
         })

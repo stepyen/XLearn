@@ -26,7 +26,7 @@ class IntentActivity : BasePageActivity() {
         addButton("Component Intent",View.OnClickListener {
             startActivity(Intent().apply {
                 `package` = "com.stepyen.xlearn123"
-                component = ComponentName(`package`,"com.stepyen.xlearn.activity.TestJavaActivtity")    // 包名，具体路径
+                component = ComponentName(`package`,"com.stepyen.xlearn.activity.java.JavaActivtity")    // 包名，具体路径
             })
         })
 
