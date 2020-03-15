@@ -8,39 +8,6 @@ package com.stepyen.xlearn;
 public class Copy   {
 
 
-    /**
-     * id : 8
-     * time : 2020-02-03 09:14:43
-     * sendId : 1
-     */
-
-    private int id;
-    private String time;
-    private String sendId;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getSendId() {
-        return sendId;
-    }
-
-    public void setSendId(String sendId) {
-        this.sendId = sendId;
-    }
 }
 
 

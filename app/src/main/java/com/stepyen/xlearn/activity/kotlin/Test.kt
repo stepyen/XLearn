@@ -24,6 +24,7 @@ class Test {
  */
 fun main(args: Array<String>) {
 
+    testNull()
 //    testEqual()
 //    testRequire()
 //    testCheck()
@@ -38,6 +39,37 @@ fun main(args: Array<String>) {
     testTestExtendPara()
 
 
+
+}
+
+fun testNull() {
+    println("-----------------------testNull 开始--------------------------")
+
+    val s1 :String?=null
+    val s2 :String = ""
+    val s3 :String = "123"
+
+    val print1 :String= s1?.takeIf { it.isNotEmpty() }?: run {
+        "s1 is null"
+    }
+
+    val print2 :String= s2?.takeIf { it.isNotEmpty() }?: run {
+        "s2 is null"
+    }
+
+    val print3 :String= s3?.takeIf { it.isNotEmpty() }?: run {
+        "s3 is null"
+    }
+    println(print1)   // "s1 is null"
+    println(print2)   // "s2 is null"
+    println(print3)   // "123"
+
+
+
+
+
+
+    println("-----------------------testNull 结束--------------------------")
 
 }
 
