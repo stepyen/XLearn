@@ -9,8 +9,11 @@ import com.orhanobut.logger.Logger;
  */
 public class TransferredMeaning {
 
-    public static void main(String[] args) {
 
+    /**
+     * 斜杠 \
+     */
+    public void testSlash() {
 
         String url = "babybus://push/openPush?{\"id\":\"123\",\"type\":\"getui\",\"uri\":\"babybus:\\/\\/push\\/openGame?{\\\"url\\\":\\\"{\\\\\\\"type\\\\\\\":\\\\\\\"https:\\\\\\\\\\\\\\/\\\\\\\\\\\\\\/beta-wx.kid58.com\\\\\\\\\\\\\\/double12\\\\\\\\\\\\\\/index\\\\\\\",\\\\\\\"data\\\\\\\":\\\\\\\"\\\\\\\"}\\\"}\"}";
 
