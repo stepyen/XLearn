@@ -76,7 +76,7 @@ class ServiceActivity : BasePageActivity() {
                 if (cursor == null) {
                     Logger.d("未连通")
                     startActivity(Intent().apply {
-                        setClassName("com.stepyen.testdemo","com.stepyen.testdemo.sharespace.NoDisplayActivity")
+                        setClassName("com.stepyen.testdemo","com.stepyen.testdemo.activity.sharespace.NoDisplayActivity")
                     })
 
                 }else{
@@ -88,7 +88,7 @@ class ServiceActivity : BasePageActivity() {
         })
 
         val packetName = "com.stepyen.testdemo"
-        val serviceName = "com.stepyen.testdemo.sharespace.ShareSpaceService"
+        val serviceName = "com.stepyen.testdemo.activity.sharespace.ShareSpaceService"
 
         addButton("显式开启服务", View.OnClickListener {
 
@@ -128,7 +128,7 @@ class ServiceActivity : BasePageActivity() {
 
             val intent = Intent().apply {
                 `package` = packageName
-                action = "com.stepyen.testdemo.service.TestStartService"
+                action = serviceName
             }
             stopService(intent)
 
