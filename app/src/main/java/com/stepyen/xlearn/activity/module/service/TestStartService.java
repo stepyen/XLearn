@@ -1,36 +1,38 @@
-package com.stepyen.xlearn.fragment.basics.service;
+package com.stepyen.xlearn.activity.module.service;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.orhanobut.logger.Logger;
+
 import androidx.annotation.Nullable;
 
 /**
  * date：2019-11-25
  * author：stepyen
- * description：
+ * description：测试开启服务
  */
 public class TestStartService extends Service {
 
-    private static final String TAG = "TestStartService";
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "onCreate: ");
+        Logger.d("onCreate");
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d(TAG, "onBind: ");
+        Logger.d("onBind");
         return null;
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d(TAG, "onStartCommand: ");
+        Logger.d("onStartCommand");
         return super.onStartCommand(intent, flags, startId);
         
     }
@@ -38,6 +40,6 @@ public class TestStartService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy: ");
+        Logger.d("onDestroy");
     }
 }

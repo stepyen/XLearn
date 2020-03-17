@@ -67,6 +67,26 @@
             ></activity>
 
 
+        <!--Service 开始-->
+
+        <activity android:name=".activity.module.service.ServiceActivity"></activity>
+
+        <service
+            android:name="com.stepyen.xlearn.activity.module.service.TestStartService"
+            ></service>
+        <service
+            android:name="com.stepyen.xlearn.activity.module.service.TestBindService"
+            ></service>
+
+        <service
+            android:name="com.stepyen.xlearn.activity.module.service.TestIntentService"
+            ></service>
+
+
+        <!--Service 结束-->
+
+
+
         <activity android:name=".activity.function.SchemeUrlActivity"></activity>
         <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
 
@@ -207,11 +227,17 @@
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver> <!-- QQ 结束 -->
+        </receiver>
+
+        <!-- QQ 结束 -->
+
+
         <!-- receiver -->
         <service
             android:name=".fragment.basics.process_communication.MessengerService"
             android:process=":testMessenger" />
+
+
     </application>
 
 </manifest>

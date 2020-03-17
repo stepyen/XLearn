@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics.service;
+package com.stepyen.xlearn.activity.module.service;
 
 import android.app.IntentService;
 import android.content.Intent;

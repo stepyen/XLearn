@@ -73,7 +73,6 @@ class BBGetui {
                 put("extra", "babybus://push/openPush?$pushJo")
             }
 
-
             Logger.d(" 游戏内页面 $jo")
             Logger.d(" 游戏内页面 extra " + jo.getString("extra"))
 

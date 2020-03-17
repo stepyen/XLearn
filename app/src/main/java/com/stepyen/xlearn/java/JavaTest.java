@@ -28,7 +28,7 @@ public class JavaTest {
 
         JavaTest test = new JavaTest();
 
-        test.testOrAnd();
+//        test.testOrAnd();
         test.testTime();
         test.testSave2Decimal();
         test.testExecutor();
