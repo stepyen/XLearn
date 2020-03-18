@@ -13,6 +13,7 @@ public class TestJava {
         // 转移字符
         TransferredMeaning transferredMeaning = new TransferredMeaning();
 //        transferredMeaning.testSlash();
+        transferredMeaning.testUrlEncodeAndUrlDecode();
 
 
 
