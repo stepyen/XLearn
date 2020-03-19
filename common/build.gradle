@@ -95,4 +95,7 @@ dependencies {
     api "org.java-websocket:Java-WebSocket:1.4.0"
     // UI
     api 'com.github.stepyen:XUI:1.4.1'
+
+    // freemarker
+    api "org.freemarker:freemarker:2.3.30"
 }
