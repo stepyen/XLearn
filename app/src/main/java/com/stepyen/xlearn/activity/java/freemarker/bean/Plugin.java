@@ -1,4 +1,6 @@
-package com.stepyen.xlearn.activity.java.freemarker;
+package com.stepyen.xlearn.activity.java.freemarker.bean;
+
+import com.stepyen.xlearn.activity.java.freemarker.Constant;
 
 import java.util.HashMap;
 
@@ -12,12 +14,11 @@ public class Plugin {
     /**
      * 模板地址
      */
-    public static final String TEMPLATE_PATH = "/Users/babybus/AndroidProject/XLearn/FreeMarkerTemplates/PluginModule";
-    /**
-     * 插件生成地址
-     */
-    public static final String OUTPUT_PATH = "/Users/babybus/Desktop/pluginOutput/";
+    public static String TEMPLATE_PATH;
 
+    static {
+        TEMPLATE_PATH = Constant.TEMPLATES_PATH + "PluginModule";
+    }
 
     public String name;
     public String name_lower_case;
@@ -44,7 +45,7 @@ public class Plugin {
         plugin_name = "Plugin_" + name;
         plugin_name_lower_case = plugin_name.toLowerCase();
 
-        plugin_path = OUTPUT_PATH+plugin_name+"/";
+        plugin_path = Constant.OUTPUT_PATH+plugin_name+"/";
         libs_path =plugin_path+"libs/";
         main_path = plugin_path + "src/main/";
         java_path = main_path+"java/com/babybus/plugin/"+name_lower_case+"/";
