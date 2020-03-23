@@ -88,7 +88,6 @@
 
 
         <activity android:name=".activity.function.SchemeUrlActivity"></activity>
-        <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
 
         <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>
         <activity android:name=".activity.view.ViewActivity"></activity>
@@ -99,8 +98,7 @@
         <activity android:name=".activity.view_basics.ViewBasicsActivity" />
         <activity android:name=".activity.view.notification.NotificationActivity" />
         <activity android:name=".activity.kotlin.KotlinActivity" />
-        <activity android:name=".activity.thrid.msa.MsaActivity" />
-        <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
+
         <activity android:name=".activity.network.okhttp.OkhttpActivity" />
         <activity android:name=".activity.CopyActivity" />
         <activity android:name=".activity.app.ManifestActivity">
@@ -147,7 +145,17 @@
             android:name=".fragment.utils.launch.BActivity"
             android:launchMode="singleTop" />
         <activity android:name=".fragment.utils.launch.CActivity" />
-        <activity android:name=".activity.thrid.ument.UMengActivity" />
+
+<!--        第三方 thrid 开始-->
+
+        <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
+        <activity android:name=".activity.thrid.ument.UMengActivity" ></activity>
+        <activity android:name=".activity.thrid.glide.GlideActivity" ></activity>
+        <activity android:name=".activity.thrid.msa.MsaActivity" ></activity>
+        <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
+<!--        第三方 thrid 结束-->
+
+
         <activity android:name=".PageListActivity" />
         <activity android:name=".activity.module.activity.TargetActivity" /> <!-- 新浪 结束 -->
         <!-- 微信 结束 -->
