@@ -17,12 +17,25 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-            <com.stepyen.xlearn.activity.view_custom.TestView
-                android:id="@+id/testView"
+
+            <com.stepyen.xlearn.activity.view.surfaceview.VideoView
+                android:id="@+id/videoview"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"/>
+                android:layout_height="200dp"/>
 
+            <Button
+                android:id="@+id/playVideoBtn"
+                style="@style/CommonButton"
+                android:text="播放视频"/>
+            <Button
+                android:id="@+id/pauseVideoBtn"
+                style="@style/CommonButton"
+                android:text="暂停视频"/>
 
+            <Button
+                android:id="@+id/resumeVideoBtn"
+                style="@style/CommonButton"
+                android:text="继续播放视频"/>
 
         </LinearLayout>
     </ScrollView>

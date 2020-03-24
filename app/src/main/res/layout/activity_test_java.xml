@@ -19,10 +19,6 @@
             >
 
 
-            <TextView
-                style="@style/TextView_hint_tag"
-                android:text="移动安全联盟 获取 ooid"
-                />
 
 
 

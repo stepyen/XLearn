@@ -6,21 +6,21 @@ package com.stepyen.xlearn.activity.kotlin.testClass
  * description：测试-类执行顺序
  *
  */
-class TestClassExecuteOrder(name: String) {
-    val firstProperty = "First property: $name".also(::println)
+class TestClassExecuteOrder(name: String) {                         // 0
+    val firstProperty = "First property: $name".also(::println)     // 1
 
     init {
-        println("First initializer block that prints ${name}")
+        println("First initializer block that prints ${name}")      // 2
     }
 
-    val secondProperty = "Second property: ${name.length}".also(::println)
+    val secondProperty = "Second property: ${name.length}".also(::println)  //3
 
     init {
-        println("Second initializer block that prints ${name.length}")
+        println("Second initializer block that prints ${name.length}")//4
     }
 
-    constructor(name: String, age: Int) : this(name) {
-        println("constructor")
+    constructor(name: String, age: Int) : this(name) {      // -1
+        println("constructor")                          // 5
     }
 
 }

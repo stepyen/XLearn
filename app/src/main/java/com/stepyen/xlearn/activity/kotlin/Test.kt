@@ -23,6 +23,11 @@ class Test {
  * main方法创建方式2
  */
 fun main(args: Array<String>) {
+    TestNull().apply {
+        testJudgeNull()
+    }
+
+
 
     testNull()
 //    testEqual()
@@ -282,7 +287,7 @@ fun testExtend2() {
 fun testClassExecuteOrder() {
     println("------------------类执行顺序----- 开始--------------------------")
 
-    TestClassExecuteOrder("name",123)
+    TestClassExecuteOrder("姓名",123)
 
     println("----------------------- 结束--------------------------")
 
