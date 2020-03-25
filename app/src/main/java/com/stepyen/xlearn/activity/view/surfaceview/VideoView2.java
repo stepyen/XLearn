@@ -6,7 +6,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -19,12 +18,7 @@ import java.io.FileDescriptor;
  * Created by wjy on 2019-12-06
  * E-Mail Address: 673236072@qq.com
  **/
-public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
-    private static final String TAG = "TestVideoViewTAG";
-
-    // 默认播放下标
-    public static final int DEFAULT_PLAY_POSITION = -1;
-
+public class VideoView2 extends SurfaceView implements VideoViewImpl.Controller {
     private SurfaceHolder mSurfaceHolder;
     private SurfaceHolder.Callback mSurfaceCallback;
 
@@ -32,27 +26,30 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     private MediaPlayer.OnCompletionListener onCompletionListener;
     private MediaPlayer.OnPreparedListener onPreparedListener;
     private MediaPlayer.OnErrorListener onErrorListener;
-    private int mPlayPosition = DEFAULT_PLAY_POSITION; // 播放进度记录
+    private int mPlayPosition = -1; // 播放进度记录
 
     private VideoViewImpl.Callback mCallback;
+    private String dataSource;
 
-
-    public VideoView(Context context) {
-        this(context, null);
+    public VideoView2(Context context) {
+        super(context);
+        init();
     }
 
-    public VideoView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+    public VideoView2(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
     }
 
-    public VideoView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public VideoView2(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         init();
     }
 
 
-    private void init() {
+    private void init(){
         initListener();
+        mMediaPlayer = new MediaPlayer();
         mSurfaceHolder = this.getHolder();
         mSurfaceHolder.addCallback(mSurfaceCallback);
     }
@@ -60,7 +57,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     /**
      * 初始化监听
      */
-    public void initListener() {
+    public void initListener(){
         onCompletionListener = new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -71,20 +68,18 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
         onPreparedListener = new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                Log.d(TAG, "onPrepared: 资源准备完成");
                 try {
                     mp.start();
                     if (mPlayPosition > 0) {
                         mp.seekTo(mPlayPosition);
-                        mPlayPosition = DEFAULT_PLAY_POSITION;
+                        mPlayPosition = -1;
                     }
                     // 设置显示界面
                     mp.setDisplay(mSurfaceHolder);
-                } catch (Exception e) {
+                }catch (Exception e){
                     e.printStackTrace();
-                    playError("播放异常:" + e.toString());
+                    playError("播放异常:"+e.toString());
                 }
-
                 startPlay();
             }
         };
@@ -92,7 +87,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
         onErrorListener = new MediaPlayer.OnErrorListener() {
             @Override
             public boolean onError(MediaPlayer mp, int what, int extra) {
-                playError("播放异常 what:" + what + " extra:" + extra);
+                playError("播放异常 what:"+what+" extra:"+extra);
                 return false;
             }
         };
@@ -100,9 +95,9 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
         mSurfaceCallback = new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder holder) {
-                Log.d(TAG, "surfaceCreated: 界面创建");
-                if (mMediaPlayer != null) {
-                    mMediaPlayer.setDisplay(holder);
+                resumeVideo();
+                if(mMediaPlayer != null) {
+                    mMediaPlayer.setDisplay(mSurfaceHolder);
                 }
             }
 
@@ -117,89 +112,64 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
         };
     }
 
-
-    /**
-     * 初始化 MediaPlayer
-     */
-    private void initMediaPlayer() {
-
-        if (mMediaPlayer == null) {
-            mMediaPlayer = new MediaPlayer();
-        }
-
-        // 重置mediaPaly,建议在初始滑mediaplay立即调用。
-        mMediaPlayer.setOnBufferingUpdateListener(null);
-        mMediaPlayer.reset();
-        // 设置视频播放常亮
-        mMediaPlayer.setScreenOnWhilePlaying(true);
-        // 设置声音效果
-        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        // 设置播放完成监听
-        mMediaPlayer.setOnCompletionListener(onCompletionListener);
-        // 设置媒体加载完成以后回调函数。
-        mMediaPlayer.setOnPreparedListener(onPreparedListener);
-        // 错误监听回调函数
-        mMediaPlayer.setOnErrorListener(onErrorListener);
-    }
-
-
     @Override
     public void playVideo(int type, String dataSource) {
+        this.dataSource = dataSource;
+        mPlayPosition = -1;
+        startLoading();
         if (TextUtils.isEmpty(dataSource)) {
             playError("播放地址为空");
             return;
         }
-
         if (mSurfaceHolder == null) {
             playError("SurfaceHolder为空");
             return;
         }
 
-        mPlayPosition = DEFAULT_PLAY_POSITION;
-        startLoading();
-
-
-        try {
-
-            initMediaPlayer();
-
-            switch (type) {
-                case DataSourceType.TYPE_HTTP:
-                case DataSourceType.TYPE_FILE_PATH:
-                    mMediaPlayer.setDataSource(dataSource);
-                    break;
-
-                case DataSourceType.TYPE_ASSET:
-
-                    AssetFileDescriptor afd = App.get().getAssets().openFd(dataSource);
-                    FileDescriptor fd = afd.getFileDescriptor();
-                    mMediaPlayer.setDataSource(fd, afd.getStartOffset(), afd.getLength());
-                    afd.close();
-
-                    break;
+        try{
+            if (mMediaPlayer == null) {
+                mMediaPlayer = new MediaPlayer();
             }
+            // 重置mediaPaly,建议在初始滑mediaplay立即调用。
+            mMediaPlayer.setOnBufferingUpdateListener(null);
+            mMediaPlayer.reset();
+            // 设置视频播放常亮
+            mMediaPlayer.setScreenOnWhilePlaying(true);
+            // 设置声音效果
+            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            // 设置播放完成监听
+            mMediaPlayer.setOnCompletionListener(onCompletionListener);
+            // 设置媒体加载完成以后回调函数。
+            mMediaPlayer.setOnPreparedListener(onPreparedListener);
+            // 错误监听回调函数
+            mMediaPlayer.setOnErrorListener(onErrorListener);
 
+            if(dataSource.startsWith("http")){
+                mMediaPlayer.setDataSource(dataSource);
+            }else{
+                File file = new File(dataSource);
 
+                AssetFileDescriptor afd = App.get().getAssets().openFd(dataSource);
+                FileDescriptor fd = afd.getFileDescriptor();
+                mMediaPlayer.setDataSource(fd, afd.getStartOffset(), afd.getLength());
+                afd.close();
+            }
             mMediaPlayer.prepareAsync();
-
-        } catch (Exception e) {
-
+        }catch (Exception e){
             e.printStackTrace();
-            playError("初始化播放器异常:" + e.toString());
+            playError("初始化播放器异常:"+e.toString());
         }
     }
 
     @Override
     public void resumeVideo() {
         try {
-
             if(mMediaPlayer != null) {
                 startLoading();
                 mMediaPlayer.setOnPreparedListener(onPreparedListener);
                 mMediaPlayer.prepareAsync();
             }
-
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
             playError("恢复播放失败");
         }
@@ -208,15 +178,10 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     @Override
     public void pauseVideo() {
         try {
-            if (null != mMediaPlayer) {
-
-                mMediaPlayer.setOnPreparedListener(null);
-                mMediaPlayer.pause();
-                pausePlay();
-
-            }
-
-        } catch (Exception e) {
+            mMediaPlayer.setOnPreparedListener(null);
+            mMediaPlayer.pause();
+            pausePlay();
+        }catch (Exception e){
             e.printStackTrace();
             playError("暂停播放失败");
         }
@@ -246,8 +211,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
             if (mMediaPlayer != null) {
                 return mMediaPlayer.getCurrentPosition();
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
         return 0;
     }
 
@@ -257,16 +221,15 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
             if (mMediaPlayer != null) {
                 return mMediaPlayer.getDuration();
             }
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
         return 0;
     }
 
     /**
      * 开始加载
      */
-    private void startLoading() {
-        if (mCallback != null) {
+    private void startLoading(){
+        if(mCallback != null){
             mCallback.startLoading();
         }
     }
@@ -274,9 +237,9 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     /**
      * 开始播放
      */
-    private void startPlay() {
+    private void startPlay(){
         mPlayPosition = -1;
-        if (mCallback != null) {
+        if(mCallback != null){
             mCallback.startPlay();
         }
     }
@@ -284,9 +247,9 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     /**
      * 暂停播放
      */
-    private void pausePlay() {
+    private void pausePlay(){
         mPlayPosition = getCurrentPosition();
-        if (mCallback != null) {
+        if(mCallback != null){
             mCallback.pausePlay();
         }
     }
@@ -294,20 +257,19 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     /**
      * 播放完成
      */
-    private void playComplete() {
-        if (mCallback != null) {
+    private void playComplete(){
+        if(mCallback != null){
             mCallback.onComplete();
         }
     }
 
     /**
      * 播放异常
-     *
      * @param msg
      */
-    private void playError(String msg) {
+    private void playError(String msg){
         mPlayPosition = getCurrentPosition();
-        if (mCallback != null) {
+        if(mCallback != null){
             mCallback.onError(msg);
         }
     }

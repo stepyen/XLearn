@@ -18,15 +18,21 @@
             android:orientation="vertical"
             >
 
-            <com.stepyen.xlearn.activity.view.surfaceview.VideoView
+            <com.stepyen.xlearn.activity.view.surfaceview.VideoView2
                 android:id="@+id/videoview"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>
 
             <Button
-                android:id="@+id/playVideoBtn"
+                android:id="@+id/playAssetVideoBtn"
                 style="@style/CommonButton"
-                android:text="播放视频"/>
+                android:text="播放 asset下 视频"/>
+
+            <Button
+                android:id="@+id/playFilePathVideoBtn"
+                style="@style/CommonButton"
+                android:text="播放 文件地址下 视频"/>
+
             <Button
                 android:id="@+id/pauseVideoBtn"
                 style="@style/CommonButton"

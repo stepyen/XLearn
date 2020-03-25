@@ -72,5 +72,39 @@
         />
 
 
+    <TextView
+        style="@style/TextView_hint_tag"
+        android:text="音频播放 MediaPlayer"
+        />
+
+
+    <Button
+        android:id="@+id/btn_MediaPlayer_start"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="开始"
+        />
+    <Button
+        android:id="@+id/btn_MediaPlayer_pause"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="暂停"
+        />
+
+    <Button
+        android:id="@+id/btn_MediaPlayer_resume"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="继续播放"
+        />
+
+
+    <Button
+        android:id="@+id/btn_MediaPlayer_release"
+        style="@style/CommonButton"
+        android:layout_marginTop="15dp"
+        android:text="释放"
+        />
+
 
 </LinearLayout>

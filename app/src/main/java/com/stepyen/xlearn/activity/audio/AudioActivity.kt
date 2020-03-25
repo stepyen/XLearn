@@ -18,7 +18,7 @@ class AudioActivity :BasePageActivity(){
 
     }
     override fun initData() {
-        audioPath = "${externalCacheDir.absolutePath}/audio/"
+        audioPath = "${externalCacheDir?.absolutePath}/audio/"
         File(audioPath).apply{
             if (!exists()) {
                 mkdirs()
@@ -31,6 +31,7 @@ class AudioActivity :BasePageActivity(){
 
         initMedia()
         initAudio()
+        initMediaPlayer()
     }
 
 
@@ -54,7 +55,35 @@ class AudioActivity :BasePageActivity(){
 
     }
 
+
+
     private fun initAudio() {
+    }
+
+    private fun initMediaPlayer() {
+
+        val mp3Path = "${externalCacheDir?.absolutePath}/Poem_001.mp3"
+
+        val mediaPlayerManager = MediaPlayerManager()
+
+        btn_MediaPlayer_start.setOnClickListener {
+            mediaPlayerManager.start(MediaPlayerManager.DataSourceType.FILE_PATH,mp3Path)
+        }
+
+        btn_MediaPlayer_pause.setOnClickListener {
+            mediaPlayerManager.pause()
+        }
+
+        btn_MediaPlayer_resume.setOnClickListener {
+            mediaPlayerManager.resume()
+        }
+
+        btn_MediaPlayer_release.setOnClickListener {
+            mediaPlayerManager.release()
+        }
+
+
+
     }
 
 }

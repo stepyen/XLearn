@@ -27,70 +27,71 @@
         <!--Task 任务栈-->
         <activity android:name=".activity.module.task.AActivity"></activity>
         <activity android:name=".activity.module.task.BActivity"></activity>
-        <activity android:name=".activity.module.task.BSingleTaskActivity"
+        <activity
+            android:name=".activity.module.task.BSingleTaskActivity"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".activity.module.task.BSingleTopActivity"
+            android:launchMode="singleTop"></activity>
+        <activity
+            android:name=".activity.module.task.BSingleInstanceActivity"
+            android:launchMode="singleInstance"></activity>
+        <activity
+            android:name=".activity.module.task.BBTaskActivity"
+            android:taskAffinity="b.task"></activity>
+        <activity
+            android:name=".activity.module.task.BBTaskSingleTaskActivity"
             android:launchMode="singleTask"
-            ></activity>
-        <activity android:name=".activity.module.task.BSingleTopActivity"
-            android:launchMode="singleTop"
-            ></activity>
-        <activity android:name=".activity.module.task.BSingleInstanceActivity"
-            android:launchMode="singleInstance"
-            ></activity>
-        <activity android:name=".activity.module.task.BBTaskActivity"
-            android:taskAffinity="b.task"
-            ></activity>
-        <activity android:name=".activity.module.task.BBTaskSingleTaskActivity"
-            android:taskAffinity="b.task"
-            android:launchMode="singleTask"
-            ></activity>
+            android:taskAffinity="b.task"></activity>
         <activity android:name=".activity.module.task.CActivity"></activity>
 
-        <activity android:name=".activity.module.task.CBTaskActivity"
-            android:taskAffinity="b.task"
-            ></activity>
+        <activity
+            android:name=".activity.module.task.CBTaskActivity"
+            android:taskAffinity="b.task"></activity>
         <activity android:name=".activity.module.task.DActivity"></activity>
         <activity android:name=".activity.module.task.TaskActivity"></activity>
 
 
-<!--    notification    通知栏-->
-        <activity android:name=".activity.view.notification.NoificationReceiveStandardActivitity"
-            android:launchMode="standard"
-            >
+        <!--    notification    通知栏-->
+        <activity
+            android:name=".activity.view.notification.NoificationReceiveStandardActivitity"
+            android:launchMode="standard">
 
         </activity>
-        <activity android:name=".activity.view.notification.NoificationReceiveSingleTaskActivitity"
-            android:launchMode="singleTask"
-            >
-        </activity>
-        <activity android:name=".activity.view.notification.NotificationTestParentActivity"
-            android:parentActivityName=".MainActivity"
-            ></activity>
+        <activity
+            android:name=".activity.view.notification.NoificationReceiveSingleTaskActivitity"
+            android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".activity.view.notification.NotificationTestParentActivity"
+            android:parentActivityName=".MainActivity"></activity>
 
-        <activity android:name=".activity.view.surfaceview.SurfaceViewActivity"
-            ></activity>
+        <activity android:name=".activity.view.surfaceview.SurfaceViewActivity"></activity>
 
 
         <!--Service 开始-->
 
         <activity android:name=".activity.module.service.ServiceActivity"></activity>
 
-        <service
-            android:name="com.stepyen.xlearn.activity.module.service.TestStartService"
-            ></service>
-        <service
-            android:name="com.stepyen.xlearn.activity.module.service.TestBindService"
-            ></service>
+        <service android:name="com.stepyen.xlearn.activity.module.service.TestStartService"></service>
+        <service android:name="com.stepyen.xlearn.activity.module.service.TestBindService"></service>
 
-        <service
-            android:name="com.stepyen.xlearn.activity.module.service.TestIntentService"
-            ></service>
+        <service android:name="com.stepyen.xlearn.activity.module.service.TestIntentService"></service>
 
 
         <!--Service 结束-->
 
 
+        <!--function 开始-->
 
         <activity android:name=".activity.function.SchemeUrlActivity"></activity>
+        <activity android:name=".activity.function.AssetsActivity"></activity>
+        <activity android:name=".activity.function.encrypt.EncryptActivity" />
+        <activity android:name=".activity.function.UriActivity" />
+        <activity android:name=".activity.function.JsonActivity" />
+        <activity android:name=".activity.function.HandleActivity" />
+
+        <!--function 结束-->
+
 
         <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>
         <activity android:name=".activity.view.ViewActivity"></activity>
@@ -121,13 +122,10 @@
         <activity android:name=".activity.java.JavaActivtity"></activity>
         <activity android:name=".activity.exception.ExceptionActivity" />
         <activity android:name=".activity.module.intent.IntentActivity" />
-        <activity android:name=".activity.function.encrypt.EncryptActivity" />
         <activity android:name=".activity.java.reflect.ReflectActivity" />
         <activity android:name=".activity.animotion.AnimotionActivity" />
         <activity android:name=".activity.module.activity.ActivityActivity" />
-        <activity android:name=".activity.function.UriActivity" />
-        <activity android:name=".activity.function.JsonActivity" />
-        <activity android:name=".activity.function.HandleActivity" />
+
         <activity android:name=".activity.java.reflect.FileActivity" />
         <activity android:name=".activity.network.websocket.WebSocketActivity" />
         <activity android:name=".MainActivity">
@@ -149,14 +147,14 @@
             android:launchMode="singleTop" />
         <activity android:name=".fragment.utils.launch.CActivity" />
 
-<!--        第三方 thrid 开始-->
+        <!--        第三方 thrid 开始-->
 
         <activity android:name=".activity.thrid.getui.GetuiActivity"></activity>
-        <activity android:name=".activity.thrid.ument.UMengActivity" ></activity>
-        <activity android:name=".activity.thrid.glide.GlideActivity" ></activity>
-        <activity android:name=".activity.thrid.msa.MsaActivity" ></activity>
+        <activity android:name=".activity.thrid.ument.UMengActivity"></activity>
+        <activity android:name=".activity.thrid.glide.GlideActivity"></activity>
+        <activity android:name=".activity.thrid.msa.MsaActivity"></activity>
         <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
-<!--        第三方 thrid 结束-->
+        <!--        第三方 thrid 结束-->
 
 
         <activity android:name=".PageListActivity" />
@@ -226,7 +224,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- 微信 结束 -->
         <!-- QQ 开始 -->
         <!-- qq（请注意将友盟的qq appkey替换成您自己的qq appkey） -->
-
 
 
         <provider

@@ -5,12 +5,15 @@ package com.stepyen.xlearn.activity.view.surfaceview;
  * E-Mail Address: 673236072@qq.com
  **/
 public class VideoViewImpl {
+
+
     public interface Controller {
         /**
          * 播放视频
+         * @param type {@link DataSourceType}
          * @param dataSource
          */
-        void playVideo(String dataSource);
+        void playVideo(int type, String dataSource);
 
         /**
          * 恢复视频
