@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.java;
+package com.stepyen.xlearn.activity.java.genericity;
 
 import java.util.ArrayList;
 import java.util.List;

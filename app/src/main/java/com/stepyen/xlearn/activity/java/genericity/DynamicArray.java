@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.java.genericity;
+package com.stepyen.xlearn.activity.java.genericity;
 
 /**
  * date：2019/5/19

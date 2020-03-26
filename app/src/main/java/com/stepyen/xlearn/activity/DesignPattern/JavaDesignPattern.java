@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.java.DesignPattern;
+package com.stepyen.xlearn.activity.DesignPattern;
 
 /**
  * date：2019/8/5

@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.java.annotation;
+package com.stepyen.xlearn.activity.java.annotation;
 
 import java.lang.reflect.Method;
 

@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.java.genericity;
+package com.stepyen.xlearn.activity.java.genericity;
 
 //import com.stepyen.javalib.Animal;
 //import com.stepyen.javalib.Cat;
@@ -6,11 +6,7 @@ package com.stepyen.xlearn.java.genericity;
 //import com.stepyen.javalib.genericity.Demo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
-
-import javax.xml.transform.Source;
 
 /**
  * date：2019/5/6

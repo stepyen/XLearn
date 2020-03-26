@@ -14,20 +14,6 @@ public class TestJava {
 //        transferredMeaning.testSlash();
 //        transferredMeaning.testUrlEncodeAndUrlDecode();
 
-
-        String str = null;
-        String msg = "";
-        switch (str) {
-            case "1":
-                msg = "1";
-                break;
-            default:
-                msg = "default";
-                break;
-        }
-
-        System.out.println(msg);
-
     }
 
 }

@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.java.DesignPattern;
+package com.stepyen.xlearn.activity.DesignPattern;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
