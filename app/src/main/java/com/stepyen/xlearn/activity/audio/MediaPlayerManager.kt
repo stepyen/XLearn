@@ -14,6 +14,10 @@ import java.lang.Exception
  */
 class MediaPlayerManager {
 
+    // 当前处于暂停状态
+    private var isPause = false
+
+
     /**
      * 音频播放者
      */
@@ -29,11 +33,30 @@ class MediaPlayerManager {
 
 
     /**
+     * 开始播放 网络资源
+     */
+    fun startHttpDataSource(dataSource: String) {
+        start(DataSourceType.HTTP, dataSource)
+    }
+    /**
+     * 开始播放 Asset 资源
+     */
+    fun startAssetDataSource(dataSource: String) {
+        start(DataSourceType.ASSET, dataSource)
+    }
+    /**
+     * 开始播放 文件 资源
+     */
+    fun startFileDataSource(dataSource: String) {
+        start(DataSourceType.FILE, dataSource)
+    }
+
+    /**
      * 开始播放
      * @param dataSourceType 资源类型
      *
      */
-    fun start(dataSourceType: DataSourceType, dataSource: String) {
+    private fun start(dataSourceType: DataSourceType, dataSource: String) {
 
         if (TextUtils.isEmpty(dataSource)) {
             return
@@ -59,7 +82,7 @@ class MediaPlayerManager {
                         setDataSource(fd, afd.startOffset, afd.length)
                         afd.close()
                     }
-                    DataSourceType.FILE_PATH->{
+                    DataSourceType.FILE->{
                         setDataSource(dataSource)
                     }
                 }
@@ -83,6 +106,7 @@ class MediaPlayerManager {
         mediaPlayer.apply {
             if (isPlaying) {
                 pause()
+                isPause = true
             }
         }
     }
@@ -92,7 +116,10 @@ class MediaPlayerManager {
      */
     fun resume() {
         mediaPlayer.apply {
-            mediaPlayer.start()
+            if (isPause) {
+                mediaPlayer.start()
+                isPause = false
+            }
         }
     }
 
@@ -137,7 +164,7 @@ class MediaPlayerManager {
         /**
          * 文件地址
          */
-        FILE_PATH
+        FILE
 
     }
 }

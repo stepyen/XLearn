@@ -63,6 +63,12 @@ open class BasePageActivity : AppCompatActivity() {
         }, marginTop)
     }
 
+    protected fun addButton(title: String, clickAction: (View) -> Unit) {
+        val clickListener = View.OnClickListener { v -> clickAction(v) }
+
+        addButton(title, clickListener, 0)
+    }
+
 
     protected fun addButton(title: String, clickListener: View.OnClickListener) {
         addButton(title, clickListener, 0)

@@ -1,5 +1,6 @@
 package com.stepyen.xlearn
 
+import com.bumptech.glide.Glide
 import com.stepyen.chivox.ChivoxActivity
 import com.stepyen.xlearn.activity.CopyActivity
 import com.stepyen.xlearn.activity.java.JavaActivtity
@@ -21,6 +22,7 @@ import com.stepyen.xlearn.activity.module.task.TaskActivity
 import com.stepyen.xlearn.activity.network.okhttp.OkhttpActivity
 import com.stepyen.xlearn.activity.network.websocket.WebSocketActivity
 import com.stepyen.xlearn.activity.thrid.getui.GetuiActivity
+import com.stepyen.xlearn.activity.thrid.glide.GlideActivity
 import com.stepyen.xlearn.activity.thrid.gson.GsonActivity
 import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
 import com.stepyen.xlearn.activity.view.notification.NotificationActivity
@@ -132,6 +134,7 @@ object PageDataManage {
             add(PageBean("msa", MsaActivity::class.java))
             add(PageBean("Gson", GsonActivity::class.java))
             add(PageBean("个推", GetuiActivity::class.java))
+            add(PageBean("Glide", GlideActivity::class.java))
 
         })
 

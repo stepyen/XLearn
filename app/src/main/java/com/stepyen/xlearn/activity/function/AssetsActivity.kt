@@ -2,8 +2,11 @@ package com.stepyen.xlearn.activity.function
 
 import android.view.View
 import com.stepyen.common.utils.L
+import com.stepyen.xlearn.App
+import com.stepyen.xlearn.DataResouceManager
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.xlearn.utils.AssetsUtil
 import java.io.File
 import java.io.FileOutputStream
 
@@ -18,49 +21,29 @@ import java.io.FileOutputStream
 class AssetsActivity : BasePageActivity() {
 
 
-    var mp3Path = ""
-
-
     override fun initView() {
 //        addView(R.layout.activity_assets)
 
-        addButton("从 asset 复制MP3文件到 sd下", View.OnClickListener {
-            copyFromAssetToSDPath()
-            L.d("mp3文件路径：$mp3Path")
-        })
 
-
-    }
-
-
-    /**
-     * 获取 assets 下的文件
-     */
-    private fun getAssetsList() {
-        assets.list("")
-    }
-
-    /**
-     * 从 assets 复制文件到 SD 卡下
-     */
-    private fun copyFromAssetToSDPath() {
-        mp3Path = "${externalCacheDir?.absolutePath}/Poem_001.mp3"
-        val inputStream = assets.open("Poem_001.mp3")
-        val file = File(mp3Path)
-        val fileOutputStream = FileOutputStream(file)
-        var buffer = ByteArray(1024)
-
-        var byteCount = inputStream.read(buffer)
-
-        while(byteCount!=-1) {
-            fileOutputStream.write(buffer,0,byteCount)
-            byteCount=inputStream.read(buffer)
+        addButton("从 Assets 复制资源到sd卡下"){
+            DataResouceManager().apply {
+                copyMP3FromAssets()
+                copyMP4FromAssets()
+                copyCatGifFromAssets()
+                copyTigerJpgFromAssets()
+            }
         }
 
-        fileOutputStream.flush();
-        fileOutputStream.close();
-        inputStream.close();
+
+        addButton("从 asset 复制MP3文件到 sd下"){
+            val mp3Path = DataResouceManager().copyMP3FromAssets()
+            L.d("mp3文件路径：$mp3Path")
+
+        }
+
+
     }
+
 
 
 }

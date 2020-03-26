@@ -1,7 +1,6 @@
 package com.stepyen.xlearn.activity.java;
 
 
-
 /**
  * date：2020-03-16
  * author：stepyen
@@ -13,9 +12,21 @@ public class TestJava {
         // 转移字符
         TransferredMeaning transferredMeaning = new TransferredMeaning();
 //        transferredMeaning.testSlash();
-        transferredMeaning.testUrlEncodeAndUrlDecode();
+//        transferredMeaning.testUrlEncodeAndUrlDecode();
 
 
+        String str = null;
+        String msg = "";
+        switch (str) {
+            case "1":
+                msg = "1";
+                break;
+            default:
+                msg = "default";
+                break;
+        }
+
+        System.out.println(msg);
 
     }
 

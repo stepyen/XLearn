@@ -31,4 +31,9 @@ class MainActivity : BaseLifePageActivity() {
             })
         }
     }
+
+
+    private fun initDataSource() {
+
+    }
 }

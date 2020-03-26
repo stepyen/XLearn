@@ -24,6 +24,20 @@
                 android:text="Glide"
                 />
 
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/AntiqueWhite"
+                />
+
+            <Button
+                android:id="@+id/showGifBtn"
+                style="@style/CommonButton"
+                android:text="显示 gif 图"
+                ></Button>
+
+
 
         </LinearLayout>
     </ScrollView>
