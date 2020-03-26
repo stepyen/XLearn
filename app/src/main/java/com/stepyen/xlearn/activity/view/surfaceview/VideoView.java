@@ -34,7 +34,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     private MediaPlayer.OnErrorListener onErrorListener;
     private int mPlayPosition = DEFAULT_PLAY_POSITION; // 播放进度记录
 
-    private VideoViewImpl.Callback mCallback;
+    public VideoViewImpl.Callback mCallback;
 
 
     public VideoView(Context context) {
@@ -108,10 +108,12 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
 
             @Override
             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+                Log.d(TAG, "surfaceChanged: ");
             }
 
             @Override
             public void surfaceDestroyed(SurfaceHolder holder) {
+                Log.d(TAG, "surfaceDestroyed: 界面被销毁");
                 release();
             }
         };
@@ -193,7 +195,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
     public void resumeVideo() {
         try {
 
-            if(mMediaPlayer != null) {
+            if( null != mMediaPlayer) {
                 startLoading();
                 mMediaPlayer.setOnPreparedListener(onPreparedListener);
                 mMediaPlayer.prepareAsync();
@@ -212,6 +214,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
 
                 mMediaPlayer.setOnPreparedListener(null);
                 mMediaPlayer.pause();
+                mPlayPosition = getCurrentPosition();
                 pausePlay();
 
             }
@@ -275,7 +278,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
      * 开始播放
      */
     private void startPlay() {
-        mPlayPosition = -1;
+
         if (mCallback != null) {
             mCallback.startPlay();
         }
@@ -285,7 +288,7 @@ public class VideoView extends SurfaceView implements VideoViewImpl.Controller {
      * 暂停播放
      */
     private void pausePlay() {
-        mPlayPosition = getCurrentPosition();
+
         if (mCallback != null) {
             mCallback.pausePlay();
         }

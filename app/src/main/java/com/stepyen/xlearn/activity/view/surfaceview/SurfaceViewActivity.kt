@@ -39,6 +39,33 @@ class SurfaceViewActivity : BasePageActivity() {
 
         copyFromAssetToSDPath()
         L.d("mp4文件路径：$mp4Path")
+
+        initCallback()
+
+    }
+
+    private fun initCallback() {
+        videoview.mCallback = object :VideoViewImpl.Callback{
+            override fun onComplete() {
+            }
+
+            override fun startLoading() {
+            }
+
+            override fun onLoaded() {
+            }
+
+            override fun onError(msg: String?) {
+                L.d(msg)
+            }
+
+            override fun startPlay() {
+            }
+
+            override fun pausePlay() {
+            }
+
+        }
     }
 
     /**
