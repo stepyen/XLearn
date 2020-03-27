@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.activity.java.freemarker;
+package com.stepyen.xlearn.activity.freemarker;
 
 import java.io.File;
 

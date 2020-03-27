@@ -23,29 +23,52 @@ class Test {
  * main方法创建方式2
  */
 fun main(args: Array<String>) {
-    TestNull().apply {
-        testJudgeNull()
-    }
+//    TestNull().apply {
+//        testJudgeNull()
+//    }
 
 
 
-    testNull()
+
+
+//    testNull()
 //    testEqual()
 //    testRequire()
 //    testCheck()
 
-    testDelegates()
-    testDelegatesObservable()
-    testDelegatesMap()
+//    testDelegates()
+//    testDelegatesObservable()
+//    testDelegatesMap()
+//
+//    testExtend1()
+//    testExtend2()
+//    testClassExecuteOrder()
+//    testTestExtendPara()
 
-    testExtend1()
-    testExtend2()
-    testClassExecuteOrder()
-    testTestExtendPara()
+    TestLambda().apply {
+        testAction = {
+            println(it)
+        }
+
+        test()
+    }
 
 
 
 }
+
+
+fun testInLine() {
+
+    onlyIf(false) {
+        println("执行action方法")
+    }
+
+
+
+}
+
+
 
 fun testNull() {
     println("-----------------------testNull 开始--------------------------")

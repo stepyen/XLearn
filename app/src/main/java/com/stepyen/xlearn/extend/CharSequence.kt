@@ -1,4 +1,4 @@
-package com.stepyen.commonsdk.extend
+package com.stepyen.xlearn.extend
 
 import androidx.annotation.StringRes
 import com.stepyen.xui.utils.ResUtils

@@ -48,12 +48,12 @@ public class Calculate {
         System.out.println("----------------testOrAnd 结束--------------------");
     }
 
-    public boolean method1() {
+    private boolean method1() {
         System.out.println("method1");
         return false;
     }
 
-    public boolean method2() {
+    private boolean method2() {
         System.out.println("method2");
         return true;
     }

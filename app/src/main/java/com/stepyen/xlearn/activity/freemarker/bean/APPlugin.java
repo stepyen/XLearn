@@ -1,6 +1,6 @@
-package com.stepyen.xlearn.activity.java.freemarker.bean;
+package com.stepyen.xlearn.activity.freemarker.bean;
 
-import com.stepyen.xlearn.activity.java.freemarker.Constant;
+import com.stepyen.xlearn.activity.freemarker.Constant;
 
 import java.util.HashMap;
 

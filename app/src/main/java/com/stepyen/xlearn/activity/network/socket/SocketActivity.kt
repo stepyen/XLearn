@@ -5,8 +5,9 @@ import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.orhanobut.logger.Logger
-import com.stepyen.commonsdk.extend.trim
 import com.stepyen.xlearn.R
+import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.xlearn.extend.trim
 import com.stepyen.common.BasePageActivity
 import com.stepyen.xui.utils.DensityUtils
 import kotlinx.android.synthetic.main.activity_socket.*

@@ -1,12 +1,15 @@
 package com.stepyen.xlearn.activity.function
 
+import android.net.Uri
 import android.view.View
+import com.bumptech.glide.Glide
 import com.stepyen.common.utils.L
 import com.stepyen.xlearn.App
 import com.stepyen.xlearn.DataResouceManager
 import com.stepyen.xlearn.R
 import com.stepyen.common.BasePageActivity
 import com.stepyen.xlearn.utils.AssetsUtil
+import kotlinx.android.synthetic.main.activity_glide.*
 import java.io.File
 import java.io.FileOutputStream
 
@@ -22,7 +25,7 @@ class AssetsActivity : BasePageActivity() {
 
 
     override fun initView() {
-//        addView(R.layout.activity_assets)
+        addView(R.layout.activity_assets)
 
 
         addButton("从 Assets 复制资源到sd卡下"){
@@ -33,6 +36,9 @@ class AssetsActivity : BasePageActivity() {
                 copyTigerJpgFromAssets()
             }
         }
+
+
+
 
 
         addButton("从 asset 复制MP3文件到 sd下"){

@@ -140,7 +140,6 @@
         <activity android:name=".activity.java.JavaActivtity"></activity>
         <activity android:name=".activity.exception.ExceptionActivity" />
         <activity android:name=".activity.module.intent.IntentActivity" />
-        <activity android:name=".activity.java.reflect.ReflectActivity" />
         <activity android:name=".activity.animotion.AnimotionActivity" />
         <activity android:name=".activity.module.activity.ActivityActivity" />
 

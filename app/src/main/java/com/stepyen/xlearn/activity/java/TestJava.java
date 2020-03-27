@@ -14,6 +14,13 @@ public class TestJava {
 //        transferredMeaning.testSlash();
 //        transferredMeaning.testUrlEncodeAndUrlDecode();
 
+
+        // 计算
+        Calculate calculate = new Calculate();
+        calculate.testOrAndMethorCall();
+        calculate.testOrAndNumber();
+
+
     }
 
 }

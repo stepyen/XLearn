@@ -1,7 +1,4 @@
-package com.stepyen.commonsdk.extend
-
-import android.text.TextUtils
-import android.view.View
+package com.stepyen.xlearn.extend
 import android.widget.TextView
 
 /**
@@ -13,6 +10,6 @@ import android.widget.TextView
 /**
  * 获取文本
  */
-fun TextView.trim():String {
+inline fun TextView.trim():String {
     return this.text.toString().trim()
 }

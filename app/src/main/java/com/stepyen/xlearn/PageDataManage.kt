@@ -3,7 +3,6 @@ package com.stepyen.xlearn
 import com.bumptech.glide.Glide
 import com.stepyen.chivox.ChivoxActivity
 import com.stepyen.xlearn.activity.CopyActivity
-import com.stepyen.xlearn.activity.java.JavaActivtity
 import com.stepyen.xlearn.activity.network.socket.SocketActivity
 import com.stepyen.xlearn.activity.thrid.ument.UMengActivity
 import com.stepyen.xlearn.activity.app.ManifestActivity

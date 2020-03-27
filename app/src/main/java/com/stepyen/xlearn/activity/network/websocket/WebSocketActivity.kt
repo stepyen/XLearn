@@ -10,6 +10,8 @@ import com.stepyen.xlearn.R
 import com.stepyen.xlearn.activity.network.websocket.entity.BaseMessageBean
 import com.stepyen.xlearn.activity.network.websocket.entity.HeartBean
 import com.stepyen.xlearn.activity.network.websocket.entity.SendMsgBean
+import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.xlearn.extend.trim
 import com.stepyen.common.BasePageActivity
 import com.stepyen.xui.utils.DensityUtils
 import com.stepyen.xutil.tip.ToastUtils

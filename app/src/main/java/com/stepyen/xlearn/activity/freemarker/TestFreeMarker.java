@@ -1,7 +1,6 @@
-package com.stepyen.xlearn.activity.java.freemarker;
+package com.stepyen.xlearn.activity.freemarker;
 
-import com.stepyen.xlearn.activity.java.freemarker.manager.APPluginManager;
-import com.stepyen.xlearn.activity.java.freemarker.manager.BBPluginManager;
+import com.stepyen.xlearn.activity.freemarker.manager.APPluginManager;
 
 /**
  * date：2020-03-19

@@ -1,6 +1,7 @@
 package com.stepyen.xlearn.utils
 
 import android.content.Context
+import com.stepyen.xlearn.extend.closeIO
 import java.io.File
 import java.io.FileOutputStream
 
@@ -13,11 +14,11 @@ import java.io.FileOutputStream
 class AssetsUtil {
 
 
-    companion object{
+    companion object {
         /**
          * 从 assets 拷贝文件
          */
-        fun copyFromAssets(context: Context,fileName:String,path:String) {
+        fun copyFromAssets(context: Context, fileName: String, path: String) {
 
             val inputStream = context.assets.open(fileName)
             val file = File(path)
@@ -26,14 +27,14 @@ class AssetsUtil {
 
             var byteCount = inputStream.read(buffer)
 
-            while(byteCount!=-1) {
-                fileOutputStream.write(buffer,0,byteCount)
-                byteCount=inputStream.read(buffer)
+            while (byteCount != -1) {
+                fileOutputStream.write(buffer, 0, byteCount)
+                byteCount = inputStream.read(buffer)
             }
 
-            fileOutputStream.flush();
-            fileOutputStream.close();
-            inputStream.close();
+            fileOutputStream.flush()
+            fileOutputStream.closeIO()
+            inputStream.closeIO()
         }
     }
 

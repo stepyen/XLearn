@@ -1,4 +1,4 @@
-package com.stepyen.commonsdk.extend
+package com.stepyen.xlearn.extend
 
 import com.stepyen.xui.utils.DensityUtils
 import com.stepyen.xui.utils.ResUtils

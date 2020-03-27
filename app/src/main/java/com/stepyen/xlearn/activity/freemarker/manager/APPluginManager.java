@@ -1,9 +1,8 @@
-package com.stepyen.xlearn.activity.java.freemarker.manager;
+package com.stepyen.xlearn.activity.freemarker.manager;
 
-import com.stepyen.xlearn.activity.java.freemarker.FileUtils;
-import com.stepyen.xlearn.activity.java.freemarker.FreeMarkerUtils;
-import com.stepyen.xlearn.activity.java.freemarker.bean.APPlugin;
-import com.stepyen.xlearn.activity.java.freemarker.bean.Plugin;
+import com.stepyen.xlearn.activity.freemarker.FileUtils;
+import com.stepyen.xlearn.activity.freemarker.FreeMarkerUtils;
+import com.stepyen.xlearn.activity.freemarker.bean.APPlugin;
 
 import java.io.BufferedWriter;
 import java.io.File;

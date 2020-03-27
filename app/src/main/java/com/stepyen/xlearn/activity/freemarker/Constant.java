@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.activity.java.freemarker;
+package com.stepyen.xlearn.activity.freemarker;
 
 /**
  * date：2020-03-20
