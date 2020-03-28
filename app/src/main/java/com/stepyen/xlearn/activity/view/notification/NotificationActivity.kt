@@ -10,10 +10,10 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import com.stepyen.common.BasePageActivity
 import com.stepyen.xlearn.MainActivity
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
-import java.lang.Exception
+
 
 
 /**

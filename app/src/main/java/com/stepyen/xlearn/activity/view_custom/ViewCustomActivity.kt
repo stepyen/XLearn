@@ -1,7 +1,7 @@
 package com.stepyen.xlearn.activity.view_custom
 
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import kotlinx.android.synthetic.main.activity_view_custom.*
 
 /**

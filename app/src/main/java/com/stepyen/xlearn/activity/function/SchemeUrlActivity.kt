@@ -5,9 +5,8 @@ import android.content.Intent
 import android.net.Uri
 import android.text.Html
 import android.text.method.LinkMovementMethod
-import com.stepyen.common.BaseLifePageActivity
+import com.stepyen.common.BasePageActivity
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
 import com.stepyen.xutil.tip.ToastUtils
 import kotlinx.android.synthetic.main.activity_url_scheme.*
 
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_url_scheme.*
  * description：ShemeUrl 学习
  *
  */
-class SchemeUrlActivity : BaseLifePageActivity() {
+class SchemeUrlActivity : BasePageActivity() {
 
     companion object {
         const val test_uri = "stepyen://xiaoming@host.com/record/path?address=china&phone=1875912233#fragment=fragment123"

@@ -1,7 +1,7 @@
 package com.stepyen.xlearn.activity.view
 
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  *

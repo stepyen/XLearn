@@ -3,7 +3,7 @@ package com.stepyen.xlearn.activity.app
 import android.content.pm.PackageManager
 import com.orhanobut.logger.Logger
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import kotlinx.android.synthetic.main.activity_manifest.*
 import java.lang.Exception
 

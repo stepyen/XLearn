@@ -2,7 +2,7 @@ package com.stepyen.xlearn.activity.thrid.getui
 
 import android.view.View
 import com.orhanobut.logger.Logger
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  * date：2020-03-12

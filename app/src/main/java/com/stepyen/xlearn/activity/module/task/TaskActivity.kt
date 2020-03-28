@@ -3,7 +3,7 @@ package com.stepyen.xlearn.activity.module.task
 import android.content.Intent
 import android.os.RemoteException
 import android.view.View
-import com.stepyen.common.BaseLifePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  * date：2020-03-13
@@ -11,7 +11,7 @@ import com.stepyen.common.BaseLifePageActivity
  * description：测试 任务栈
  *
  */
-class TaskActivity : BaseLifePageActivity() {
+class TaskActivity : BasePageActivity() {
     override var TAG =  "Task_TAG"
 
 

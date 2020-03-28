@@ -10,7 +10,7 @@ import android.os.IBinder
 import android.util.Log
 import android.view.View
 import com.orhanobut.logger.Logger
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  *

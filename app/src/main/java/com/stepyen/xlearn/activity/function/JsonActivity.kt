@@ -2,7 +2,7 @@ package com.stepyen.xlearn.activity.function
 
 import android.util.Log
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import kotlinx.android.synthetic.main.activity_json.*
 import org.json.JSONException
 import org.json.JSONObject

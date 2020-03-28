@@ -3,7 +3,7 @@ package com.stepyen.xlearn.activity.network.retrofit
 import android.graphics.BitmapFactory
 import android.util.Log
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import kotlinx.android.synthetic.main.activity_retrofit.*
 import okhttp3.ResponseBody
 import org.json.JSONObject

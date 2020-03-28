@@ -5,7 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.view.View
 import com.orhanobut.logger.Logger
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import com.stepyen.common.utils.IntentLogUtil
 
 /**

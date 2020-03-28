@@ -1,6 +1,6 @@
 package com.stepyen.xlearn.activity.view.notification
 
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  * date：2020-03-08

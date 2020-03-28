@@ -2,8 +2,7 @@ package com.stepyen.xlearn
 
 import android.content.Intent
 import android.view.View
-import com.stepyen.common.BaseLifePageActivity
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import com.stepyen.xlearn.bean.PageBean
 
 /**
@@ -13,7 +12,7 @@ import com.stepyen.xlearn.bean.PageBean
  *
  */
 
-class PageListActivity : BaseLifePageActivity() {
+class PageListActivity : BasePageActivity() {
     override var TAG =  "PageListActivityTAG"
 
     companion object{

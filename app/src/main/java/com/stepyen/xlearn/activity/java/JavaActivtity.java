@@ -3,6 +3,7 @@ package com.stepyen.xlearn.activity.java;
 import android.os.Bundle;
 
 import com.orhanobut.logger.Logger;
+import com.stepyen.common.utils.L;
 import com.stepyen.xlearn.R;
 
 import androidx.annotation.Nullable;
@@ -22,5 +23,5 @@ public class JavaActivtity extends AppCompatActivity {
         setContentView(R.layout.activity_test_java);
 
 
-    }
+          }
 }

@@ -3,7 +3,7 @@ package com.stepyen.xlearn.activity.view.surfaceview
 import android.view.View
 import com.stepyen.common.utils.L
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import kotlinx.android.synthetic.main.activity_surfaceview.*
 import java.io.File
 import java.io.FileOutputStream

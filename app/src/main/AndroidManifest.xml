@@ -105,6 +105,8 @@
 
         <activity android:name=".activity.network.okhttp.OkhttpActivity" />
         <activity android:name=".activity.CopyActivity" />
+
+<!--        APP 开始-->
         <activity android:name=".activity.app.ManifestActivity">
             <meta-data
                 android:name="activity.test"
@@ -118,6 +120,11 @@
         <meta-data
             android:name="application.test.manifestPlaceholders"
             android:value="${test_value}" />
+
+        <activity android:name=".activity.app.PhoneParamActivity"
+            android:screenOrientation="reversePortrait"
+            ></activity>
+<!--        APP 结束-->
 
         <activity android:name=".activity.java.JavaActivtity"></activity>
         <activity android:name=".activity.exception.ExceptionActivity" />

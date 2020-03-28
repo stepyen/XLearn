@@ -1,6 +1,6 @@
 package com.stepyen.xlearn.activity.function.encrypt
 
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  * date：2020-02-28

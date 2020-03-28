@@ -5,8 +5,8 @@ import android.content.pm.PackageManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
+import com.stepyen.common.BasePageActivity
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
 import com.stepyen.xutil.tip.ToastUtils
 import kotlinx.android.synthetic.main.activity_permissions.*
 

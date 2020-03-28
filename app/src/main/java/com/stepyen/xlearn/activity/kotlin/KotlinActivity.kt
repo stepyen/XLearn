@@ -2,7 +2,7 @@ package com.stepyen.xlearn.activity.kotlin
 
 import android.view.View
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 class KotlinActivity : BasePageActivity() {
 

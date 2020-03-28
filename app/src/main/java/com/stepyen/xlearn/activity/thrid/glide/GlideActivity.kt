@@ -5,7 +5,7 @@ import com.bumptech.glide.Glide
 import com.stepyen.xlearn.App
 import com.stepyen.xlearn.DataResouceManager
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import kotlinx.android.synthetic.main.activity_glide.*
 import kotlinx.android.synthetic.main.activity_msa.*
 

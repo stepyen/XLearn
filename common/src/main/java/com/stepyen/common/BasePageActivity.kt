@@ -1,7 +1,8 @@
-package com.stepyen.xlearn.base
+package com.stepyen.common
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,21 +13,30 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.stepyen.common.R
+import com.stepyen.common.utils.IntentLogUtil
+import com.stepyen.common.utils.L
 import com.stepyen.xutil.display.DensityUtils
 import kotlinx.android.synthetic.main.activity_base_page.*
 
 /**
- * date：2020-02-12
+ * date：2020-03-13
  * author：stepyen
- * description：基础页面
+ * description：
+ *
  */
-open class BasePageActivity : AppCompatActivity() {
+open class BasePageActivity :AppCompatActivity() {
+
+    open var TAG = "BaseLifePageTAG"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base_page)
-        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT //竖屏
+//        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT //竖屏
+
+        L.d("$TAG   onCreate: ")
+        L.d("$TAG   onCreate: ${IntentLogUtil.getIntentAllInfo(intent)}")
+        L.d("$TAG   onCreate: taskId：${taskId}")
 
         initData()
 
@@ -102,7 +112,7 @@ open class BasePageActivity : AppCompatActivity() {
             setTextColor(ContextCompat.getColor(this@BasePageActivity,R.color.xui_config_main_theme))
             textSize = 15f
             gravity = Gravity.CENTER_VERTICAL
-            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT).apply {
+            layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT).apply {
                 setMargins(DensityUtils.dp2px(this@BasePageActivity, 15f), DensityUtils.dp2px(this@BasePageActivity,15f), DensityUtils.dp2px(this@BasePageActivity,15f), DensityUtils.dp2px(this@BasePageActivity,15f))
             }
         }
@@ -129,9 +139,62 @@ open class BasePageActivity : AppCompatActivity() {
 
     fun toast(str:String) {
 
-        Toast.makeText(this,str,Toast.LENGTH_SHORT)
+        Toast.makeText(this,str, Toast.LENGTH_SHORT)
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        L.d("$TAG   onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        L.d("$TAG   onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        L.d("$TAG   onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        L.d("$TAG   onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        L.d("$TAG   onDestroy: ")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        L.d("$TAG   onRestart: ")
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        L.d("$TAG   onConfigurationChanged: ")
+    }
+
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        L.d("$TAG   onRestoreInstanceState: ")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        L.d("$TAG   onSaveInstanceState: ")
 
     }
 
 
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        L.d("$TAG   onNewIntent: ")
+        L.d("$TAG   onNewIntent: taskId：${taskId}")
+        L.d("$TAG   onNewIntent: ${IntentLogUtil.getIntentAllInfo(intent)}")
+    }
 }

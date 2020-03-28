@@ -4,7 +4,7 @@ import android.view.View
 import com.google.gson.Gson
 import com.orhanobut.logger.Logger
 import com.stepyen.xlearn.R
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 import org.json.JSONObject
 
 /**

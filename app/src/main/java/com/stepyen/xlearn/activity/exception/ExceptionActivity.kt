@@ -2,7 +2,7 @@ package com.stepyen.xlearn.activity.exception
 
 import android.util.Log
 import android.view.View
-import com.stepyen.xlearn.base.BasePageActivity
+import com.stepyen.common.BasePageActivity
 
 /**
  *

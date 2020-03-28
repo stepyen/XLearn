@@ -7,6 +7,7 @@ import com.stepyen.xlearn.activity.java.JavaActivtity
 import com.stepyen.xlearn.activity.network.socket.SocketActivity
 import com.stepyen.xlearn.activity.thrid.ument.UMengActivity
 import com.stepyen.xlearn.activity.app.ManifestActivity
+import com.stepyen.xlearn.activity.app.PhoneParamActivity
 import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.*
@@ -71,6 +72,7 @@ object PageDataManage {
         put("App", arrayListOf<PageBean>().apply {
 
             add(PageBean("配置清单", ManifestActivity::class.java))
+            add(PageBean("手机参数", PhoneParamActivity::class.java))
 
 
         })
