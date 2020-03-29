@@ -8,12 +8,15 @@ import com.stepyen.xlearn.activity.network.socket.SocketActivity
 import com.stepyen.xlearn.activity.thrid.ument.UMengActivity
 import com.stepyen.xlearn.activity.app.ManifestActivity
 import com.stepyen.xlearn.activity.app.PhoneParamActivity
+import com.stepyen.xlearn.activity.app.window_soft_input_mode.WindowSoftInputModeActivity
 import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.*
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
 import com.stepyen.xlearn.activity.java.reflect.FileActivity
 import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
+import com.stepyen.xlearn.activity.jetpack.livedata.LiveDataActivity
+import com.stepyen.xlearn.activity.jetpack.viewmodel.ViewModelActivity
 import com.stepyen.xlearn.activity.kotlin.KotlinActivity
 import com.stepyen.xlearn.activity.module.activity.ActivityActivity
 import com.stepyen.xlearn.activity.module.contentprovider.ContentProviderActivity
@@ -73,6 +76,7 @@ object PageDataManage {
 
             add(PageBean("配置清单", ManifestActivity::class.java))
             add(PageBean("手机参数", PhoneParamActivity::class.java))
+            add(PageBean("WindowSoftInputMode", WindowSoftInputModeActivity::class.java))
 
 
         })
@@ -138,6 +142,11 @@ object PageDataManage {
             add(PageBean("个推", GetuiActivity::class.java))
             add(PageBean("Glide", GlideActivity::class.java))
 
+        })
+
+        put("JetPack", arrayListOf<PageBean>().apply {
+            add(PageBean("LiveData", LiveDataActivity::class.java))
+            add(PageBean("ViewModel", ViewModelActivity::class.java))
         })
 
         put("功能", arrayListOf<PageBean>().apply {

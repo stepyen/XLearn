@@ -124,6 +124,17 @@
         <activity android:name=".activity.app.PhoneParamActivity"
             android:screenOrientation="reversePortrait"
             ></activity>
+
+        <activity android:name=".activity.app.window_soft_input_mode.WindowSoftInputModeActivity"></activity>
+        <activity android:name=".activity.app.window_soft_input_mode.AdjustUnspecifiedActivity"
+            android:windowSoftInputMode="adjustUnspecified"
+            ></activity>
+        <activity android:name=".activity.app.window_soft_input_mode.AdjustResizeActivity"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+        <activity android:name=".activity.app.window_soft_input_mode.AdjustPanActivity"
+            android:windowSoftInputMode="adjustPan"
+            ></activity>
 <!--        APP 结束-->
 
         <activity android:name=".activity.java.JavaActivtity"></activity>
@@ -163,6 +174,11 @@
         <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
         <!--        第三方 thrid 结束-->
 
+<!--       jetpack 开始 -->
+        <activity android:name=".activity.jetpack.livedata.LiveDataActivity"></activity>
+        <activity android:name=".activity.jetpack.viewmodel.ViewModelActivity"></activity>
+
+<!--       jetpack 结束 -->
 
         <activity android:name=".PageListActivity" />
         <activity android:name=".activity.module.activity.TargetActivity" /> <!-- 新浪 结束 -->
