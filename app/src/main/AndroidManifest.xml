@@ -152,8 +152,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.TestKotlinActivity" />
-        <activity android:name=".base.BasePageActivity" />
+
         <activity android:name=".activity.network.socket.SocketActivity" />
         <activity android:name=".activity.audio.AudioActivity" />
         <activity android:name=".base.BaseActivity" />

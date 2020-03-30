@@ -1,6 +1,5 @@
 package com.stepyen.xlearn
 
-import com.bumptech.glide.Glide
 import com.stepyen.chivox.ChivoxActivity
 import com.stepyen.xlearn.activity.CopyActivity
 import com.stepyen.xlearn.activity.network.socket.SocketActivity
@@ -12,8 +11,8 @@ import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.*
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
+import com.stepyen.xlearn.activity.java.JavaActivtity
 import com.stepyen.xlearn.activity.java.reflect.FileActivity
-import com.stepyen.xlearn.activity.java.reflect.ReflectActivity
 import com.stepyen.xlearn.activity.jetpack.livedata.LiveDataActivity
 import com.stepyen.xlearn.activity.jetpack.viewmodel.ViewModelActivity
 import com.stepyen.xlearn.activity.kotlin.KotlinActivity
@@ -56,7 +55,7 @@ object PageDataManage {
 
         put("Java", arrayListOf<PageBean>().apply {
 
-            add(PageBean("反射", ReflectActivity::class.java))
+
             add(PageBean("补间动画", ActivityActivity::class.java))
             add(PageBean("属性动画", ActivityActivity::class.java))
             add(PageBean("文件", FileActivity::class.java))

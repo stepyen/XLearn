@@ -4,13 +4,11 @@ import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.gson.Gson
-import com.stepyen.commonsdk.extend.trim
 
 import com.stepyen.xlearn.R
 import com.stepyen.xlearn.activity.network.websocket.entity.BaseMessageBean
 import com.stepyen.xlearn.activity.network.websocket.entity.HeartBean
 import com.stepyen.xlearn.activity.network.websocket.entity.SendMsgBean
-import com.stepyen.xlearn.base.BasePageActivity
 import com.stepyen.xlearn.extend.trim
 import com.stepyen.common.BasePageActivity
 import com.stepyen.xui.utils.DensityUtils

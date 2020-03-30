@@ -64,7 +64,7 @@ class MediaPlayerManager {
 
         try {
 
-            mediaPlayer.apply {
+            mediaPlayer?.apply {
 
                 if (isPlaying) {
                     stop()
@@ -103,11 +103,17 @@ class MediaPlayerManager {
      * 暂停播放
      */
     fun pause() {
-        mediaPlayer.apply {
-            if (isPlaying) {
-                pause()
-                isPause = true
+        mediaPlayer?.apply {
+
+            try {
+                if (isPlaying) {
+                    pause()
+                    isPause = true
+                }
+            } catch (e: IllegalStateException) {
+                e.printStackTrace()
             }
+
         }
     }
 
@@ -115,7 +121,7 @@ class MediaPlayerManager {
      * 恢复播放
      */
     fun resume() {
-        mediaPlayer.apply {
+        mediaPlayer?.apply {
             if (isPause) {
                 mediaPlayer.start()
                 isPause = false
@@ -139,14 +145,14 @@ class MediaPlayerManager {
      * 设置是否可以重复播放
      */
     fun isLooping(isLooping: Boolean) {
-        mediaPlayer.isLooping = isLooping
+        mediaPlayer?.isLooping = isLooping
     }
 
     /**
      * 是否在播放
      */
     fun isPlayer(): Boolean {
-        return mediaPlayer.isPlaying
+        return mediaPlayer?.isPlaying
     }
 
 
