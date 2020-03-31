@@ -93,20 +93,47 @@
         <!--function 结束-->
 
 
-        <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>
+        <!--View 开始-->
         <activity android:name=".activity.view.ViewActivity"></activity>
-        <activity android:name=".activity.module.contentprovider.ContentProviderActivity"></activity>
-        <activity android:name=".activity.permission.PermissionActivity"></activity>
+        <activity android:name=".activity.view.imageview.ImageViewActivity"></activity>
 
+        <!--View 结束-->
+
+
+        <!--        自定义View 开始-->
         <activity android:name=".activity.view_custom.ViewCustomActivity" />
+
+        <!--        自定义View 结束-->
+
+
+
+        <!--        View 基础 开始-->
         <activity android:name=".activity.view_basics.ViewBasicsActivity" />
+
+        <!--        View 基础 结束-->
+
+        <!--        module 开始-->
+        <activity android:name=".activity.module.contentprovider.ContentProviderActivity"></activity>
+
+        <!--        module 结束-->
+
+        <!--        权限开始-->
+
+        <activity android:name=".activity.permission.PermissionActivity"></activity>
+        <!--        权限结束-->
+
+
         <activity android:name=".activity.view.notification.NotificationActivity" />
         <activity android:name=".activity.kotlin.KotlinActivity" />
 
+        <!--网络开始-->
         <activity android:name=".activity.network.okhttp.OkhttpActivity" />
+        <activity android:name=".activity.network.retrofit.RetrofitActivity"></activity>
+        <!--网络结束-->
+
         <activity android:name=".activity.CopyActivity" />
 
-<!--        APP 开始-->
+        <!--        APP 开始-->
         <activity android:name=".activity.app.ManifestActivity">
             <meta-data
                 android:name="activity.test"
@@ -121,21 +148,21 @@
             android:name="application.test.manifestPlaceholders"
             android:value="${test_value}" />
 
-        <activity android:name=".activity.app.PhoneParamActivity"
-            android:screenOrientation="reversePortrait"
-            ></activity>
+        <activity
+            android:name=".activity.app.PhoneParamActivity"
+            android:screenOrientation="reversePortrait"></activity>
 
         <activity android:name=".activity.app.window_soft_input_mode.WindowSoftInputModeActivity"></activity>
-        <activity android:name=".activity.app.window_soft_input_mode.AdjustUnspecifiedActivity"
-            android:windowSoftInputMode="adjustUnspecified"
-            ></activity>
-        <activity android:name=".activity.app.window_soft_input_mode.AdjustResizeActivity"
-            android:windowSoftInputMode="adjustResize"
-            ></activity>
-        <activity android:name=".activity.app.window_soft_input_mode.AdjustPanActivity"
-            android:windowSoftInputMode="adjustPan"
-            ></activity>
-<!--        APP 结束-->
+        <activity
+            android:name=".activity.app.window_soft_input_mode.AdjustUnspecifiedActivity"
+            android:windowSoftInputMode="adjustUnspecified"></activity>
+        <activity
+            android:name=".activity.app.window_soft_input_mode.AdjustResizeActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".activity.app.window_soft_input_mode.AdjustPanActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <!--        APP 结束-->
 
         <activity android:name=".activity.java.JavaActivtity"></activity>
         <activity android:name=".activity.exception.ExceptionActivity" />
@@ -172,11 +199,11 @@
         <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
         <!--        第三方 thrid 结束-->
 
-<!--       jetpack 开始 -->
+        <!--       jetpack 开始 -->
         <activity android:name=".activity.jetpack.livedata.LiveDataActivity"></activity>
         <activity android:name=".activity.jetpack.viewmodel.ViewModelActivity"></activity>
 
-<!--       jetpack 结束 -->
+        <!--       jetpack 结束 -->
 
         <activity android:name=".PageListActivity" />
         <activity android:name=".activity.module.activity.TargetActivity" /> <!-- 新浪 结束 -->

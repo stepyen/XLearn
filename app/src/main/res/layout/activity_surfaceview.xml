@@ -17,7 +17,10 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
-
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="视频"
+                />
             <com.stepyen.xlearn.activity.view.surfaceview.VideoView
                 android:id="@+id/videoview"
                 android:layout_width="match_parent"
@@ -42,6 +45,26 @@
                 android:id="@+id/resumeVideoBtn"
                 style="@style/CommonButton"
                 android:text="继续播放视频"/>
+
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/AntiqueWhite"
+                />
+
+            <Button
+                android:id="@+id/getFirstFrameBtn"
+                style="@style/CommonButton"
+                android:text="获取视频第一帧图片"/>
+
+            <Button
+                android:id="@+id/getFrameBtn"
+                style="@style/CommonButton"
+                android:text="获取视频指定帧图片"/>
+
+
 
         </LinearLayout>
     </ScrollView>

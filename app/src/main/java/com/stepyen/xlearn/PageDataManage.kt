@@ -27,6 +27,7 @@ import com.stepyen.xlearn.activity.thrid.getui.GetuiActivity
 import com.stepyen.xlearn.activity.thrid.glide.GlideActivity
 import com.stepyen.xlearn.activity.thrid.gson.GsonActivity
 import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
+import com.stepyen.xlearn.activity.view.imageview.ImageViewActivity
 import com.stepyen.xlearn.activity.view.notification.NotificationActivity
 import com.stepyen.xlearn.activity.view.surfaceview.SurfaceViewActivity
 import com.stepyen.xlearn.activity.view_custom.ViewCustomActivity
@@ -82,6 +83,7 @@ object PageDataManage {
         put("View", arrayListOf<PageBean>().apply {
 
             add(PageBean("Notification", NotificationActivity::class.java))
+            add(PageBean("ImageView", ImageViewActivity::class.java))
             add(PageBean("SurfaceView", SurfaceViewActivity::class.java))
 
 

@@ -98,4 +98,7 @@ dependencies {
 
     // freemarker
     api "org.freemarker:freemarker:2.3.30"
+
+    // glide 图片转换
+    api 'jp.wasabeef:glide-transformations:2.0.1'
 }
