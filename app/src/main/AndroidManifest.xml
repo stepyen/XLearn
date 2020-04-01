@@ -89,6 +89,7 @@
         <activity android:name=".activity.function.UriActivity" />
         <activity android:name=".activity.function.JsonActivity" />
         <activity android:name=".activity.function.HandleActivity" />
+        <activity android:name=".activity.function.BitmapActivity" />
 
         <!--function 结束-->
 

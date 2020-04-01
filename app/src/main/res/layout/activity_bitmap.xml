@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                style="@style/TextView_hint_tag"
+                android:text="Bitmap"
+                />
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/AntiqueWhite"
+                />
+            <View
+                style="@style/View_line"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                ></View>
+            <ImageView
+                android:id="@+id/iv2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/AntiqueWhite"
+                />
+
+            <Button
+                android:id="@+id/show1BitmapBtn"
+                style="@style/CommonButton"
+                android:text="一个 Bitmap 显示在一个 ImageView 上"
+                ></Button>
+            <Button
+                android:id="@+id/show2BitmapBtn"
+                style="@style/CommonButton"
+                android:text="同一个 Bitmap 显示在两个 ImageView 上"
+                ></Button>
+            <Button
+                android:id="@+id/show3BitmapBtn"
+                style="@style/CommonButton"
+                android:text="同一个 Bitmap 显示在两个 ImageView 的背景上"
+                ></Button>
+
+            <Button
+                android:id="@+id/show4BitmapBtn"
+                style="@style/CommonButton"
+                android:text="创建 Bitmap"
+                ></Button>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

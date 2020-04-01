@@ -21,7 +21,7 @@
                 style="@style/TextView_hint_tag"
                 android:text="视频"
                 />
-            <com.stepyen.xlearn.activity.view.surfaceview.VideoView
+            <com.stepyen.xlearn.activity.view.surfaceview.BoxVideoView
                 android:id="@+id/videoview"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>

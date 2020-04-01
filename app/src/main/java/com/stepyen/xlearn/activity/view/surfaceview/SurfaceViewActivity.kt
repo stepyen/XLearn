@@ -20,22 +20,26 @@ class SurfaceViewActivity : BasePageActivity() {
     override fun initView() {
         addView(R.layout.activity_surfaceview)
 
+        videoview.setReomveSplashViewListener {
 
+        }
         playAssetVideoBtn.setOnClickListener {
-            videoview.playVideo(DataSourceType.TYPE_ASSET, "babybus_start_zh.mp4")
+//            videoview.playVideo(DataSourceType.TYPE_ASSET, "babybus_start_zh.mp4")
         }
 
         playFilePathVideoBtn.setOnClickListener {
 
-            videoview.playVideo(DataSourceType.TYPE_FILE_PATH, mp4Path)
+//            videoview.playVideo(DataSourceType.TYPE_FILE_PATH, mp4Path)
+            videoview.setVideoPath(mp4Path)
+            videoview?.start()
         }
 
         pauseVideoBtn.setOnClickListener {
-            videoview.pauseVideo()
+//            videoview.pauseVideo()
         }
 
         resumeVideoBtn.setOnClickListener {
-            videoview.resumeVideo()
+//            videoview.resumeVideo()
         }
 
         getFirstFrameBtn.setOnClickListener {
@@ -59,27 +63,27 @@ class SurfaceViewActivity : BasePageActivity() {
 
 
     private fun initCallback() {
-        videoview.mCallback = object :VideoViewImpl.Callback{
-            override fun onComplete() {
-            }
-
-            override fun startLoading() {
-            }
-
-            override fun onLoaded() {
-            }
-
-            override fun onError(msg: String?) {
-                L.d(msg)
-            }
-
-            override fun startPlay() {
-            }
-
-            override fun pausePlay() {
-            }
-
-        }
+//        videoview.mCallback = object :VideoViewImpl.Callback{
+//            override fun onComplete() {
+//            }
+//
+//            override fun startLoading() {
+//            }
+//
+//            override fun onLoaded() {
+//            }
+//
+//            override fun onError(msg: String?) {
+//                L.d(msg)
+//            }
+//
+//            override fun startPlay() {
+//            }
+//
+//            override fun pausePlay() {
+//            }
+//
+//        }
     }
 
     /**
@@ -113,12 +117,12 @@ class SurfaceViewActivity : BasePageActivity() {
 
     override fun onResume() {
         super.onResume()
-        videoview.resumeVideo()
+//        videoview.resumeVideo()
     }
 
     override fun onPause() {
         super.onPause()
-        videoview.pauseVideo()
+//        videoview.pauseVideo()
     }
 
 

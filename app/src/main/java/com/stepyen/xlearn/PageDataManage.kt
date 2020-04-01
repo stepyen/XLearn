@@ -158,6 +158,7 @@ object PageDataManage {
             add(PageBean("异常", ExceptionActivity::class.java))
             add(PageBean("ShemeUrl", SchemeUrlActivity::class.java))
             add(PageBean("Assets", AssetsActivity::class.java))
+            add(PageBean("Bitmap", BitmapActivity::class.java))
 
         })
 
