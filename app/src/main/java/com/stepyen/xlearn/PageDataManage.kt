@@ -12,7 +12,7 @@ import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.*
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
 import com.stepyen.xlearn.activity.java.JavaActivtity
-import com.stepyen.xlearn.activity.java.reflect.FileActivity
+import com.stepyen.xlearn.activity.java.file.FileActivity
 import com.stepyen.xlearn.activity.jetpack.livedata.LiveDataActivity
 import com.stepyen.xlearn.activity.jetpack.viewmodel.ViewModelActivity
 import com.stepyen.xlearn.activity.kotlin.KotlinActivity
@@ -30,6 +30,7 @@ import com.stepyen.xlearn.activity.thrid.msa.MsaActivity
 import com.stepyen.xlearn.activity.view.imageview.ImageViewActivity
 import com.stepyen.xlearn.activity.view.notification.NotificationActivity
 import com.stepyen.xlearn.activity.view.surfaceview.SurfaceViewActivity
+import com.stepyen.xlearn.activity.view.surfaceview.TwoSurfaceViewOrderActivity
 import com.stepyen.xlearn.activity.view_custom.ViewCustomActivity
 import com.stepyen.xlearn.bean.PageBean
 
@@ -85,6 +86,7 @@ object PageDataManage {
             add(PageBean("Notification", NotificationActivity::class.java))
             add(PageBean("ImageView", ImageViewActivity::class.java))
             add(PageBean("SurfaceView", SurfaceViewActivity::class.java))
+            add(PageBean("两个 SurfaceView 层级顺序研究", TwoSurfaceViewOrderActivity::class.java))
 
 
         })

@@ -65,7 +65,6 @@
             android:name=".activity.view.notification.NotificationTestParentActivity"
             android:parentActivityName=".MainActivity"></activity>
 
-        <activity android:name=".activity.view.surfaceview.SurfaceViewActivity"></activity>
 
 
         <!--Service 开始-->
@@ -97,6 +96,8 @@
         <!--View 开始-->
         <activity android:name=".activity.view.ViewActivity"></activity>
         <activity android:name=".activity.view.imageview.ImageViewActivity"></activity>
+        <activity android:name=".activity.view.surfaceview.SurfaceViewActivity"></activity>
+        <activity android:name=".activity.view.surfaceview.TwoSurfaceViewOrderActivity"></activity>
 
         <!--View 结束-->
 
