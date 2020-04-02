@@ -10,6 +10,7 @@ import com.stepyen.xlearn.activity.app.window_soft_input_mode.WindowSoftInputMod
 import com.stepyen.xlearn.activity.audio.AudioActivity
 import com.stepyen.xlearn.activity.exception.ExceptionActivity
 import com.stepyen.xlearn.activity.function.*
+import com.stepyen.xlearn.activity.function.countdown.CountDownActivity
 import com.stepyen.xlearn.activity.function.encrypt.EncryptActivity
 import com.stepyen.xlearn.activity.java.JavaActivtity
 import com.stepyen.xlearn.activity.java.file.FileActivity
@@ -161,6 +162,7 @@ object PageDataManage {
             add(PageBean("ShemeUrl", SchemeUrlActivity::class.java))
             add(PageBean("Assets", AssetsActivity::class.java))
             add(PageBean("Bitmap", BitmapActivity::class.java))
+            add(PageBean("倒计时", CountDownActivity::class.java))
 
         })
 

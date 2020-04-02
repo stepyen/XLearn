@@ -21,7 +21,12 @@
                 style="@style/TextView_hint_tag"
                 android:text="视频"
                 />
-            <com.stepyen.xlearn.activity.view.surfaceview.BoxVideoView
+<!--            <com.stepyen.xlearn.activity.view.surfaceview.BoxVideoView-->
+<!--                android:id="@+id/videoview"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="200dp"/>-->
+
+            <com.stepyen.common.widget.BBVideoView
                 android:id="@+id/videoview"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"/>
@@ -53,6 +58,11 @@
                 android:layout_height="100dp"
                 android:background="@color/AntiqueWhite"
                 />
+
+            <Button
+                android:id="@+id/getThumbBtn"
+                style="@style/CommonButton"
+                android:text="获取视频缩略图图片"/>
 
             <Button
                 android:id="@+id/getFirstFrameBtn"

@@ -27,9 +27,7 @@ class GlideActivity : BasePageActivity() {
     override fun initView() {
         addView(R.layout.activity_glide)
 
-        val dataResouceManager = DataResouceManager()
-        val catGif = dataResouceManager.copyCatGifFromAssets()
-
+        val catGif = DataResouceManager.getFilePath(DataResouceManager.CAT_GIF)
 
         showGifBtn.setOnClickListener {
             Glide.with(this).load(catGif).into(iv)

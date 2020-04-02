@@ -29,10 +29,12 @@ class MainActivity : BasePageActivity() {
                 }
             })
         }
+
+        initDataSource()
     }
 
 
     private fun initDataSource() {
-
+        DataResouceManager.copyALL()
     }
 }

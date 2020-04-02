@@ -1,82 +1,82 @@
-package com.stepyen.xlearn.activity.view.surfaceview;
+package com.stepyen.common.listen
+
+import android.media.MediaPlayer
 
 /**
  * Created by wjy on 2019-12-06
  * E-Mail Address: 673236072@qq.com
- **/
-public class VideoViewImpl {
-
-
-    public interface Controller {
+ */
+class VideoViewImpl {
+    interface Controller {
         /**
          * 播放视频
-         * @param type {@link DataSourceType}
          * @param dataSource
          */
-        void playVideo(int type, String dataSource);
+        fun playVideo(path: String)
 
         /**
          * 恢复视频
          */
-        void resumeVideo();
+        fun resumeVideo()
 
         /**
          * 暂停视频
          */
-        void pauseVideo();
+        fun pauseVideo()
 
         /**
          * 释放资源
          */
-        void release();
+        fun release()
 
         /**
          * 是否正在播放中
          */
-        boolean isPlaying();
+        val isPlaying: Boolean
 
         /**
          * 获取当前播放位置
          * @return
          */
-        int getCurrentPosition();
+        val currentPosition: Int
 
         /**
          * 获取总时长
          * @return
          */
-        int getDuration();
+        val duration: Int
     }
 
-    public interface Callback {
+    interface Callback {
         /**
          * 开始加载
          */
-        void startLoading();
+        fun startLoading()
 
         /**
          * 加载完成
          */
-        void onLoaded();
+        fun onLoaded()
+
         /**
          * 开始播放
          */
-        void startPlay();
+        fun startPlay()
 
         /**
          * 暂停播放
          */
-        void pausePlay();
+        fun pausePlay()
 
         /**
          * 播放完成
          */
-        void onComplete();
+        fun onComplete()
 
         /**
          * 播放异常
          */
-        void onError(String msg);
+        fun onError(mp: MediaPlayer?, what: Int, extra: Int)
 
     }
 }

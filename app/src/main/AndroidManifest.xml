@@ -74,7 +74,7 @@
         <service android:name="com.stepyen.xlearn.activity.module.service.TestStartService"></service>
         <service android:name="com.stepyen.xlearn.activity.module.service.TestBindService"></service>
 
-        <service android:name="com.stepyen.xlearn.activity.module.service.TestIntentService"></service>
+        <service android:name="com.stepyen.xlfuncearn.activity.module.service.TestIntentService"></service>
 
 
         <!--Service 结束-->
@@ -89,6 +89,7 @@
         <activity android:name=".activity.function.JsonActivity" />
         <activity android:name=".activity.function.HandleActivity" />
         <activity android:name=".activity.function.BitmapActivity" />
+        <activity android:name=".activity.function.countdown.CountDownActivity" />
 
         <!--function 结束-->
 

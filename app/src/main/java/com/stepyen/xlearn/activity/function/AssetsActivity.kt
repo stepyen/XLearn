@@ -29,23 +29,11 @@ class AssetsActivity : BasePageActivity() {
 
 
         addButton("从 Assets 复制资源到sd卡下"){
-            DataResouceManager().apply {
-                copyMP3FromAssets()
-                copyMP4FromAssets()
-                copyCatGifFromAssets()
-                copyTigerJpgFromAssets()
-            }
-        }
 
-
-
-
-
-        addButton("从 asset 复制MP3文件到 sd下"){
-            val mp3Path = DataResouceManager().copyMP3FromAssets()
-            L.d("mp3文件路径：$mp3Path")
+            DataResouceManager.copyALL()
 
         }
+
 
 
     }

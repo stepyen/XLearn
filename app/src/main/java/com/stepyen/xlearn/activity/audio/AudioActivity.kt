@@ -32,13 +32,6 @@ class AudioActivity :BasePageActivity(){
                 mkdirs()
             }
         }
-
-        // 从asset中复制资源到sd卡下
-        DataResouceManager().apply {
-            mp3Path = copyMP3FromAssets()
-            mp4Path = copyMP4FromAssets()
-        }
-
     }
 
     override fun initView() {

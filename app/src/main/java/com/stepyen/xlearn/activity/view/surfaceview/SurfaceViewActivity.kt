@@ -1,13 +1,18 @@
 package com.stepyen.xlearn.activity.view.surfaceview
 
 import android.media.MediaMetadataRetriever
+import android.media.MediaPlayer
 import android.view.View
 import com.stepyen.common.utils.L
 import com.stepyen.xlearn.R
 import com.stepyen.common.BasePageActivity
+import com.stepyen.common.listen.VideoViewImpl
+import com.stepyen.common.utils.VideoUtil
+import com.stepyen.xlearn.DataResouceManager
 import kotlinx.android.synthetic.main.activity_surfaceview.*
 import java.io.File
 import java.io.FileOutputStream
+import java.sql.DatabaseMetaData
 
 /**
  * date：2020-03-24
@@ -16,30 +21,47 @@ import java.io.FileOutputStream
  *
  */
 class SurfaceViewActivity : BasePageActivity() {
-    var mp4Path = ""
+
+    var mp4Path = DataResouceManager.getFilePath(DataResouceManager.BB_SNOW_MP4)
+    init {
+        L.d("mp4 地址：${mp4Path}")
+    }
+
+
     override fun initView() {
         addView(R.layout.activity_surfaceview)
 
-        videoview.setReomveSplashViewListener {
-
-        }
         playAssetVideoBtn.setOnClickListener {
-//            videoview.playVideo(DataSourceType.TYPE_ASSET, "babybus_start_zh.mp4")
+           videoview.playAssetsVideo(DataResouceManager.BB_SNOW_MP4)
         }
 
         playFilePathVideoBtn.setOnClickListener {
 
-//            videoview.playVideo(DataSourceType.TYPE_FILE_PATH, mp4Path)
-            videoview.setVideoPath(mp4Path)
-            videoview?.start()
+            videoview.playVideo(mp4Path)
+
         }
 
         pauseVideoBtn.setOnClickListener {
-//            videoview.pauseVideo()
+            videoview.pauseVideo()
         }
 
         resumeVideoBtn.setOnClickListener {
-//            videoview.resumeVideo()
+            videoview.resumeVideo()
+        }
+
+
+        getFrame()
+
+        initCallback()
+
+    }
+
+
+    private fun getFrame() {
+
+        getThumbBtn.setOnClickListener {
+            val bitmap = VideoUtil.getVideoThumb(mp4Path)
+            iv.setImageBitmap(bitmap)
         }
 
         getFirstFrameBtn.setOnClickListener {
@@ -52,78 +74,50 @@ class SurfaceViewActivity : BasePageActivity() {
             iv.setImageBitmap(bitmap)
         }
 
-        copyFromAssetToSDPath()
-        L.d("mp4文件路径：$mp4Path")
-
-        initCallback()
-
     }
-
-
 
 
     private fun initCallback() {
-//        videoview.mCallback = object :VideoViewImpl.Callback{
-//            override fun onComplete() {
-//            }
-//
-//            override fun startLoading() {
-//            }
-//
-//            override fun onLoaded() {
-//            }
-//
-//            override fun onError(msg: String?) {
-//                L.d(msg)
-//            }
-//
-//            override fun startPlay() {
-//            }
-//
-//            override fun pausePlay() {
-//            }
-//
-//        }
-    }
+        videoview.callback = object : VideoViewImpl.Callback{
+            override fun startLoading() {
+                L.d("startLoading")
+            }
 
-    /**
-     * 从 Asset 复制mp4到sd卡下
-     */
-    private fun copyFromAssetToSDPath() {
-        mp4Path = "${externalCacheDir?.absolutePath}/bb_snow.mp4"
-//        mp4Path = "${externalCacheDir?.absolutePath}/babybus_start_zh.mp4"
-        val file = File(mp4Path)
-        if (file.exists()) {
-            return
+            override fun onLoaded() {
+                L.d("onLoaded")
+            }
+
+            override fun startPlay() {
+                L.d("startPlay")
+            }
+
+            override fun pausePlay() {
+                L.d("pausePlay")
+            }
+
+            override fun onComplete() {
+                L.d("onComplete")
+            }
+
+            override fun onError(mp: MediaPlayer?, what: Int, extra: Int) {
+                L.d("onError")
+            }
+
         }
 
-        val inputStream = assets.open("bb_snow.mp4")
-//        val inputStream = assets.open("babybus_start_zh.mp4")
-        val fileOutputStream = FileOutputStream(file)
-        var buffer = ByteArray(1024)
-
-        var byteCount = inputStream.read(buffer)
-
-        while(byteCount!=-1) {
-            fileOutputStream.write(buffer,0,byteCount)
-            byteCount=inputStream.read(buffer)
-        }
-
-        fileOutputStream.flush();
-        fileOutputStream.close();
-        inputStream.close();
     }
 
 
     override fun onResume() {
         super.onResume()
-//        videoview.resumeVideo()
+        videoview.playVideo(mp4Path)
     }
 
     override fun onPause() {
         super.onPause()
-//        videoview.pauseVideo()
+        videoview.pauseVideo()
     }
+
 
 
 
