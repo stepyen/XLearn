@@ -20,6 +20,7 @@ import com.stepyen.common.utils.L
 class BBVideoView : SurfaceView, VideoViewImpl.Controller {
 
     companion object {
+
         const val DEFAULT_PLAY_POSITION = -1
 
         /**
@@ -66,7 +67,6 @@ class BBVideoView : SurfaceView, VideoViewImpl.Controller {
             mp?.apply {
                 setDisplay(surfaceHolder)
                 start()
-                callback?.startPlay()
             }
 
         }
@@ -85,6 +85,7 @@ class BBVideoView : SurfaceView, VideoViewImpl.Controller {
             when (what) {
                 MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START -> {
                     callback?.onLoaded()
+                    callback?.startPlay()
                 }
             }
 
@@ -167,6 +168,8 @@ class BBVideoView : SurfaceView, VideoViewImpl.Controller {
         if (surfaceHolder == null) return
 
         release()
+
+        callback?.startLoading()
         try {
 
             initMediaPlayer()
@@ -185,6 +188,7 @@ class BBVideoView : SurfaceView, VideoViewImpl.Controller {
                 }
 
                 prepareAsync()
+
             }
 
         } catch (e: Exception) {
@@ -204,11 +208,14 @@ class BBVideoView : SurfaceView, VideoViewImpl.Controller {
     }
 
     override fun pauseVideo() {
-
-        mediaPlayer?.apply {
-            pause()
-            playPosition = currentPosition
-            callback?.pausePlay()
+        try {
+            mediaPlayer?.apply {
+                pause()
+                playPosition = currentPosition
+                callback?.pausePlay()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
 
     }

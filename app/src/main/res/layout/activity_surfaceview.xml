@@ -51,6 +51,12 @@
                 style="@style/CommonButton"
                 android:text="继续播放视频"/>
 
+            <Button
+                android:id="@+id/videoVisibilityBtn"
+                style="@style/CommonButton"
+                android:text="视频可见性"/>
+
+
 
             <ImageView
                 android:id="@+id/iv"

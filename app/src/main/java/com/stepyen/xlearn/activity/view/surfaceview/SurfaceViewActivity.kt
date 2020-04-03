@@ -9,6 +9,7 @@ import com.stepyen.common.BasePageActivity
 import com.stepyen.common.listen.VideoViewImpl
 import com.stepyen.common.utils.VideoUtil
 import com.stepyen.xlearn.DataResouceManager
+import com.stepyen.xlearn.extend.setVisibility
 import kotlinx.android.synthetic.main.activity_surfaceview.*
 import java.io.File
 import java.io.FileOutputStream
@@ -23,6 +24,7 @@ import java.sql.DatabaseMetaData
 class SurfaceViewActivity : BasePageActivity() {
 
     var mp4Path = DataResouceManager.getFilePath(DataResouceManager.BB_SNOW_MP4)
+    var visibility = true
     init {
         L.d("mp4 地址：${mp4Path}")
     }
@@ -49,10 +51,18 @@ class SurfaceViewActivity : BasePageActivity() {
             videoview.resumeVideo()
         }
 
+        videoVisibilityBtn.setOnClickListener {
+
+            videoview.setVisibility(visibility = visibility)
+            visibility = !visibility
+        }
+
 
         getFrame()
 
         initCallback()
+
+
 
     }
 
@@ -107,16 +117,6 @@ class SurfaceViewActivity : BasePageActivity() {
 
     }
 
-
-    override fun onResume() {
-        super.onResume()
-        videoview.playVideo(mp4Path)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        videoview.pauseVideo()
-    }
 
 
 
