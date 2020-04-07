@@ -116,7 +116,7 @@ public class AudioRecorderPanel implements View.OnTouchListener {
     }
 
     private void startRecord() {
-        // FIXME: 2018/10/10 权限是否有权限，没权限提示错误，并返回
+
         isRecording = true;
         if (recorder == null) {
             recorder = new AudioRecorder(context);

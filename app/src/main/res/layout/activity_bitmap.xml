@@ -41,30 +41,6 @@
                 android:background="@color/AntiqueWhite"
                 />
 
-            <Button
-                android:id="@+id/show1BitmapBtn"
-                style="@style/CommonButton"
-                android:text="一个 Bitmap 显示在一个 ImageView 上"
-                ></Button>
-            <Button
-                android:id="@+id/show2BitmapBtn"
-                style="@style/CommonButton"
-                android:text="同一个 Bitmap 显示在两个 ImageView 上"
-                ></Button>
-            <Button
-                android:id="@+id/show3BitmapBtn"
-                style="@style/CommonButton"
-                android:text="同一个 Bitmap 显示在两个 ImageView 的背景上"
-                ></Button>
-
-            <Button
-                android:id="@+id/show4BitmapBtn"
-                style="@style/CommonButton"
-                android:text="创建 Bitmap"
-                ></Button>
-
-
-
 
         </LinearLayout>
     </ScrollView>
