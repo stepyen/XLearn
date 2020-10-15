@@ -1,4 +1,4 @@
-package com.stepyen.xlearn.fragment.basics.countdown;
+package com.stepyen.xlearn.activity.function.countdown;
 
 import android.os.Handler;
 import android.os.Message;
@@ -11,42 +11,36 @@ import java.util.TimerTask;
  * author：stepyen
  * description：计时帮助类
  *
- * 支持 计时 和 倒计时
+ * 功能：
+ * 1、支持 计时 和 倒计时
+ * 2、支持开始、暂停、继续、释放
+ *
+ *
  */
 public class CountTimeHelp {
-
-    // 是否是倒计时
+    /**
+     * 是否是倒计时
+     */
     private boolean isCountDownTime = false;
 
-    //最大计时时间
+    /**
+     * 最大计时时间
+     */
     private int maxCountTime = -1;
 
-    // 当前时间
+    /**
+     * 当前时间
+     */
     private int currentTime = 0;
+
+    /**
+     * 是否计时结束
+     */
+    private boolean isFinish = false;
 
     private OnCountListener mOnCountListener;
 
-    private Handler handler = new Handler() {
-
-        public void handleMessage(Message msg) {
-
-            if (isCountDownTime) {
-                countDown();
-            }else{
-                countUp();
-            }
-        }
-    };
-
     private Timer timer;
-
-
-
-    private CountTimeHelp(boolean isCountDownTime, int maxCountTime) {
-        this.isCountDownTime = isCountDownTime;
-        this.maxCountTime = maxCountTime;
-    }
-
 
     public static CountTimeHelp newCountDownHelp(int maxCountTime) {
         if (maxCountTime <=0) {
@@ -66,21 +60,43 @@ public class CountTimeHelp {
         return new CountTimeHelp(false,maxCountTime);
     }
 
+    private CountTimeHelp(boolean isCountDownTime, int maxCountTime) {
+        this.isCountDownTime = isCountDownTime;
+        this.maxCountTime = maxCountTime;
+        if (isCountDownTime) {
+            currentTime = maxCountTime;
+        }else{
+            currentTime = 0;
+        }
+    }
+
+    /**
+     * 开始计时
+     */
     public void start() {
+
+        if (isFinish) {
+            return;
+        }
+
         if (timer == null) {
             timer = new Timer();
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    handler.sendEmptyMessage(0);
+                    if (isCountDownTime) {
+                        countDown();
+                    }else{
+                        countUp();
+                    }
                 }
             }, 0, 1000);
         }
-
-
     }
 
-
+    /**
+     * 计时结束
+     */
     public void stop() {
         if (timer != null) {
             timer.cancel();
@@ -88,16 +104,38 @@ public class CountTimeHelp {
         }
     }
 
+
+    /**
+     * 重置
+     */
+    public void reset() {
+        stop();
+        if (isCountDownTime) {
+            currentTime = maxCountTime;
+        }else{
+            currentTime = 0;
+        }
+        isFinish = false;
+    }
+
+    /**
+     * 倒计时
+     */
     private void countDown() {
-        callbackCountTime(maxCountTime);
-        maxCountTime -= 1;
-        if (maxCountTime <0) {
+        callbackCountTime(currentTime);
+        currentTime -= 1;
+        if (currentTime <0) {
             if (mOnCountListener!= null) {
                 mOnCountListener.onFinish();
             }
             stop();
+            isFinish = true;
         }
     }
+
+    /**
+     * 计时
+     */
     private void countUp() {
         callbackCountTime(currentTime);
         currentTime += 1;
@@ -107,6 +145,7 @@ public class CountTimeHelp {
                 mOnCountListener.onFinish();
             }
             stop();
+            isFinish = true;
         }
     }
 
@@ -115,7 +154,7 @@ public class CountTimeHelp {
             int hour = time / 3600;
             int minute = time/60%60;
             int second = time%60;
-            mOnCountListener.onCount(maxCountTime, hour,minute,second);
+            mOnCountListener.onCount(time, hour,minute,second);
         }
     }
 
@@ -133,13 +172,15 @@ public class CountTimeHelp {
          * @param minute 分钟
          * @param second 秒
          */
-        void onCount(int time,int hour,int minute,int second);
+        void onCount(int time, int hour, int minute, int second);
 
 
+        /**
+         * 计时结束
+         */
         void onFinish();
 
 
     }
-
 
 }
