@@ -7,11 +7,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 录音 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 监听短信权限 -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS" /> <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
-    <uses-permission android:name="android.permission.READ_SMS" /> <!-- 允许读取手机状态 用于创建BmobInstallation -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<!--    <uses-permission android:name="android.permission.RECORD_AUDIO" />-->
+<!--    <uses-permission android:name="android.permission.RECEIVE_SMS" /> &lt;!&ndash; 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 &ndash;&gt;-->
+<!--    <uses-permission android:name="android.permission.READ_SMS" /> &lt;!&ndash; 允许读取手机状态 用于创建BmobInstallation &ndash;&gt;-->
+<!--    <uses-permission android:name="android.permission.WAKE_LOCK" />-->
+<!--    <uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
 
     <application
         android:name=".App"
@@ -23,6 +23,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+<!--        设备 开始-->
+        <activity android:name=".activity.device.DeviceActivity"></activity>
+
+<!--        设备 结束-->
+
 
         <!--Task 任务栈-->
         <activity android:name=".activity.module.task.AActivity"></activity>
@@ -66,16 +72,12 @@
             android:parentActivityName=".MainActivity"></activity>
 
 
-
         <!--Service 开始-->
 
         <activity android:name=".activity.module.service.ServiceActivity"></activity>
 
-        <service android:name="com.stepyen.xlearn.activity.module.service.TestStartService"></service>
-        <service android:name="com.stepyen.xlearn.activity.module.service.TestBindService"></service>
-
-        <service android:name="com.stepyen.xlfuncearn.activity.module.service.TestIntentService"></service>
-
+        <service android:name=".activity.module.service.TestStartService"></service>
+        <service android:name=".activity.module.service.TestBindService"></service>
 
         <!--Service 结束-->
 
@@ -90,6 +92,8 @@
         <activity android:name=".activity.function.HandleActivity" />
         <activity android:name=".activity.function.BitmapActivity" />
         <activity android:name=".activity.function.countdown.CountDownActivity" />
+        <activity android:name=".activity.function.aviod_result.test.AvoidResultActivity" />
+        <activity android:name=".activity.function.aviod_result.test.TestAvoidResultActivity" />
 
         <!--function 结束-->
 
@@ -99,8 +103,17 @@
         <activity android:name=".activity.view.imageview.ImageViewActivity"></activity>
         <activity android:name=".activity.view.surfaceview.SurfaceViewActivity"></activity>
         <activity android:name=".activity.view.surfaceview.TwoSurfaceViewOrderActivity"></activity>
+        <activity android:name=".activity.view.textview.TextViewActivity"></activity>
+        <activity android:name=".activity.view.constraintLayout.ConstraintLayoutActivity"></activity>
+        <activity android:name=".activity.view.webview.WebViewH5Activity"></activity>
 
         <!--View 结束-->
+
+        <!--        View 基础 开始-->
+        <activity android:name=".activity.view_basics.ViewBasicsActivity" />
+        <activity android:name=".activity.view_basics.ViewOverlayActivity" />
+
+        <!--        View 基础 结束-->
 
 
         <!--        自定义View 开始-->
@@ -108,17 +121,25 @@
 
         <!--        自定义View 结束-->
 
-
-
-        <!--        View 基础 开始-->
-        <activity android:name=".activity.view_basics.ViewBasicsActivity" />
-
-        <!--        View 基础 结束-->
-
+<!-- android:configChanges="orientation|screenSize"-->
         <!--        module 开始-->
         <activity android:name=".activity.module.contentprovider.ContentProviderActivity"></activity>
+        <activity android:name=".activity.module.intent.IntentActivity" />
+        <activity android:name=".activity.module.activity.ActivityActivity" />
+        <activity android:name=".activity.module.activity.ActivityLifeCycleActivity"
+            android:configChanges="screenSize|orientation"
+            ></activity>
+        <activity android:name=".activity.module.fragment.TestFragmentActivity"></activity>
 
         <!--        module 结束-->
+
+
+<!--        屏幕适配 开始-->
+        <activity android:name=".activity.screen_adapter.ScreenAdapterActivity"></activity>
+        <activity android:name=".activity.screen_adapter.FoldScreenActivity"
+            android:configChanges="orientation|screenSize"
+            ></activity>
+<!--        屏幕适配 结束-->
 
         <!--        权限开始-->
 
@@ -169,11 +190,17 @@
 
         <activity android:name=".activity.java.JavaActivtity"></activity>
         <activity android:name=".activity.exception.ExceptionActivity" />
-        <activity android:name=".activity.module.intent.IntentActivity" />
-        <activity android:name=".activity.animotion.AnimotionActivity" />
-        <activity android:name=".activity.module.activity.ActivityActivity" />
 
-        <activity android:name=".activity.java.reflect.FileActivity" />
+
+<!--        动画开始-->
+        <activity android:name=".activity.animotion.AnimotionActivity" />
+        <activity android:name=".activity.animotion.AnimotionTestActivity" />
+
+
+        <!--        动画结束-->
+
+
+        <activity android:name=".activity.java.file.FileActivity" />
         <activity android:name=".activity.network.websocket.WebSocketActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -200,13 +227,14 @@
         <activity android:name=".activity.thrid.glide.GlideActivity"></activity>
         <activity android:name=".activity.thrid.msa.MsaActivity"></activity>
         <activity android:name=".activity.thrid.gson.GsonActivity"></activity>
+        <activity android:name=".activity.thrid.log.LogActivity"></activity>
+        <activity android:name=".activity.thrid.log.LynxLogActivity"></activity>
         <!--        第三方 thrid 结束-->
 
-        <!--       jetpack 开始 -->
-        <activity android:name=".activity.jetpack.livedata.LiveDataActivity"></activity>
-        <activity android:name=".activity.jetpack.viewmodel.ViewModelActivity"></activity>
+        <!-- 其他开始-->
+        <activity android:name=".activity.other.LearnDebugActivity"></activity>
+        <!-- 其他结束-->
 
-        <!--       jetpack 结束 -->
 
         <activity android:name=".PageListActivity" />
         <activity android:name=".activity.module.activity.TargetActivity" /> <!-- 新浪 结束 -->
